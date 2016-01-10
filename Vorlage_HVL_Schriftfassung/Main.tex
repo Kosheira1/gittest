@@ -1,0 +1,63 @@
+
+\input{text/Header}
+%\input{text/Titelseite_Diss_Angaben}
+\EndPreamble
+\begin{document}
+
+	\pagenumbering{roman} 		%Schaltet die Seitenzahlen auf roemische Zahlen
+
+%	\input{text/Titelseite_Diss}
+	\input{text/Titelseite_SAMA}
+	\cleardoublepage					%notwendig, damit keine Seitenzahl auf Titelseite
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Vorspann
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\pagestyle{fancy}
+	
+	\input{text/Aufgabenstellung}
+	\input{text/Kurzfassung}
+%	\input{text/Abstract}
+
+	\tableofcontents 				%erzeugt das Inhaltsverzeichnis
+
+	\cleardoublepage 				%notwendig, damit arabische Nummerierung erst beim ersten Kapitel beginnt
+	\pagenumbering{arabic} 	%Schaltet die Seitenzahlen auf arabische Zahlen
+%	\onehalfspacing
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Hauptteil
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	\input{text/abstract}
+	%
+	\input{text/intro}
+	%
+	\input{text/theory}
+	%
+	\input{text/methods}
+	%
+	\input{text/results}
+	%
+	\input{text/discussion}
+	%
+	\input{text/conclusions}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Verzeichnisse
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	\bibliographystyle{alpha} %sagt, wie das Literaturverzeichnis dargestellt und geordnet wird
+%	\bibliographystyle{geralpha} % fuer entsprechende deutsche Bezeichnungen im Literaturverzeichnis wie bspw 'Seite' statt 'page'
+	\bibliography{Literatur} 	%hier muss der Name des .bib Files eingegeben werden aus dem Latex die Bibliographiedaten lesen soll
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Anhaenge
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	\appendix
+%	\input{text/TechnischeZeichnungen}
+
+	\input{text/Eigenstaendigkeit}
+
+\end{document}

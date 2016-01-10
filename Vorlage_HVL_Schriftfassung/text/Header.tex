@@ -1,0 +1,142 @@
+
+%****Header*****
+
+\documentclass[%draft,
+fleqn,											%richtet die Formel links aus, Einzug wird unten definiert
+12pt,a4paper,
+%twoside,openright,					%fuer einseitigen Druck diese beiden Optionen auskommentieren und unten ensprechende Kopfzeilenoption waehlen (bis ca 120 Seiten)
+bibliography=totoc,listof=totoc,BCOR=5mm,
+ngerman
+%english
+]{scrreprt}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Textliches und sprachliches
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[T1]{fontenc}		% die beiden Packete gehören zusammen, um Umlaute und ähnliche deutsche "Sonderzeichen"
+\usepackage[latin1]{inputenc} %direkt eingeben zu können
+\usepackage{babel} 					%kommt es zu einer Uebersetzung der sprachspezifischen Befehle im Dokument („Inhaltsverzeichnis“ statt „table of contents“, „Kapitel“ anstelle von „chapter“ usw.) und fuer korrekte Trennung wichtig
+\usepackage{upgreek} 				%erlaubt die Eingabe von aufrechten griechischen Kleinbuchstaben
+\pagestyle{headings} 				%schaltet die Kopfzeile ein. Die Option {headings} erzeugt die Nummer und den Namen des Kapitels
+\usepackage{setspace} 			%enthält u.a. den Befehl \onehalfspacing, der dafür sorgt, dass 1 1/2 Zeilen Abstand gelassen wird zwischen zwei Zeilen
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Verzeichnisse
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setcounter{secnumdepth}{2} %bestimmt, in welcher Tiefe Ueberschriften noch nummeriert werden. 5 Steht dafuer, dass alle Ueberschriften nummeriert werden
+\setcounter{tocdepth}{1} 		%Bestimmt die Nummerierungstiefe im Inhaltsverzeichnis
+\usepackage{cite}						%braucht man fürs Literaturverzeichnis
+\usepackage{bibgerm} 				%Für die Literaturverzeichniserstellung auf deutsch
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Mathematisches
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{amssymb,amsfonts,amsmath} %Eingabehilfen für Formeln
+\usepackage{siunitx} 				%erlaubt die Eingabe von Einheiten, so dass die Einheit und der Wert schoen zusammenstehen und nicht getrennt werden beim Zeilenumbruch.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Bildtechnisches
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{graphicx} 			%um Bilder einzubinden
+\usepackage{xcolor}
+%\usepackage{morefloats} 		%erlaubt mehr float Objekte (z.B. Bilder oder Tabellen) auf einer Seite
+%\usepackage{subfig}				%wenn mehrere Bilder unter einer Caption zusammengefasst werden sollen
+\usepackage[center,small,bf]{caption} %gibt die Optionen für das Verhalten der Bildunterschriften (caption) an, muss nach Paketen wie subfig, float, rotating eingebunden werden
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Fuss- und Kopfzeilendefinition
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{fancyhdr}
+\fancyhead{}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0.5pt}
+
+%%% zweiseitiges Seitenlayout
+%\fancyhead[EL, OR]{ \thepage}
+%\fancyhead[EC]{\textsl{\leftmark}}
+%\fancyhead[OC]{\textsl{\rightmark}}
+%%% Ende: zweiseitiges Seitenlayout
+
+%%% einseitiges Seitenlayout
+\fancyhead[R]{ \thepage}
+\fancyhead[C]{\textsl{\leftmark}}
+%%% Ende: einseitiges Seitenlayout
+
+\pagestyle{fancy}
+
+\renewcommand{\chaptermark}[1]{%
+\markboth{\thechapter\ #1}{}}
+
+\renewcommand{\sectionmark}[1]{%
+\markright{\thesection\ #1}}
+
+%------------------------------------------------------------------------------
+%Bis hierhin darf der Header nur in Ruecksprache mit dem Betreuer geaendert werden.
+%------------------------------------------------------------------------------
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Definitionen für siunitx-Paket
+%wird nur in deutscher Version benoetigt
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\sisetup{locale=DE} 			%macht, dass statt Punkt ein Komma als Dezimaltrenner verwendet wird
+\sisetup{%
+  list-final-separator = { \translate{and} },
+  range-phrase = { \translate{to (numerical range)} }
+} 												%macht dass in Liste und Range die Woerter richtig uebersetzt werden
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Einbinden mehrseitiger PDFs oder Ausschnitte daraus
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\usepackage{calc}
+%\usepackage{eso-pic}
+%\usepackage{everyshi}
+%\usepackage{pdfpages}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Fuer das Erstellen von Bildern aus Matlab mit \psfragfig
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Fuer die Nutzung von \psfragfig muessen die Bilder mit Hilfe des figures_fuer_latex.m erzeugt werden -- es muss dem Complier noch das Argument "-shell-escape" uebergeben werden (bei Texniccenter Alt+F7)
+%\usepackage{pstool}
+\usepackage[crop=pdfcrop]{pstool} %verschmaelert die Raender der Abbildung
+%\usepackage[cleanup={}]{pstool} 	 %log-Datei bleibt erhalten: zum Debuggen
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Fuer den Import von Bildern aus Inkscape
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\graphicspath{{figures/}}
+%\newcommand{\executeiffilenewer}[3]{%
+%\ifnum\pdfstrcmp{\pdffilemoddate{#1}}%
+%{\pdffilemoddate{#2}}>0%
+%{\immediate\write18{#3}}\fi%
+%}
+%\newcommand{\includesvg}[1]{%
+%\executeiffilenewer{#1.svg}{#1.pdf}%
+%{inkscape -z -D --file=#1.svg %
+%--export-pdf=#1.pdf --export-latex}%
+%\input{#1.pdf_tex}%
+%}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Fuer TpX
+%Mit TpX koennen unter Window recht einfach Diagramme erstellt werden
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\usepackage{color,ifpdf,graphicx}
+%\ifpdf %if using PDFTeX in PDF mode
+%  \DeclareGraphicsExtensions{.pdf,.png,.mps}
+%\else %if using TeX or PDFTeX in TeX mode
+%  \DeclareGraphicsExtensions{.eps,.bmp}
+%  \DeclareGraphicsRule{.emf}{bmp}{}{}% declare EMF filename extension
+%  \DeclareGraphicsRule{.png}{bmp}{}{}% declare PNG filename extension
+%  \usepackage{pstricks}%variant: \usepackage{pst-all}
+%\fi
+%\usepackage{pgf,epic,bez123,floatflt,wrapfig}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Neu-/Umdefinitionen
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[pdfborder={0 0 0}, breaklinks=true]{hyperref} %muss als letztes Paket eingebunden werden, verlinkt Referenzen, so dass im pdf direkt zu der Stelle gesprungen wird
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Neu-/Umdefinitionen
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\sfs}{SF$_6$} 
