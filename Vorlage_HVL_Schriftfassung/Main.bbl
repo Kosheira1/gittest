@@ -1,0 +1,23 @@
+\newcommand{\etalchar}[1]{$^{#1}$}
+\begin{thebibliography}{WWvdL88}
+
+\bibitem[WNP{\etalchar{+}}88]{WiegartAndCo}
+N.~Wiegart, L.~Niemeyer, F.~Pinnekamp, W.~Boeck, J.~Kindersberger, R.~Morrow,
+  W.~Zaengl, M.~Zwicky, I.~Gallimberti, and S.A. boggs.
+\newblock Inhomogeneous field breakdown in gis -- the prediction of breakdown
+  probabilites and voltages.
+\newblock {\em IEEE Transactions on Power Delivery}, 1988.
+
+\bibitem[WWvdL88]{WetzlerBandwith}
+J.M. Wetzler, C.~Wen, and P.C.T. van~der Laan.
+\newblock Bandwidth limitations of gap current measurements.
+\newblock In {\em conference record of the 1988 IEEE International Symposium on
+  electrical Insulation}, pages 355--358, 1988.
+
+\bibitem[Zwi86]{Zwicky86}
+Matthias Zwicky.
+\newblock {\em Zur Isolierfestigkeit von Schwefelhexafluorid (SF{$_6$}) bei
+  Wechselspannung variabeler Frequenz (30 bis 200 Hz)}.
+\newblock PhD thesis, ETH Zürich, 1986.
+
+\end{thebibliography}
