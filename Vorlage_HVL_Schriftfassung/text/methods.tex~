@@ -4,7 +4,7 @@
 
 \begin{figure}[htbp]
 	\centering
-	\psfragfig{figures/figure1}		
+	\psfragfig{figures/COMSOL_Beispielbild.jpg}		
 	\caption[Kurze Abbildungsbeschreibung]{Electron drift currents in Ar at 30 Td and in CO$_2$ at 65 Td, the latter was divided by 10 and shifted by 0.2 $\mu$s. Dotted lines are averages of measured waveforms, solid lines are fits of Eq. XX. $T$ marks the electron transit time, and the markers $T_1$ to $T_3$ are explained in section.} %\ref{sec.analysecurrent}
 	\label{fig.waveforms}
 \end{figure}
@@ -14,3 +14,4 @@ The initial broadening of the swarm $\sigma_0$ and its starting time $t_0$ are o
 
 This analysis relates one set of temporal parameters $(T, \nu_{eff}, \tau_{D})$ to one set of experiment parameters $(N, d, U)$.
 
+We used Physics to solve problems

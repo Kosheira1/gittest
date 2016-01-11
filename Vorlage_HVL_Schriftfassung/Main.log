@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2015.9.7)  11 JAN 2016 11:50
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2015.9.7)  11 JAN 2016 15:34
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1030,21 +1030,21 @@ Overfull \hbox (87.27989pt too wide) detected at line 69
 
 [7]) (./text/methods.tex [8]
 Kapitel 3.
-<figures/figure1.pdf, id=191, 182.6825pt x 241.90375pt>
-File: figures/figure1.pdf Graphic file (type pdf)
+<figures/COMSOL_Beispielbild.jpg, id=191, 289.08pt x 216.81pt>
+File: figures/COMSOL_Beispielbild.jpg Graphic file (type jpg)
 
-<use figures/figure1.pdf>
-Package pdftex.def Info: figures/figure1.pdf used on input line 8.
-(pdftex.def)             Requested size: 182.68204pt x 241.90315pt.
+<use figures/COMSOL_Beispielbild.jpg>
+Package pdftex.def Info: figures/COMSOL_Beispielbild.jpg used on input line 7.
+(pdftex.def)             Requested size: 289.07928pt x 216.80946pt.
 ) (./text/results.tex [9
 
- <./figures/figure1.pdf>]
+ <./figures/COMSOL_Beispielbild.jpg>]
 Kapitel 4.
 ) (./text/discussion.tex [10
 
 ]
 Kapitel 5.
-<figures/figure2.pdf, id=223, 242.9075pt x 183.68625pt>
+<figures/figure2.pdf, id=205, 242.9075pt x 183.68625pt>
 File: figures/figure2.pdf Graphic file (type pdf)
 
 <use figures/figure2.pdf>
@@ -1073,7 +1073,7 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 63.
  ) 
 Here is how much of TeX's memory you used:
  18261 strings out of 493485
- 341057 string characters out of 3143527
+ 341107 string characters out of 3143527
  400299 words of memory out of 3000000
  21146 multiletter control sequences out of 15000+200000
  29908 words of font info for 86 fonts, out of 3000000 for 9000
@@ -1096,18 +1096,18 @@ t/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf/fonts/type1/public
 /cm-super/sfbx1095.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1200.p
 fb></usr/share/texmf/fonts/type1/public/cm-super/sfcc2488.pfb></usr/share/texmf
 /fonts/type1/public/cm-super/sfrm0800.pfb></usr/share/texmf/fonts/type1/public/
-cm-super/sfrm1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1095.pf
-b></usr/share/texmf/fonts/type1/public/cm-super/sfrm1200.pfb></usr/share/texmf/
-fonts/type1/public/cm-super/sfrm1440.pfb></usr/share/texmf/fonts/type1/public/c
-m-super/sfrm1728.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfsl1200.pfb
-></usr/share/texmf/fonts/type1/public/cm-super/sfsx1200.pfb></usr/share/texmf/f
-onts/type1/public/cm-super/sfsx1440.pfb></usr/share/texmf/fonts/type1/public/cm
--super/sfsx1728.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfsx2488.pfb>
-</usr/share/texmf/fonts/type1/public/cm-super/sfti1200.pfb>
-Output written on Main.pdf (18 pages, 450530 bytes).
+cm-super/sfrm1095.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1200.pf
+b></usr/share/texmf/fonts/type1/public/cm-super/sfrm1440.pfb></usr/share/texmf/
+fonts/type1/public/cm-super/sfrm1728.pfb></usr/share/texmf/fonts/type1/public/c
+m-super/sfsl1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfsx1200.pfb
+></usr/share/texmf/fonts/type1/public/cm-super/sfsx1440.pfb></usr/share/texmf/f
+onts/type1/public/cm-super/sfsx1728.pfb></usr/share/texmf/fonts/type1/public/cm
+-super/sfsx2488.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfti1200.pfb>
+
+Output written on Main.pdf (18 pages, 391516 bytes).
 PDF statistics:
- 360 PDF objects out of 1000 (max. 8388607)
- 302 compressed objects within 4 object streams
+ 346 PDF objects out of 1000 (max. 8388607)
+ 290 compressed objects within 3 object streams
  75 named destinations out of 1000 (max. 500000)
  112 words of extra memory for PDF output out of 10000 (max. 10000000)
 
