@@ -1,41 +1,113 @@
 \chapter{Theory}
 
-\section{Model of electron swarm}
+\subsection{Derivation of maximum tan($\delta$)}
+The aim of this section is to derive the formula for the maximum tan($\delta$) in order to adjust its value to a disired one.
 
-We assume that at an arbitrary position $z = d_0$ an initial temporal electron number distribution can be observed,
-\begin{equation}
-n_e(d_0, t) = \frac{n_0}{ \sqrt{2 \pi \sigma_0^2} } \, \exp{\frac{(t - t_0)^2}{2 \sigma_0^2} }  \;,
-\label{eq.swarmstart}
-\end{equation}
-with the number of initial electrons $n_0$ and initial temporal broadening $\sigma_0$. After a travel time $T$, when this swarm passes an observer at position $d = d_0 + \mathbf{w} T$, the temporal distribution is
-\begin{equation}
-n_e(d, t) = \frac{n_0 \, \exp{\nu_\mathrm{eff} (t-t_0)}}{ \sqrt{2 \pi \sigma^2(t)} } \, \exp{\frac{(t - t_0 - T)^2}{2 \sigma^2(t)} }
-\label{eq.swarmend}
-\end{equation}
-The total number of electrons was changed at an effective rate $\nu_\mathrm{eff}$. This effective rate accounts for electron attachment, ionization, electron detachment and photoionization by secondary photons. However $\nu_\mathrm{eff}$ is not affected by ionic or metastable species accumulated in the gas, because the interval between two subsequent measurements is longer than their residence time. The swarm temporal broadening $\sigma(t)$ was increased by the diffusion time constant $\tau_\mathrm{D}$:
-\begin{equation}
-\sigma^2(t) = \sigma_0^2 + \tau_\mathrm{D} (t-t_0)
-\label{eq.diffusiontime}
-\end{equation}
-
-\subsection{More examples}
-
-\begin{equation*}
-    \cos (2\theta) = \cos^2 \theta - \sin^2 \theta
-\end{equation*}
 
 \begin{equation}
-\left. \left( \frac{E}{N} \right) \right|_\mathrm{crit}
+\epsilon_{eff}^* (\omega) = \frac{C^*(\omega)}{C_0}
 \end{equation}
 
 \begin{equation}
-   \mathrm{d}f = \sum_{i=1}^{n} \frac{\partial f}{\partial x_i} \mathrm{d}x_i 
+\epsilon^* = \epsilon_r-j \cdot \epsilon_r''
 \end{equation}
 
 
 \begin{equation}
-   L = 35\,\mathrm{nH}\,, \hskip 5mm  C = 50\,\mathrm{\mu F}\,, \hskip 5mm U_\mathrm{arc}=10\ldots50\,\mathrm{V}\,, \hskip 5mm P=10'000\,\mathrm{W}\,. 
+\epsilon'_r = \epsilon_{\infty} + \frac{\epsilon_{stat}-\epsilon_{\infty}}{1+(\omega \cdot \tau )^2}
 \end{equation}
+
+\begin{equation}
+\epsilon''_r = \omega \cdot \tau \cdot \frac{\epsilon_{stat}-\epsilon_{\infty}}{1+(\omega \cdot \tau )^2}
+\end{equation}
+
+
+The loss tangents are given by:
+\begin{equation}
+tan (\delta) = \frac{\kappa + \omega \cdot \epsilon_0 \cdot \epsilon _r ''}{\omega \cdot \epsilon_0 \cdot \epsilon _r '}
+\end{equation}
+
+\begin{equation}
+tan (\delta_{L}) = \frac{\kappa}{\omega \cdot \epsilon_0 \cdot \epsilon_r'} \newline
+\end{equation}
+
+\begin{equation}
+tan (\delta_{pol}) = \frac {\epsilon_r'' } {\epsilon_r'}
+\end{equation}
+
+
+We are measuring in the frequency domain from $10^{-6}$ Hz to $10^{11}$ Hz 
+
+\begin{equation}
+\epsilon^*(\omega) = \frac{1}{j \omega  Z^*(\omega) C_0}
+\end{equation}
+
+\begin{equation}
+Z_0(\omega)=[\frac{1}{R_\infty}+\frac{1}{R_i+\frac{1}{j \omega C_i}}+j \omega C_0]^{-1} = [\frac{1}{R_\infty}+\frac{j \omega C_i}{j\omega R_i  C_i+1}+j \omega C_0]^{-1}
+\end{equation}
+
+\begin{equation}
+\epsilon^*(\omega)= \frac{[\frac{1}{R_\infty}+\frac{j \omega C_i}{j\omega C_i R_i  +1}+j \omega C_0]}{j \omega C_0} = \frac{1}{j \omega C_0 R_\infty}+ \frac{C_i/C_0}{j\omega C_i R_i  +1}+1
+\end{equation}
+
+We split this term up into real and impaginary part 
+
+\begin{equation}
+\epsilon_r' = 1+ \frac{C_i/C_0}{\omega^2 C_i^2 R_i^2 +1}
+\end{equation}
+
+\begin{equation}
+\epsilon_r'' = -j \left(\frac{1}{\omega C_0 R_\infty}+\frac{\omega C_i^2 R_i / C_0}{\omega^2 C_i^2 R_i^2 +1} \right)
+\end{equation}
+
+\begin{equation}
+tan(\delta) = tan(\delta_L) + tan( \delta_Pol) = \frac{\omega^2 \tau^2+1}{\omega C_0 R_\infty (2+ \omega^2 \tau^2)}=\frac{\omega \tau \Delta \epsilon}{\epsilon_{stat} + \omega^2 \tau^2}
+\end{equation}
+
+\begin{equation}
+\frac{\partial tan(\delta)}{ \partial \omega} = \frac{[\omega C_0 R_\infty (2+\omega^2 \tau^2)]\cdot 2 \omega \tau^2 - (\omega^2 \tau^2 +1) [C_0 R_\infty (2+3 \omega^2 \tau^2)  }{[\omega C_0 R_\infty (2+\omega^2 \tau^2)]^2}+ \frac{\tau \Delta \epsilon [\epsilon_{stat} + \omega^2 \tau^2] - 2 \omega \tau^2 [\omega \tau \Delta \epsilon]}{[\epsilon_{stat} +\omega^2 \tau^2]}
+\end{equation}
+
+Um das Maximum von tan($\delta_{pol}$) zu finden wird der zweite Term in der Ableitung 0 gesetzt.
+
+\begin{equation}
+\tau \Delta \epsilon [\epsilon_{stat} + \omega^2 \tau^2] -2\omega \tau^2 [\omega \tau \Delta \epsilon] = 0
+\end{equation}
+\begin{equation}
+\omega^2 (\tau^3 \Delta \epsilon -2 \tau^3 \Delta \epsilon) = - \tau \Delta \epsilon \cdot \epsilon_{stat}
+\end{equation}
+\begin{equation}
+\omega^2 = \frac{\tau \Delta \epsilon \epsilon_{stat}}{\tau^3 \Delta \epsilon}
+\end{equation}
+\begin{equation}
+\omega = \sqrt{\frac{\epsilon_{stat}}{\tau^2}}
+\end{equation}
+\begin{equation}
+\tan(\delta_L)_{max} = \frac{\epsilon_{stat} \Delta\epsilon}{2\epsilon_{stat}} = \frac{1}{2} \frac{\Delta \epsilon}{\sqrt{\epsilon_{stat}}}
+\end{equation}
+
+
+\section{Fourier Coefficients of trapezoidal pulse  train }
+\begin{equation}
+ U_n = \frac{2 U_0}{j \omega_n T} [e^{\frac{j \omega_n \tau}{2}} sinc{\frac { \omega_n \tau_r }{2}} -e^{\frac{-j \omega_n \tau}{2}} sinc{\frac{ \omega_n \tau_f}{2}}]
+\end{equation}
+ 
+System Analysis: 
+ 
+ 
+\begin{equation}
+ \tau_r = 0.5e^{-6 }
+  \end{equation}
+  \begin{equation}
+ \tau_f = 0.1e^{-6}
+  \end{equation}
+ \begin{equation}
+\tau= 1e^{-6}
+ \end{equation}
+ 
+Slopes of the curves: \newline
+-1 on loglog plot after $\frac{2}{\tau}$ \newline
+-2 on loglog plot after $\frac{2}{\tau_r}
 
 
 
