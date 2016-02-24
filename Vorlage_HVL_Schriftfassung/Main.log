@@ -1,12 +1,4 @@
-<<<<<<< HEAD
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.1.14)  23 FEB 2016 18:01
-=======
-<<<<<<< HEAD
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.9.28)  23 FEB 2016 16:48
-=======
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.1.14)  23 FEB 2016 16:54
->>>>>>> edfaef0aa70c6d54ee7b4db5bcbdfaf0607808ef
->>>>>>> origin/master
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.9.28)  24 FEB 2016 10:03
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -868,16 +860,24 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 )
 \Hy@SectionHShift=\skip72
 ))
-<<<<<<< HEAD
 (./Main.aux
-=======
-(Main.aux
->>>>>>> edfaef0aa70c6d54ee7b4db5bcbdfaf0607808ef
 
 LaTeX Warning: Label `fig.waveforms' multiply defined.
 
 
 LaTeX Warning: Label `fig.waveforms' multiply defined.
+
+
+! LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.68 <
+      <<<<<< HEAD
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
 
 )
 \openout1 = `Main.aux'.
@@ -975,13 +975,8 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 \c__siunitx_mathtt_int=\count172
 
-<<<<<<< HEAD
 (./text/Titelseite_SAMA.tex
 <figures/ethlogo.pdf, id=76, 179.67125pt x 46.1725pt>
-=======
-(text/Titelseite_SAMA.tex
-<figures/ethlogo.pdf, id=67, 179.67125pt x 46.1725pt>
->>>>>>> edfaef0aa70c6d54ee7b4db5bcbdfaf0607808ef
 File: figures/ethlogo.pdf Graphic file (type pdf)
 
 <use figures/ethlogo.pdf>
@@ -1003,7 +998,6 @@ Class scrreprt Warning: Usage of deprecated font command `\sc'!
 (scrreprt)              by `\normalfont \scshape ' on input line 30.
 
 
-<<<<<<< HEAD
 Overfull \hbox (21.7146pt too wide) in paragraph at lines 30--32
 []\T1/cmr/m/sc/24.88 Feasibility study on the use of cur-
  []
@@ -1011,10 +1005,6 @@ Overfull \hbox (21.7146pt too wide) in paragraph at lines 30--32
 
 Overfull \hbox (43.53166pt too wide) in paragraph at lines 30--32
 \T1/cmr/m/sc/24.88 rent trans-form-ers in di-elec-tric spec-
-=======
-Overfull \hbox (20.9905pt too wide) in paragraph at lines 30--32
-\T1/cmr/m/sc/24.88 cur-rent trans-form-ers in di-elec-tric
->>>>>>> edfaef0aa70c6d54ee7b4db5bcbdfaf0607808ef
  []
 
 
@@ -1037,11 +1027,7 @@ File: t1cmss.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 
 ]) [3
 
-<<<<<<< HEAD
 ] (./Main.toc)
-=======
-] (Main.toc)
->>>>>>> edfaef0aa70c6d54ee7b4db5bcbdfaf0607808ef
 \tf@toc=\write6
 \openout6 = `Main.toc'.
 
@@ -1065,13 +1051,8 @@ Package pdftex.def Info: figures/ethlogo.pdf used on input line 27.
 
 
 
-<<<<<<< HEAD
 ] [2] [3]) (./text/theory.tex [4] [5]
 Chapter 2.
-=======
-] [2] [3]) (text/theory.tex [4] [5]
-chapter 2.
->>>>>>> edfaef0aa70c6d54ee7b4db5bcbdfaf0607808ef
 [6
 
 ]
@@ -1079,15 +1060,9 @@ Overfull \hbox (87.27989pt too wide) detected at line 70
  $[] \OT1/cmr/m/n/12 = [] + []$  
  []
 
-<<<<<<< HEAD
 [7]) (./text/methods.tex [8]
 Chapter 3.
 <figures/COMSOL_Beispielbild.jpg, id=221, 289.08pt x 216.81pt>
-=======
-[7]) (text/methods.tex [8]
-chapter 3.
-<figures/COMSOL_Beispielbild.jpg, id=209, 289.08pt x 216.81pt>
->>>>>>> edfaef0aa70c6d54ee7b4db5bcbdfaf0607808ef
 File: figures/COMSOL_Beispielbild.jpg Graphic file (type jpg)
 
 <use figures/COMSOL_Beispielbild.jpg>
@@ -1099,176 +1074,163 @@ Package pdftex.def Info: figures/COMSOL_Beispielbild.jpg used on input line 22.
 
 (pdftex.def)             Requested size: 289.07928pt x 216.80946pt.
 )
-<<<<<<< HEAD
 (./text/results.tex [9
 
  <./figures/COMSOL_Beispielbild.jpg>] [10]
 Chapter 4.
-<figures/Capacitance_comparision.jpg, id=236, 562.1pt x 421.575pt>
-=======
-(text/results.tex [9
 
- <./figures/COMSOL_Beispielbild.jpg>] [10]
-chapter 4.
-<<<<<<< HEAD
-=======
-<figures/Capacitance_comparision.jpg, id=224, 562.1pt x 421.575pt>
->>>>>>> edfaef0aa70c6d54ee7b4db5bcbdfaf0607808ef
-File: figures/Capacitance_comparision.jpg Graphic file (type jpg)
->>>>>>> origin/master
-
-Underfull \hbox (badness 10000) in paragraph at lines 4--5
+Underfull \hbox (badness 10000) in paragraph at lines 5--6
 
  []
 
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 7.
+               Default added (so using `tbp') on input line 8.
 
-<figures/Comparison_Low_voltage_Two_spheres.jpg, id=224, 562.1pt x 421.575pt>
+<figures/Comparison_Low_voltage_Two_spheres.jpg, id=236, 562.1pt x 421.575pt>
 File: figures/Comparison_Low_voltage_Two_spheres.jpg Graphic file (type jpg)
 
 <use figures/Comparison_Low_voltage_Two_spheres.jpg>
 Package pdftex.def Info: figures/Comparison_Low_voltage_Two_spheres.jpg used on
- input line 9.
+ input line 10.
 (pdftex.def)             Requested size: 168.6313pt x 126.47346pt.
-<<<<<<< HEAD
-) (text/discussion.tex
-[11
+ [11
 
  <./figures/Comparison_Low_voltage_Two_spheres.jpg>]
-chapter 5.
-<figures/figure2.pdf, id=233, 242.9075pt x 183.68625pt>
-=======
-) (./text/discussion.tex [11
-
- <./figures/Capacitance_comparision.jpg>]
-<<<<<<< HEAD
 Chapter 5.
-<figures/figure2.pdf, id=244, 242.9075pt x 183.68625pt>
-=======
-chapter 5.
-<figures/figure2.pdf, id=232, 242.9075pt x 183.68625pt>
->>>>>>> edfaef0aa70c6d54ee7b4db5bcbdfaf0607808ef
->>>>>>> origin/master
+
+Underfull \hbox (badness 10000) in paragraph at lines 21--22
+
+ []
+
+File: figures/Comparison_Low_voltage_Two_spheres.jpg Graphic file (type jpg)
+<use figures/Comparison_Low_voltage_Two_spheres.jpg>
+Package pdftex.def Info: figures/Comparison_Low_voltage_Two_spheres.jpg used on
+ input line 26.
+(pdftex.def)             Requested size: 168.6313pt x 126.47346pt.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.27 ...e setup and two spheres (\epsilon = 3.5) }
+                                                   %\ref{sec.analysecurrent}
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.27 ...e setup and two spheres (\epsilon = 3.5) }
+                                                   %\ref{sec.analysecurrent}
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.27 ...e setup and two spheres (\epsilon = 3.5) }
+                                                   %\ref{sec.analysecurrent}
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.27 ...e setup and two spheres (\epsilon = 3.5) }
+                                                   %\ref{sec.analysecurrent}
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+[12
+
+]) (./text/discussion.tex [13]
+Chapter 6.
+<figures/figure2.pdf, id=261, 242.9075pt x 183.68625pt>
 File: figures/figure2.pdf Graphic file (type pdf)
 
 <use figures/figure2.pdf>
 Package pdftex.def Info: figures/figure2.pdf used on input line 6.
 (pdftex.def)             Requested size: 242.90689pt x 183.68578pt.
-) (./text/conclusions.tex [12
+) (./text/conclusions.tex [14
 
  <./figures/figure2.pdf>]
-Chapter 6.
-) (./Main.bbl [13
+Chapter 7.
+) (./Main.bbl [15
 
-]) (./text/Eigenstaendigkeit.tex [14
+]) (./text/Eigenstaendigkeit.tex [16
 
 ])
 runsystem(rm -- Main.oldaux)...disabled (restricted).
 
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 63.
- [15
+ [17
 
 ]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 63.
  (./Main.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 63.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 63.
-Package rerunfilecheck Info: File `Main.out' has not changed.
-<<<<<<< HEAD
-(rerunfilecheck)             Checksum: 995C1950B9036FBFA909574A96C7F18A;1093.
-=======
-(rerunfilecheck)             Checksum: 7ABF32AA05CF58D3ACED0FB01640F835;967.
->>>>>>> edfaef0aa70c6d54ee7b4db5bcbdfaf0607808ef
 
+
+Package rerunfilecheck Warning: File `Main.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `Main.out':
+(rerunfilecheck)             Before: 995C1950B9036FBFA909574A96C7F18A;1093
+(rerunfilecheck)             After:  6B0BE6D919CEB4A0DF86F1BDE3C43CCD;1292.
 
 LaTeX Warning: There were multiply-defined labels.
 
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 63.
  ) 
 Here is how much of TeX's memory you used:
-<<<<<<< HEAD
- 19028 strings out of 494976
- 358695 string characters out of 6179137
- 443535 words of memory out of 5000000
+ 19040 strings out of 494976
+ 358894 string characters out of 6179137
+ 443573 words of memory out of 5000000
  21800 multiletter control sequences out of 15000+600000
  29908 words of font info for 86 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 47i,12n,75p,10416b,764s stack positions out of 5000i,500n,10000p,200000b,80000s
- </home/leonard/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecsl1200.600pk> </home
-/leonard/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1095.600pk> </home/leonard/
-.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1095.600pk> </home/leonard/.texmf-va
-r/fonts/pk/ljfour/jknappen/ec/ecrm0800.600pk> </home/leonard/.texmf-var/fonts/p
-k/ljfour/jknappen/ec/ecsx1440.600pk> </home/leonard/.texmf-var/fonts/pk/ljfour/
-jknappen/ec/ecsx1728.600pk> </home/leonard/.texmf-var/fonts/pk/ljfour/jknappen/
-ec/ecsx1200.600pk> </home/leonard/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecsx24
-88.600pk> </home/leonard/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1440.600pk>
- </home/leonard/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1728.600pk> </home/l
-eonard/.texmf-var/fonts/pk/ljfour/jknappen/ec/eccc2488.600pk> </home/leonard/.t
-exmf-var/fonts/pk/ljfour/jknappen/ec/ecti1200.600pk> </home/leonard/.texmf-var/
-fonts/pk/ljfour/jknappen/ec/ecrm1200.600pk> </home/leonard/.texmf-var/fonts/pk/
-ljfour/jknappen/ec/ecbx1200.600pk></usr/share/texlive/texmf-dist/fonts/type1/pu
-blic/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
-msfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
-s/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/c
-mmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pf
-b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr
-/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/
-texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-d
-ist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/font
-s/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/
-public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
-/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
-ts/cm/cmsy8.pfb>
-Output written on Main.pdf (19 pages, 335196 bytes).
+ 47i,12n,75p,10416b,765s stack positions out of 5000i,500n,10000p,200000b,80000s
+pdfTeX warning (dest): name{chapter*.11} has been referenced but does not exi
+st, replaced by a fixed one
+
+pdfTeX warning (dest): name{section.4.4} has been referenced but does not exist
+, replaced by a fixed one
+
+pdfTeX warning (dest): name{section.4.3} has been referenced but does not exist
+, replaced by a fixed one
+
+ </home/leonard/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecsl1200.600pk> </home/l
+eonard/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1095.600pk> </home/leonard/.t
+exmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1095.600pk> </home/leonard/.texmf-var/
+fonts/pk/ljfour/jknappen/ec/ecrm0800.600pk> </home/leonard/.texmf-var/fonts/pk/
+ljfour/jknappen/ec/ecsx1440.600pk> </home/leonard/.texmf-var/fonts/pk/ljfour/jk
+nappen/ec/ecsx1728.600pk> </home/leonard/.texmf-var/fonts/pk/ljfour/jknappen/ec
+/ecsx1200.600pk> </home/leonard/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecsx2488
+.600pk> </home/leonard/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1440.600pk> <
+/home/leonard/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1728.600pk> </home/leo
+nard/.texmf-var/fonts/pk/ljfour/jknappen/ec/eccc2488.600pk> </home/leonard/.tex
+mf-var/fonts/pk/ljfour/jknappen/ec/ecti1200.600pk> </home/leonard/.texmf-var/fo
+nts/pk/ljfour/jknappen/ec/ecrm1200.600pk> </home/leonard/.texmf-var/fonts/pk/lj
+four/jknappen/ec/ecbx1200.600pk></usr/share/texlive/texmf-dist/fonts/type1/publ
+ic/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
+fonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmm
+i6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb>
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/s
+hare/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/te
+xlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/t
+exmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dis
+t/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
+blic/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
+msfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
+/cm/cmsy8.pfb>
+Output written on Main.pdf (21 pages, 342546 bytes).
 PDF statistics:
- 812 PDF objects out of 1000 (max. 8388607)
- 343 compressed objects within 4 object streams
- 86 named destinations out of 1000 (max. 500000)
+ 846 PDF objects out of 1000 (max. 8388607)
+ 363 compressed objects within 4 object streams
+ 98 named destinations out of 1000 (max. 500000)
  165 words of extra memory for PDF output out of 10000 (max. 10000000)
-=======
- 20323 strings out of 493634
- 378050 string characters out of 3143747
- 488105 words of memory out of 3000000
- 23319 multiletter control sequences out of 15000+200000
- 29908 words of font info for 86 fonts, out of 3000000 for 9000
- 1025 hyphenation exceptions out of 8191
- 45i,12n,75p,10377b,777s stack positions out of 5000i,500n,10000p,200000b,50000s
- <C:\Users\Aron\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\e
-csl1200.pk> <C:\Users\Aron\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec
-\dpi600\ecrm1095.pk> <C:\Users\Aron\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jk
-nappen\ec\dpi600\ecbx1095.pk> <C:\Users\Aron\AppData\Local\MiKTeX\2.9\fonts\pk\
-ljfour\jknappen\ec\dpi600\ecrm0800.pk> <C:\Users\Aron\AppData\Local\MiKTeX\2.9\
-fonts\pk\ljfour\jknappen\ec\dpi600\ecsx1440.pk> <C:\Users\Aron\AppData\Local\Mi
-KTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecsx1728.pk> <C:\Users\Aron\AppData
-\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecsx1200.pk> <C:\Users\Aro
-n\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecsx2488.pk> <C:\
-Users\Aron\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm1440
-.pk> <C:\Users\Aron\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600
-\ecrm1728.pk> <C:\Users\Aron\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\
-ec\dpi600\eccc2488.pk> <C:\Users\Aron\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\
-jknappen\ec\dpi600\ecti1200.pk> <C:\Users\Aron\AppData\Local\MiKTeX\2.9\fonts\p
-k\ljfour\jknappen\ec\dpi600\ecrm1200.pk> <C:\Users\Aron\AppData\Local\MiKTeX\2.
-9\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx1200.pk><C:/Program Files/MiKTeX 2.9/f
-onts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKTeX 2.9/fonts/typ
-e1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publi
-c/amsfonts/cm/cmmi12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfon
-ts/cm/cmmi6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmm
-i7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C
-:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program
- Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/Mi
-KTeX 2.9/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Program Files/MiKTeX 2.9/f
-onts/type1/public/amsfonts/cm/cmr7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1
-/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/am
-sfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/c
-m/cmsy6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.p
-fb>
-Output written on Main.pdf (19 pages, 394776 bytes).
-PDF statistics:
- 796 PDF objects out of 1000 (max. 8388607)
- 84 named destinations out of 1000 (max. 500000)
- 149 words of extra memory for PDF output out of 10000 (max. 10000000)
->>>>>>> edfaef0aa70c6d54ee7b4db5bcbdfaf0607808ef
 
