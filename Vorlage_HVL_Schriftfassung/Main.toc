@@ -17,6 +17,8 @@
 \contentsline {section}{\numberline {4.1}Simulation of Capacitance values}{11}{section.4.1}
 \contentsline {subsection}{\numberline {4.1.1}Comparision of Capacitance in the simulation with a sphere geometry}{11}{subsection.4.1.1}
 \contentsline {section}{\numberline {4.2}Complex effective permittivity}{11}{section.4.2}
+\contentsline {section}{\numberline {4.3}Performance of integrator}{11}{section.4.3}
+\contentsline {section}{\numberline {4.4}Dielectric Spectroscopy}{11}{section.4.4}
 \contentsline {chapter}{\numberline {5}Discussion}{12}{chapter.5}
 \contentsline {chapter}{\numberline {6}Conclusions}{13}{chapter.6}
 \contentsline {chapter}{\nonumberline Bibliography}{14}{chapter*.11}
