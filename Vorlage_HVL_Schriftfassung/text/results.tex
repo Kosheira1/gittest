@@ -82,9 +82,9 @@ Using the current transformer in both configurations, i.e. with and without the 
 
 \textit{Data without integrator:}
 \begin{center}
-\begin{tabular}{|m{3cm}|m{3cm}|m{1cm}|m{4cm}|m{2cm}|} 
+\begin{tabular}{|m{3cm}|m{3cm}|m{1.3cm}|m{4cm}|m{2cm}|} 
 \hline
-frequency [Hz]& SNR & SNR & Noise Figure [dB] & Noise Floor \\ 
+frequency [Hz]& SNR$_{in}$ & SNR$_{out}$ & Noise Figure [dB] & Noise Floor \\ 
 \hline \hline
 2000 & 2.40E+07 & 16.31 & \cellcolor{blue!25}61.79 & 1.00E-05 \\ 
 \hline
@@ -94,7 +94,7 @@ frequency [Hz]& SNR & SNR & Noise Figure [dB] & Noise Floor \\
 \hline
 3000 & 5.13E+05 & 42.04 & \cellcolor{blue!25}40.86 & 1.00E-05 \\ 
 \hline
-5000 & 7.17E+06 & 79.386 & \cellcolor{red!25}49.56 & 1.00E-05 \\ 
+5000 & 7.17E+06 & 79.386 & \cellcolor{blue!25}49.56 & 1.00E-05 \\ 
 \hline
 10000 & 1.09E+06 & 377.35 & \cellcolor{red!25}34.616 & 1.00E-04 \\ 
 \hline
@@ -105,22 +105,35 @@ frequency [Hz]& SNR & SNR & Noise Figure [dB] & Noise Floor \\
 
 \textit{Data with integrator:}
 \begin{center}
-\begin{tabular}{|m{3cm}|m{3cm}|m{1cm}|m{4cm}|m{2cm}|} 
+\begin{tabular}{|m{3cm}|m{3cm}|m{1.3cm}|m{4cm}|m{2cm}|} 
 \hline
-frequency [Hz]& SNR & SNR & Noise Figure [dB] & Noise Floor \\ 
+frequency [Hz]& SNR$_{in}$ & SNR$_{out}$ & Noise Figure [dB] & Noise Floor \\ 
 \hline \hline
-2000 & 2.40E+07 & 16.31 & \cellcolor{blue!25}61.79 & 1.00E-05 \\ 
+2000 & 3.00E+07 & 35.23 & \cellcolor{blue!25}59.35 & 1.00E-05 \\ 
 \hline
-2500 & 1.8E+07 & 25.69 & \cellcolor{blue!25}58.55 & 1.00E-05 \\ 
+2500 & 1.77E+07 & 78.12 & \cellcolor{blue!25}53.5 & 1.00E-05 \\ 
 \hline
-2700 & 5.10E+07 & 31.02 & \cellcolor{blue!25}42.23 & 1.00E-05 \\ 
+2700 & 3.60E+05 & 39.05 & \cellcolor{blue!25}40.6 & 1.00E-05 \\ 
 \hline
-3000 & 5.13E+05 & 42.04 & \cellcolor{blue!25}40.86 & 1.00E-05 \\ 
+3000 & 3.17E+05 & 113.1 & \cellcolor{blue!25}34.47 & 1.00E-05 \\ 
 \hline
-5000 & 7.17E+06 & 79.386 & \cellcolor{red!25}49.56 & 1.00E-05 \\ 
+5000 & 8.90E+06 & 23.44 & \cellcolor{blue!25}41.7 & 1.00E-05 \\ 
 \hline
-10000 & 1.09E+06 & 377.35 & \cellcolor{red!25}34.616 & 1.00E-04 \\ 
+10000 & 1.10E+06 & 22.5 & \cellcolor{red!25}46.9 & 1.00E-04 \\ 
 \hline
 
 \end{tabular}
+
 \end{center}
+When a sinusoidal input is applied to the system. The SNR was defined as the ratio of the energy in the FFT-bin that corresponds
+to the fundamental frequency of the oscillation and the energy of all other components. Since the distance of the sampling in the time domain was chosen
+such that the first index shows the proportion of the fundamental frequency in the signal, the signal to
+noise ratio can be defined as follows.
+
+
+\begin{equation}
+SNR=\frac{\hat{x}[1]^2}{\sum\limits_{i=2}^{N}\hat{x}[i]^2}
+\end{equation}
+
+
+
