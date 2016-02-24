@@ -1,10 +1,10 @@
 \chapter{Theory}
 \section{Debye model}
 The polarization effects in a dielectric material can be characterized by the relative permittivity and the dielectric loss factor. 
-For linear materials the polarization can be described by a network model. The Debye-ansatz assumes that the rate of change $ dP_i/dt$ is of the remaining difference between the polarization $P_i(t)$ and the polarization at infinity $P_i(\infty$) is proportional. This
+For linear materials the polarization can be described by a network model. The Debye-ansatz assumes that the rate of change $ dP_i/dt$ is of the remaining difference between the polarization $P_i(t)$ and the polarization at infinity $P_i(\infty$) is proportional. This results in an exponential decay of the polarization function that towards $P_i(\infty)$. This exponential decay can be modeled with a time constant of a resistor and a capacitor in series ($\tau=R_i \cdot C_i$). 
 
 \subsection{Derivation of maximum tan($\delta$)}
-The aim of this section is to derive the formula for the maximum tan($\delta$) in order to adjust its value to a disired one.
+The aim of this section is to derive the formula for the maximum tan($\delta$) of the Debye model in order to adjust its value to a disired one.
 \begin{equation}
 \epsilon_{eff}^* (\omega) = \frac{C^*(\omega)}{C_0}
 \end{equation}
@@ -21,7 +21,6 @@ The aim of this section is to derive the formula for the maximum tan($\delta$) i
 \begin{equation}
 \epsilon''_r = \omega \cdot \tau \cdot \frac{\epsilon_{stat}-\epsilon_{\infty}}{1+(\omega \cdot \tau )^2}
 \end{equation}
-
 
 The loss tangents are given by:
 \begin{equation}
