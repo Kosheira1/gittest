@@ -55,6 +55,7 @@ The aim is to have a current flwoing though the Debye model in the low-voltage s
 \section{Need for an integrator}
 The signal 
 As the used 16-bit DAC has a limited resolution it is advantageous to use an integrator in order to spread the frequencies of the signal over a larger timescale. This makes it possible to detect the different frequencies more accurately with the same DAC. 
+A second reason to make use of an integrator is due to the fact that it adds a $1/f$ dependency to the fourier spectrum of the voltage signal. As the fourier spectrum of the input signal is as well characterized by a $1/f$ decrease the division of the output voltage through the input voltage creates a ???
 \newpage
 
 \begin{sidewaysfigure}
