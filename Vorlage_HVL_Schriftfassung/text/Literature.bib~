@@ -7,6 +7,16 @@
     address     =   {Zurich},
     year        =   {2015}}
 
+@book{TransformerEngineering,
+    author      =   {S.V. Kulkarni; S.A. Khaparde},
+    title       =   {Transformer Engineering: Design, Technology, and Diagnostics},
+    address     =   {Zurich},
+    edition		=	{2},
+    year        =   {2012},
+    month 		=	{September},
+    pages		=   {617-619}}
+    
+    
 @article{FearberIntandNoise,
     author      =   {Raphael,F\"arber},
     title       =   {Integration and Noise in Dielectric Spectroscopy},
@@ -24,6 +34,13 @@
 	title  = {Boradband Dielectric Spectroscopy},
 	journal =  {Springer-Verlag}
 	year    =  {2003}}
+
+@article{FastVoltageStresses,
+	author = {Bengtsson, T. and Dijkhuizen, F.},
+	title  = {Repetitive Fast Voltage Stresses- Causes and Effects},
+	journal = {IEEE Electrical Insulation Magazine},
+	year	= {2009}}
+
 
 
 \end{filecontents}

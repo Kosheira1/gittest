@@ -27,11 +27,6 @@ results in a change in the other parameter that is below 0.1\%.
 	\label{fig.complex}
 \end{figure}
 
-
-
-
-
-
 \section{Capacitance of specimen and effective permittivity}
 \begin{figure}[ht]
 	\centering
@@ -191,7 +186,7 @@ The following figures illustrate the spectral distribution of the noise for 2000
  \centerline{\includegraphics[scale=0.3]{figures/Results/NoiseFloor/currenttransformer.jpg}}
 
 \caption[Kurze Abbildungsbeschreibung]{Noise Floor of Measurement with current transformer }
-\label{fig.noisefloordlpca}
+\label{fig.noisefloorcurrentt}
 \end{figure}
 
 \begin{figure}[htbp]
@@ -199,16 +194,53 @@ The following figures illustrate the spectral distribution of the noise for 2000
  \centerline{\includegraphics[scale=0.3]{figures/Results/NoiseFloor/Integrator.jpg}}
 
 \caption[Kurze Abbildungsbeschreibung]{Noise Floor of Measurement with current transformer }
-\label{fig.noisefloordlpca}
+\label{fig.noisefloorintegrator}
 \end{figure}
 
 
 
 
 \section{Performance of integrator}
-\textcolor{red}{add graphs of NA measurements as well as voltage swing for different input signals}
+As described in the previous two passages, the integrator was capable of reducing the noise figure and hence effectively reducing 
+the confidence interval when determining the dielectric loss tangent. While measuring the output of the integrator, particularily two unexpected problems were determined.
+First, a DC offset at the output, that was varying with different input signals was detected. For an applied voltage, that had the shape of the expected transformed current pulse train
+flowing through the debye equivalent, this offset could not be eliminated by tuning the potentiometer at the operational amplifier.
 
--NA measurement
--sinusoidal
--pulse
--currentpulse
+\begin{figure}[htbp]
+ \centering
+ \centerline{\includegraphics[scale=0.3]{figures/Results/Integrator_measurements/voltwave_10us}}
+
+  \caption[Kurze Abbildungsbeschreibung]{Output in magenta applying a rectangular voltage signal with a rise time of 10 microseconds at the input}
+\label{fig.voltwave_10us}
+\end{figure}
+
+Secondly, even when the same periodic signal was applied at the input of the integrator, a low frequency oscillation was imposed onto the output signal.
+\begin{figure}[htbp]
+ \centering
+ \begin{minipage}{0.4\textwidth}
+ \includegraphics[scale=0.2]{figures/Results/Integrator_measurements/currentwave_10u}
+ \caption[Kurze Abbildungsbeschreibung]{Applying the current pulse caused by a rectangular voltage signal with a rise time of 10 microseconds at one instant. }
+ \end{minipage}\qquad
+ \begin{minipage}{0.4\textwidth}
+ \includegraphics[scale=0.2]{figures/Results/Integrator_measurements/cuwave_10u-4}
+ \caption[Kurze Abbildungsbeschreibung]{Applying the current pulse caused by a rectangular voltage signal with a rise time of 10 microseconds at another instant.}
+ \end{minipage}
+ 
+  
+\end{figure}
+
+For the purpose of estimating the extend of the low frequency noise, a FFT-analysis of the output was conducted while applying a sinusoidal input at 2000 Hz.
+
+\begin{figure}[htbp]
+ \centering
+ \centerline{\includegraphics[scale=0.3]{figures/Results/Noisespectrum/sin2k-0_02v}}
+
+  \caption[Kurze Abbildungsbeschreibung]{FFT-spectrum of integrated sine-wave at 2kHz}
+\label{fig.noisefft}
+\end{figure}
+
+The spectral components of the lower frequencies in \ref{fig.noisefft} are relatively high when compared to the striking peak that can be attributed to the 2000 Hz fundamental frequency.
+Furthermore, the amplitude of the lower frequencies is similar to the one of the first harmonic, i.e. 4000 Hz.
+Judging from the results of this section, the two described non-idealities can not be neglected, the DC offset and the low frequency noise contribute significantly to the signal degradation and
+most probably prevent the integrator from reducing the noise figure more considerably.
+
