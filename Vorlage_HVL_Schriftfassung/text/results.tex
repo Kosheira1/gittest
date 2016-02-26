@@ -13,14 +13,22 @@ two spheres geometry. Thus, the simulated values for the low voltage test cell s
 	\caption[Kurze Abbildungsbeschreibung]{Dependency of the electrode distance on the capacitance for the low voltage setup and two spheres $\epsilon = 3.5$ } 
 	\label{fig.waveforms}
 \end{figure}
-\subsection{Influence of geometric parameters on the systematic error}
+
 \subsection{Complex effective permittivity}
 As it was mentioned in the theory chapter, generally speaking, magnitude and phase of the effective permittivity in relation to the
 real permittivity of the dielectric are not decoupled quantities. While this effect becomes especially apparent in horizontally layered dielectrics for a
 a capacitance with horizontal parallel plates, the graphs below show that the effect for the specimen in the low-voltage cell are negligible. That means a purposely exaggerated variance for both parameters
 results in a change in the other parameter that is below 0.1%.
 
-\textcolor{red}{complex epsilon graphs inserted}
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[scale=0.3]{figures/Results/Complex/complex_permittivity_specimen}		
+	\caption[Kurze Abbildungsbeschreibung]{Interdepedency of phase and magnitude of the effective permittivity (airgap=0.5mm) } 
+	\label{fig.waveforms}
+\end{figure}
+
+
+
 
 \subsection{Look-up table}
 
@@ -76,6 +84,7 @@ Using the current transformer in both configurations, i.e. with and without the 
 \newpage
 
 \textit{Data for the DLPCA:}
+
 \begin{center}
 \begin{tabular}{|m{3cm}|m{3cm}|m{1.3cm}|m{4cm}|m{2cm}|} 
 \hline
@@ -98,25 +107,23 @@ frequency [Hz]& SNR$_{in}$ & SNR$_{out}$ & Noise Figure [dB] & Noise Floor \\
 \end{center}
 
 
+
 \textit{Data without integrator:}
 \begin{center}
 \begin{tabular}{|m{3cm}|m{3cm}|m{1.3cm}|m{4cm}|m{2cm}|} 
 \hline
 frequency [Hz]& SNR$_{in}$ & SNR$_{out}$ & Noise Figure [dB] & Noise Floor \\ 
 \hline \hline
-2000 & 2.40E+07 & 16.31 & \cellcolor{blue!25}61.79 & 1.00E-05 \\ 
+2000 &  8.25E+06 &  3.7405E+05 & 13.43 & 1.00E-05 \\ 
 \hline
-2500 & 1.8E+07 & 25.69 & \cellcolor{blue!25}58.55 & 1.00E-05 \\ 
+2500 & 6.95E+06 & 6.02E+05 & 10.62 & 1.00E-05 \\ 
 \hline
-2700 & 5.10E+07 & 31.02 & \cellcolor{blue!25}42.23 & 1.00E-05 \\ 
+2700 & 3.92E+05 & 2.19E+05 & 2.53 & 1.00E-05 \\ 
 \hline
-3000 & 5.13E+05 & 42.04 & \cellcolor{blue!25}40.86 & 1.00E-05 \\ 
+3000 & 6.5E+04 & 4.7221E+04 & 1.39 & 1.00E-05 \\ 
 \hline
-5000 & 7.17E+06 & 79.386 & \cellcolor{blue!25}49.56 & 1.00E-05 \\ 
+5000 & 2.331E+06 & 4.404E+06 & 2.76 & 1.00E-05 \\ 
 \hline
-10000 & 1.09E+06 & 377.35 & \cellcolor{red!25}34.616 & 1.00E-04 \\ 
-\hline
-
 \end{tabular}
 \end{center}
 
