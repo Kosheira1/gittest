@@ -1,0 +1,15 @@
+%Setup-variance when re-inserting the sample
+
+
+load('samplevariance.mat')
+
+mean_C=1e12*mean(sample_Cmag); %[pF]
+SD_C=1e12*std(sample_Cmag);    %[pF]
+
+cStudent=tinv(1-(1-0.95)/2,Nphase-1); %student factor for 95% confidence level
+twosidemargin=
+
+
+
+    
+   
