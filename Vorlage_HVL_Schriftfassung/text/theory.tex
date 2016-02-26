@@ -1,8 +1,6 @@
 \chapter{Theory}
 \section{Functionality of a Current Transformer}
-A current transformer 
-
-A current transformer is suitable for current waveshapes and amplitudes from microamperes to megaamperes in high voltage circuits. It's advantage over a shunt resistance is due to the galvanic isolation of the secondary side from the primary. This galvanic isolation prohibits large currents on the secondary side during a  which might destroy the Butterworth-Filter or the Digital-to-Analog-Converter (DAC). 
+A current transformer (CT) is an instrument transformer that creates an AC-signal on its secondary side that is proportional to the alternating current on its primary side. This is especially suitable if the current on the primary side is too high to measure because the CT provides a current on the secondary side that can be measured. A current transformer is suitable for current waveshapes and amplitudes from microamperes to megaamperes in high voltage circuits. Another advantage over a shunt resistance is due to the galvanic isolation of the secondary side from the primary. This galvanic isolation prohibits large currents on the secondary side during a  which might destroy the Butterworth-Filter or the Digital-to-Analog-Converter (DAC). 
 
 
 \section{Debye model}
@@ -94,6 +92,8 @@ Um das Maximum von tan($\delta_{pol}$) zu finden wird der zweite Term in der Abl
 
 
 \section{Fourier Coefficients of trapezoidal pulse  train }
+
+
 \begin{equation}
  U_n = \frac{2 U_0}{j \omega_n T} [e^{\frac{j \omega_n \tau}{2}} sinc{\frac { \omega_n \tau_r }{2}} -e^{\frac{-j \omega_n \tau}{2}} sinc{\frac{ \omega_n \tau_f}{2}}]
 \end{equation}
@@ -115,6 +115,8 @@ Slopes of the curves: \newline
 -1 on loglog plot after $\frac{2}{\tau}$ \newline
 -2 on loglog plot after $\frac{2}{\tau_r}$
 
+
+
 \section{Interdependence between epsilon and textepsiloneff} 
 The estimation of the dielectric permittivity. If one wants to estimate the $\epsilon$ of the dielectric material one has to investigate the dependency of magnitude and phase of the $\epsilon$ on the $epsilon_eff$. This effect can in general not be neglected as the the simulation for a layered capacitance proves.  
 
@@ -126,6 +128,23 @@ The estimation of the dielectric permittivity. If one wants to estimate the $\ep
 
 \section{Clamping capability of Current Transformers }
 
-\section{Noise of a Current Transformer}
+\section{Noise Considerations}
+\subsection{General}
+The evaluation of noise added to the signal by the CT, the integrator, the BW-filter and the cables is of great importance as it limits the capability of measuring below-PD-currents though the capacitance of the specimen. 
+In order to quantify the desired signal compared to the background noise, the Signal-to-Noise Ratio (SNF) can be measured. The SNF is a the ratio of signal power over signal noise. The power is proportional to the amplitude of the signal.
+\begin{equation}
+	SNF=P_{signal}/P_{noise} = (V_signal/V_noise)^2
+\end{equation}
+The degradation of the SNF is characterized by its input value over its output value, which is the Noise Figure (NF).
+\begin{equation}
+	NF = SNR_{in}/SNR{out}
+\end{equation}
+The amount of additional noise by the components can be characterized by the NF. 
+\subsection{Noise of a Current Transformer}
+A CT has an intrinsic noise that is caused by the Barkhausen noise of the magnetic core. It can be neglected as it is much lower than other sources of noise. %cite
+Another noise source might occur due to the capacitive coupling of the primary wire to the copper case of the Current Transformer. This coupling capacitance might reach orders of a few picofarads. %\cite
 
-Another noise source might occur due to the capacitive coupling of the primary wire to the copper case of the Current Transformer. 
+
+\subsection{Noise of an Integrator}
+
+
