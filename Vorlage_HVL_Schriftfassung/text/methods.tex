@@ -1,6 +1,17 @@
 \chapter{Methods}
 \section{Part 1}
 \subsection{General approach}
+
+
+The setup is illustrated in figure \ref{sec.setup_amp_1} . The expoid resin specimen is put into a cell. The DLPCA amplifier converts the measured current into a voltage and after a butterworth filter an ADC creates a signal that is processed with MATLAB. 
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics{figures/Method/setup/setup_amplifier.png}		
+	\caption[Kurze Abbildungsbeschreibung]{Setup for measurements\footnote{source: Raphael F\"arber}} 
+	\label{sec.setup_amp_1}
+
+\end{figure}
 \label{sec:general_approach}
 The following method is based on the assumption that  the epsilon is always the same for the used samples when they are delivered. Thus, there is just a need to determine the distance of the electrodes for each delivered sample in order to be able to calculate the effective $\epsilon$ after below-PD current measurements, because the distance might vary considerably. 
 At first the initial $\epsilon_eff$ for two reference samples has to be obtained:\\
@@ -22,7 +33,28 @@ Another systematic error is the deviation of the height of the specimen. During 
 
 \section{Part 2}
 \subsection{The setup}
-There are two general setups. One is the high-voltage setup and one the low voltage-setup
+There are two general setups. One is the high-voltage setup and one the low voltage-setup. For testing the suitibility of the current transformer the low voltage setup is sufficient. This is reached with a 1000 times higher vacuum capacitance in the Debye model which guarantees that the current is the same as in the high voltage setup with a voltage that is 1000 times higher. 
+
+The following graph \ref{sec.setup_amplifier} illustrates the setup for measurements without a current transformer. The DLPCA-200 is a variable gain low noise current amplifier that has a transimpedance gain from $10^3$ to $10^11 V/A$. MATLAB automatically adapts its gain to a value that is suitable for the input voltage area of $\pm 10V$. 
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics{figures/Method/setup/setup_amplifier}		
+	\caption[Kurze Abbildungsbeschreibung]{Setup for reference measurements {source: Raphael F\"arber, revised by authors}} 
+	\label{sec.setup_amplifier}
+
+\end{figure}
+
+Afterwards, the DLPCA is replaced with a current transformer. 
+\begin{figure}[htbp]
+	\centering
+	\includegraphics{figures/Method/setup/setup_CTonly}		
+	\caption[Kurze Abbildungsbeschreibung]{Setup for measurements with Current Transformer only {source: Raphael F\"arber, revised by authors}} 
+	\label{sec.setup }
+
+\end{figure}
+
+
 \section{Signal analysis of the Debye model}
 
 In order to emulate different dielectrica with their own respective dielectric loss tangent, different combinations of circuit elements were used. Each different circuit accounts for another loss tangent with respect to frequency. With the objective to assess the performance of the current transformer, reasonably high values for the $tan\left(\delta\right)$ were assumed (i.e. 0.05 to 0.2) since a lower loss tangent would require a higher resolution on the part of the current measurement.
@@ -70,11 +102,31 @@ The aim is to have a current flwoing though the Debye model in the low-voltage s
 As the used 16-bit DAC has a limited resolution it is advantageous to use an integrator in order to spread the frequencies of the signal over a larger timescale. This makes it possible to detect the different frequencies more accurately with the same DAC. 
 A second reason to make use of an integrator is due to the fact that it adds an additional factor of $1/f$ to the Fourier spectrum of the output voltage signal. As the Fourier spectrum of the input signal is as well characterized by a $1/f$ decrease the integrator transforms the pulse signal back to a trapezoidal signal with a $1/f$-dependency in the Fourier spectrum. Since a $1/f$ dependency in the output signal is preferable to a constant Fourier spectrum due to better resolution for the first harmonic, the integrator improves the measurement as well. 
 \subsection{Design of integrator}
-The integrator should have two functions. On the hand side it should integrate signal on the other hand it should amplify the signal by a factor of 1000. This is due to the fact small below-PD-currents ($\sim$mA) should be measured. With a CT-sensitivity of $1V/A$ an amplification of 1000 is reasonable to use the range of measurable inputs of $\pm$ 10 V. These requirements can be achieved by a non-inverting integrator. 
+The integrator should have two functions. On the hand side it should integrate signal on the other hand it should amplify the signal by a factor of 1000. This is due to the fact small below-PD-currents ($\sim$mA) should be measured. With a CT-sensitivity of $1V/A$ an amplification of 1000 is reasonable to use the range of measurable inputs of $\pm$ 10 V. These requirements can be achieved by a non-inverting integrator, which is shown in figure  \ref{fig.circuit}. 
+
+\begin{figure}
+\includegraphics[width=0.99\textwidth]{figures/Method/integrator/circuit.png}
+    \caption{Property profile of the diverse library compared to the compound pool.}
+    \label{fig.circuit}
+    \end{figure}	
+
+
+The integrator has the following transfer function: \\
+\begin{equation}
+	tf_int(j \omega)=1/(1+s R_1 C_1)*(1+(1/R_2)*(1/R_3+j \omega C_2)^-1)
+\end{equation}
+The transfer function of the integrator is illustrated by the following bode plot. 
+
+\begin{figure}
+
+\includegraphics[width=\textwidth]{figures/Method/integrator/transferfunction_int.jpg}
+
+\caption[Kurze Abbildungsbeschreibung]{Bode plot of an integrator } \ref{sec.Bodeplot}
+\end{figure}
 
 \begin{sidewaysfigure}
 \includegraphics[width=0.99\textwidth]{figures/Method/integrator/PCB_Integrator.png}
-    \caption{Property profile of the diverse library compared to the compound pool.}
+    \caption{Printed Circuit Board Layout for the non-inverting ingrator with a DC voltage supply}
     
     \end{sidewaysfigure}	
     
@@ -86,18 +138,6 @@ The integrator should have two functions. On the hand side it should integrate s
  \caption{Property profile of the diverse library compared to the compound pool.}
   \end{sidewaysfigure}	
 
-The integrator has the following theoretical transfer function.
-
-\begin{figure}
-
-\includegraphics[width=\textwidth]{figures/Method/integrator/transferfunction_int.jpg}
-
-
-
-
-
-\caption[Kurze Abbildungsbeschreibung]{Bode plot of an integrator } \ref{sec.Bodeplot}
-\end{figure}
 	
 
 
