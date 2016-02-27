@@ -1,31 +1,38 @@
 \chapter{Theory}
 \section{Part 1}
-\section{Derivation of a }
+\section{Derivation of the effective relative permittivity}
 The effective permittivity is used to describe the permittivity of a composite Material. This is necessary due to the fact that the assumption of homogeneity is not tenable for compound material. As the permittivity is proportional to the capacitance the effective permittivity can be obtained by the ratio of C* to the vacuum capacitance $C_0$.
-$epsilon_eff(\omega)= C*(\omega) /C_0$ 
+\begin{equation}
+ \epsilon_{eff}(\omega)= \frac{C(\omega)}{C_0}
+\end{equation}
+
+
 Whereas for layered material geometries the effective permittivity can be derived quite easily from the permittivity of the different materials this is not possible for a complex setup any more. Thus, a numerical simulation is required as described in chapter. In order to get the effective $\epsilon$ the complex capacitance and the vacuum capacitance have to be obtained. While the former can be measured (voltage/current measurement) the latter has to be obtained with a numerical simulation. 
-For the specimen in figure ??, there are several geometric quantities that influence the vacuum capacity. The most important factor is the distance of the electrodes as it may vary considerably. As a consequence a lookup table has to be created that allows an estimation of d if $C_0$ is given.
+For the specimen in figure \ref{fig.specimen}, there are several geometric quantities that influence the vacuum capacity. The most important factor is the distance of the electrodes as it may vary considerably. As a consequence a lookup table has to be created that allows an estimation of d if $C_0$ is given.
 
 
  
 
 
-\subsection{Interdependence between epsilon and textepsiloneff} 
-The estimation of the dielectric permittivity. If one wants to estimate the $\epsilon$ of the dielectric material one has to investigate the dependency of magnitude and phase of the $\epsilon$ on the $epsilon_eff$. This effect can in general not be neglected as the the simulation for a layered capacitance proves.  
+\subsection{Interdependence between $\angle\epsilon$ and $\epsilon$ \textsubscript{eff}} 
+The estimation of the dielectric permittivity. If one wants to estimate the $\epsilon$ of the dielectric material one has to investigate the dependency of magnitude and phase of the $\epsilon$ on the $\epsilon_{eff}$. 
+This effect can in general not be neglected as the the simulation for a layered capacitance proves.  
 
-\begin{center}
-	\includegraphics[width=\textwidth]{figures/Theory/layeredepsilon.jpg}
-	
-	\end{center}
-	
-	
-	
+
+
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth]{figures/Theory/layeredepsilon.jpg}
+  \caption[Kurze Abbildungsbeschreibung]{Interdependency of phase and magnitued of material and effective permittivity for two horizontally stacked dielectrics}
+  \label{fig.layeredepsilon}
+\end{figure}	
+
 \section{Part 2}
 
 
 \subsection{Debye model}
 The polarization effects in a dielectric material can be characterized by the (complex) relative permittivity and the dielectric loss factor. Both are frequency-dependent. 
-For linear materials the polarization can be described by a network model. The Debye-ansatz assumes that the rate of change $ dP_i/dt$ is of the remaining difference between the polarization $P_i(t)$ and the polarization at infinity $P_i(\infty$) is proportional. This results in an exponential decay of the polarization function that towards $P_i(\infty)$. This exponential decay can be modeled with a time constant of a resistor and a capacitor in series ($\tau=R_i \cdot C_i$). Therefore, an emulated dielectric comprises of the vacuum capacitance, an additional capacity $C_i$ and a resistor $R_i$ and a resistor for a stationary conduction current $R_infty$. 
+For linear materials the polarization can be described by a network model. The Debye-ansatz assumes that the rate of change $ dP_i/dt$ is of the remaining difference between the polarization $P_i(t)$ and the polarization at infinity $P_i(\infty$) is proportional. This results in an exponential decay of the polarization function that towards $P_i(\infty)$. This exponential decay can be modeled with a time constant of a resistor and a capacitor in series ($\tau=R_i \cdot C_i$). Therefore, an emulated dielectric comprises of the vacuum capacitance, an additional capacity $C_i$ and a resistor $R_i$ and a resistor for a stationary conduction current $R_{\infty}$. 
 
 \subsubsection{Derivation of maximum tan($\delta$)}
 The aim of this section is to derive the formula for the maximum tan($\delta$) of the Debye model in order to adjust its value to a disired one.
@@ -85,14 +92,17 @@ We split this term up into real and impaginary part
 \end{equation}
 
 \begin{equation}
-tan(\delta) = tan(\delta_L) + tan( \delta_Pol) = \frac{\omega^2 \tau^2+1}{\omega C_0 R_\infty (2+ \omega^2 \tau^2)}=\frac{\omega \tau \Delta \epsilon}{\epsilon_{stat} + \omega^2 \tau^2}
+tan(\delta) = tan(\delta_L) + tan( \delta_Pol) = \frac{\omega^2 \tau^2+1}{\omega C_0 R_\infty (2+ \omega^2 \tau^2)}+\frac{\omega \tau \Delta \epsilon}{\epsilon_{stat} + \omega^2 \tau^2}
 \end{equation}
 
-\begin{equation}
-\frac{\partial tan(\delta)}{ \partial \omega} = \frac{[\omega C_0 R_\infty (2+\omega^2 \tau^2)]\cdot 2 \omega \tau^2 - (\omega^2 \tau^2 +1) [C_0 R_\infty (2+3 \omega^2 \tau^2)  }{[\omega C_0 R_\infty (2+\omega^2 \tau^2)]^2}+ \frac{\tau \Delta \epsilon [\epsilon_{stat} + \omega^2 \tau^2] - 2 \omega \tau^2 [\omega \tau \Delta \epsilon]}{[\epsilon_{stat} +\omega^2 \tau^2]}
-\end{equation}
+\begin{align}
+\frac{\partial tan(\delta)}{ \partial \omega} & = \frac{[\omega C_0 R_\infty (2+\omega^2 \tau^2)]\cdot 2 \omega \tau^2 - (\omega^2 \tau^2 +1) [C_0 R_\infty (2+3 \omega^2 \tau^2)  }{[\omega C_0 R_\infty (2+\omega^2 \tau^2)]^2}\\
+         & + \frac{\tau \Delta \epsilon [\epsilon_{stat} + \omega^2 \tau^2] - 2 \omega \tau^2 [\omega \tau \Delta \epsilon]}{[\epsilon_{stat} +\omega^2 \tau^2]}
+\label{eq:test}
+         \end{align}
 
-Um das Maximum von tan($\delta_{pol}$) zu finden wird der zweite Term in der Ableitung 0 gesetzt.
+We can find the maximum for tan($\delta_{pol}$) by setting the second part of the derivative of loss tangent with
+respect to frequency, i.e. \eqref{eq:test} to zero and later find an algebraic equation for the maximum frequency and the maximum value.
 
 \begin{equation}
 \tau \Delta \epsilon [\epsilon_{stat} + \omega^2 \tau^2] -2\omega \tau^2 [\omega \tau \Delta \epsilon] = 0
@@ -147,13 +157,13 @@ A current transformer (CT) is an instrument transformer that creates an AC-signa
 \subsection{Noise Considerations}
 \subsubsection{General}
 The evaluation of noise added to the signal by the CT, the integrator, the BW-filter and the cables is of great importance as it limits the capability of measuring below-PD-currents though the capacitance of the specimen. 
-In order to quantify the desired signal compared to the background noise, the Signal-to-Noise Ratio (SNF) can be measured. The SNF is a the ratio of signal power over signal noise. The power is proportional to the amplitude of the signal.
+In order to quantify the desired signal compared to the background noise, the Signal-to-Noise Ratio (SNR) can be measured. The SNF is a the ratio of signal power over signal noise. The power is proportional to the amplitude of the signal.
 \begin{equation}
-	SNF=P_{signal}/P_{noise} = (V_signal/V_noise)^2
+	SNR=\frac{P_{signal}}{P_{noise}} = \left[\frac{(V_{signal})}{(V_{noise})}\right]^2
 \end{equation}
-The degradation of the SNF is characterized by its input value over its output value, which is the Noise Figure (NF).
+The degradation of the SNF is characterized by its input value over its output value, which is the Noise Figure (NF) and is indicated in dB.
 \begin{equation}
-	NF = SNR_{in}/SNR{out}
+	NF[dB] = 10log\left(\frac{SNR_{in}}{SNR_{out}}\right)
 \end{equation}
 The amount of additional noise by the components can be characterized by the NF. 
 \subsection{Noise of a Current Transformer}
