@@ -1,45 +1,45 @@
 \chapter{Methods}
 \section{Part 1}
 \subsection{General approach}
-
-
-The setup is illustrated in figure \ref{sec.setup_amp_1} . The expoid resin specimen is put into a cell. The DLPCA amplifier converts the measured current into a voltage and after a butterworth filter an ADC creates a signal that is processed with MATLAB. 
+The setup is illustrated in figure \ref{sec.setup_amp_1}. A cell surrounds the  epoxid resin sample and makes sure that the current flowing from the electrode to the wall is connected to the ground and does not count for the measurement. The DLPCA amplifier converts the measured current into a voltage and amplifies it. After a butterworth filter an ADC creates a signal that is processed with MATLAB. The butterworth filter ensures that frequencies above 100 kHz, which are not interesting for the mixed-frequency investigation, are cut out. 
 
 \begin{figure}[htbp]
 	\centering
-	\includegraphics{figures/Method/setup/setup_amplifier.png}		
+	\includegraphics[width=\textwidth]{figures/Method/setup/setup_amplifier.png}		
 	\caption[Kurze Abbildungsbeschreibung]{Setup for measurements\footnote{source: Raphael F\"arber}} 
 	\label{sec.setup_amp_1}
 
 \end{figure}
 \label{sec:general_approach}
-The following method is based on the assumption that  the epsilon is always the same for the used samples when they are delivered. Thus, there is just a need to determine the distance of the electrodes for each delivered sample in order to be able to calculate the effective $\epsilon$ after below-PD current measurements, because the distance might vary considerably. 
-At first the initial $\epsilon_eff$ for two reference samples has to be obtained:\\
-For the two reference samples the distance is measured optically with a microscope. By using the $d-C_0$ look up table described in the following chapter the vacuum capacitance can be obtained from the optical distance measurement. Together with the measured capacitance $C*$ a guess of the effective epsilon for the used epoxy resin is possible. 
+The following method is based on the assumption that  $\epsilon$ is always the same for the used samples when they are delivered. Thus, it is required to determine the distance of the electrodes for each delivered sample in order to be able to calculate the effective $\epsilon$ after below-PD current measurements, because the distance might vary considerably. 
+At first, the initial $\epsilon_{eff}$ for two reference samples has to be obtained:\\
+For the two reference samples the distance is measured optically with a microscope. By using the $d-C_0$-look-up table described in the following chapter the vacuum capacitance can be obtained from the optical distance measurement. Together with the measured capacitance $C*$ a guess of the effective epsilon for the used epoxy resin is possible. 
 
-For forther samples, the capacitance $C*$ has to be measured. Together with the initial value of $\epsilon_eff$ of the reference samples one can obtain the vacuum capacitance $C_0$.By using the $d-C_0$ look up table a guess of the electrode distance d is possible. Now, the vacuum capacitance and the corresponding electrode distance are known for further measurements. Thus, it is possible to get the effective 
+For forther samples, the capacitance $C*$ has to be measured. Together with the initial value of $\epsilon_{eff}$ of the reference samples one can obtain the vacuum capacitance $C_0$. By using the $d-C_0$ look up table a guess of the electrode distance d is possible. Now, the vacuum capacitance and the corresponding electrode distance are known for further measurements. Thus, it is possible to get the the values and changes in the effective permittivity with the calculated $C_0$.
+
 \subsection{Simulation of vacuum capacitance} 
-As mentioned in the chapters before the vacuum capacitance cannot the calculated directly because of the complexity of the geometry. COMSOL is a simulation software that is suitable for a numerical estimation of a permittivities or capacitances. The dependency of the vacuum capacity $C_0$ has to be simulated numerically both for the high-voltage setup and for the low-voltage setup. Although all measurements and the corresponding calculations of section \ref{sec:general_approach} can be carried out in the low-voltage setup it is handy to be able to do these calculations in the high-voltage setup as well. 
+As mentioned in the chapters before the vacuum capacitance cannot the calculated directly because of the complexity of the geometry. COMSOL is a simulation software that is suitable for a numerical estimation of permittivities or capacitances. The dependency of the vacuum capacity $C_0$ on the electrode distance d has to be simulated numerically both for the high-voltage setup and for the low-voltage setup. Although all measurements and the corresponding calculations in section \ref{sec:general_approach} can be carried out in the low-voltage setup it is handy to be able to do these calculations in the high-voltage setup as well. 
+
 
 \begin{figure}[htbp]
 	\centering
 	\includegraphics{figures/COMSOL_Beispielbild.jpg}		
-	\caption[Kurze Abbildungsbeschreibung]{Field simulation of the low-voltage test cell (0.5 mm electrode distance)} \ref{sec.analysecurrent}
-	\label{fig.waveforms}
+	\caption[Kurze Abbildungsbeschreibung]{Field simulation of the low-voltage test cell (0.5 mm electrode distance)} \label{fig.comsol_beispiel}
+
 \end{figure}
  
-There are several systematic errors that influence the vacuum capacity simulation. One factor is the air gap between the wall of the low-voltage setup and the specimen. This air gap is unavoidable in order to be able to remove the specimen from the pouring setup. This air gap should theoretically be 0.5 mm, but in practice it is expected to vary between 0 mm and 1 mm for the worst-case. The lookup table of d based on $C_0$ is based on an air gap of 0.5 mm, therefore the deviation from this value has to be investigated numerically.
-Another systematic error is the deviation of the height of the specimen. During  the pouring process the height of the specimen cannot be fixed precisely. The maximum deviation is expected to be $\pm$ 0.5 mm. This deviation might occur during the production process of each new specimen. Thus, if the electrode distance of a specimen should be estimated by the method described in !!! 
-
+Figure \ref{fig.comsol_beispiel} shows the simulated field distribution in the low-voltage setup in COMSOL. There are several systematic errors that influence the vacuum capacity simulation. The inclined line on the right-hand side shows the air gap that is caused during the production process. This air gap between the wall of the low-voltage setup and the specimen causes an additional inhomogeneity. It is unavoidable in order to be able to remove the specimen from the pouring setup. This air gap should theoretically be 0.5 mm, but in practice it is expected to vary between 0 mm and 1 mm for the worst-case. The lookup table of d based on $C_0$ is based on an air gap of 0.5 mm, therefore the deviation from this value has to be investigated numerically.
+Another systematic error is the deviation of the height of the specimen. During  the pouring process the height of the specimen cannot be fixed precisely. The maximum deviation is expected to be $\pm$ 0.5 mm. This deviation might occur during the production process of each new specimen. Thus, if the electrode distance of a specimen should be estimated by the method described these deviations can result in an error. 
+ 
 \section{Part 2}
 \subsection{The setup}
-There are two general setups. One is the high-voltage setup and one the low voltage-setup. For testing the suitibility of the current transformer the low voltage setup is sufficient. This is reached with a 1000 times higher vacuum capacitance in the Debye model which guarantees that the current is the same as in the high voltage setup with a voltage that is 1000 times higher. 
+There are two general setups. One is the high-voltage setup and one the low voltage-setup. For testing the suitability of the current transformer the low voltage setup is sufficient except for the clamping test described in section \ref{clamping}. In order to get a similar current for the low-voltage setup as for the high-voltage setup a 1000 times higher vacuum capacitance is used in the Debye model. Therefore the selected vacuum capacitance is 3.3 nF whereas samples only have a vacuum capacitance of approximately 3.3 pF.  
 
-The following graph \ref{sec.setup_amplifier} illustrates the setup for measurements without a current transformer. The DLPCA-200 is a variable gain low noise current amplifier that has a transimpedance gain from $10^3$ to $10^11 V/A$. MATLAB automatically adapts its gain to a value that is suitable for the input voltage area of $\pm 10V$. 
+The following graph \ref{sec.setup_amplifier} illustrates the setup for measurements without a current transformer. The DLPCA-200 is a variable gain low noise current amplifier that has a transimpedance gain between $10^3$ and $10^{11} V/A$. MATLAB automatically adapts its gain to a value that is suitable for the input voltage area of the ADC which is $\pm 10V$. 
 
 \begin{figure}[htbp]
 	\centering
-	\includegraphics{figures/Method/setup/setup_amplifier}		
+	\includegraphics[width=\textwidth]{figures/Method/setup/setup_amplifier}		
 	\caption[Kurze Abbildungsbeschreibung]{Setup for reference measurements {source: Raphael F\"arber, revised by authors}} 
 	\label{sec.setup_amplifier}
 
@@ -55,45 +55,44 @@ Afterwards, the DLPCA is replaced with a current transformer.
 \end{figure}
 
 
-\section{Signal analysis of the Debye model}
+\subsection{Signal analysis of the Debye model}
 
 In order to emulate different dielectrica with their own respective dielectric loss tangent, different combinations of circuit elements were used. Each different circuit accounts for another loss tangent with respect to frequency. With the objective to assess the performance of the current transformer, reasonably high values for the $tan\left(\delta\right)$ were assumed (i.e. 0.05 to 0.2) since a lower loss tangent would require a higher resolution on the part of the current measurement.
-
-
-\begin{figure}[htbp]
-	\centering
-	\includegraphics{figures/COMSOL_Beispielbild.jpg}		
-	\caption[Kurze Abbildungsbeschreibung]{Electron drift currents in Ar at 30 Td and in CO$_2$ at 65 Td, the latter was divided by 10 and shifted by 0.2 $\mu$s. Dotted lines are averages of measured waveforms, solid lines are fits of Eq. XX. $T$ marks the electron transit time, and the markers $T_1$ to $T_3$ are explained in section.} \ref{sec.COMSOL_Beispielbild}
-	\label{fig.waveforms}
+\begin{figure}
+	\includegraphics[width=0.5\textwidth]{figures/Method/debye-modell.jpg}	
+	\caption{Polarization and Conduction losses for different frequencies and different parts in the Debye model}	
+	\label{fig.debye-modell}
 \end{figure}
 
+In order to get a theoretical maximum tan($\delta$) of 0.178 the parts shown in figure \ref{fig.debye-modell} are used. 
+\begin{figure}
+	\includegraphics[width=0.5\textwidth]{figures/Method/debye-modell.jpg}	
+	\caption{Debye model for tan($tan(\delta)$)= }	
+	\label{fig.debye-modell}
+\end{figure}
 
 \subsection{Design of a holder for the Debye Equivalent Circuit}
-For a lossy medium the Debye Network consists at least of a vacuum capacity $C_0$ and the term for the charging of the additional capacitance. There might be . Thus, it is reasonable to design a holder for the network that can hold three strands with two components each. Moreover, it has to fit into the low-voltage and high-voltage test cell. 
+For a lossy medium the Debye Network consists at least of a vacuum capacity $C_0$ and the term for the charging of the additional capacitance. The DC resistance has a very high value and might therefore be left out, i.e. $R_infty=infty$. Thus, it is reasonable to design a holder for the network that can hold three strands with two components each. Moreover, it has to fit into the low-voltage and high-voltage test cell, what specified the dimensions of the holder.  
+Figure \ref{fig.CADgraph} shows the created holder which has a drawing that is depicted in figure \ref{fig.CADdrawing}.
 
 \begin{figure}
 \includegraphics[width=\textwidth]{figures/Method/CAD_MODEL/Gesamtanordnung.jpg}
+\caption{CAD graph for the holder of the debye network. Created with SolidWorks Invetor}
+\label{fig.CADgraph}
 \end{figure}
 \newpage
 
 \begin{sidewaysfigure}
 \includegraphics[width=0.99\textwidth]{figures/Gesamtanordnung.pdf}
-    \caption{Property profile of the diverse library compared to the compound pool.}
-    
+    \caption{Drawing for the CAD holder}
+    \label{fig.CADdrawing}
    \end{sidewaysfigure}	
 \newpage
     
 
 \subsection{Measurement of the textepsilon and the tan(textdelta) for the Debye model}
 
-The aim is to have a current flwoing though the Debye model in the low-voltage setup that is oft the same order as a current in the high voltage-setup. In order to have a comparable current for a voltage that is $1/1000$ of the high-voltage setup a capacitance $C_0$ for the Debye is selected 1000 times higher than the Capacitance of the samples. As the sample has a capacitance of 3.44 pF its equivalent $C_0$ in the debye-model is 3.3 nF. In order to get a tan($\delta$) of !!! $R_i$ is chosen as and $C_i$ is chosen as .
-\begin{figure}
-	\includegraphics{figures/Method/debye-modell.jpg}	
-	\caption{Debye model for tan($tan(\delta)$)= }	
-\end{figure}
-
-
-
+The aim is to have a current flwoing though the Debye model in the low-voltage setup that is of the same order as a current in the high voltage-setup. In order to have a comparable current for a voltage that is $1/1000$ of the high-voltage setup a capacitance $C_0$ for the Debye is selected 1000 times higher than the Capacitance of the samples. As the sample has a capacitance of 3.44 pF its equivalent $C_0$ in the debye-model is 3.3 nF. In order to get a tan($\delta$) of !!! $R_i$ is chosen as and $C_i$ is chosen as . This results in a loss 
 
 
 
@@ -143,4 +142,5 @@ The transfer function of the integrator is illustrated by the following bode plo
 
 
 \subsection{Protective Clamping Capability of the current transformer}
+\label{clamping}
 

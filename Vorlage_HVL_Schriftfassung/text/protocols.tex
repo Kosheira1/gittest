@@ -23,19 +23,23 @@
 The input signal was  sinusoidal with 1kHz and $V_pp=16$. This signal is applied to two different samples in the low-voltage-setup. The current through the probe is measured with DLPCA, filtered with a Butterworth filter and then given to a ADC. 
 Input signal and output current are measured and the division of these quantities allows to deduce $C*$.\\
 
-Together with 
+Together with the optical measurement of d the effective $\epsilon$ can be calculated. 
 
 Settings: \newline
-Signal Generator:  sin, 1kHz, $V_pp=16$
+Signal Generator:  sin, 1kHz, $V_pp=16V$
 DLPCA:  automatically adapted gain
 BW-Filter:  cutoff-frequency : 100kHz, Gain: 1
 
 \large{Measurement} \\
 25 measurements of the capacitance each time after the samples were taken out of the low-voltage cell and put in again. Each measurement comprises of 25 phase shifts. 
 
-All measurements were done for two samples. 
+The measurements were conducted for two different samples.
 
+Measured values for sample 2 is not usable as there is entrapped air near the electrode. This was realized when measuring the electrode distance after slicing of the sample.
 
+\large{Surroundings} \\
+Temperature: 
+Humidity: 
 
 \section{Protocol: Measurement of epsilon and tan(delta) of Debye Model}
 \large{Aim} \\
@@ -45,11 +49,41 @@ All measurements were done for two samples.
 \end{itemize}
 
 
+\large{Used Instruments} 
+\begin{itemize}
+ \item Butterworth Filter: Alligator Technologies 
+ \item DLPCA: 
+ \item Oscilloscope: LeCroy
+ \item External Voltage Supply: 
+ \item DAC: National Instruments 
+
+\end{itemize}
+
+
+\large{Setup} \\
+The input signal was  sinusoidal with 1kHz and $V_pp=15$. The signal is applied to the Debye-model in the low-voltage setup. The current through the Debye-model is firstly measured with DLPCA, filtered with a Butterworth filter and then given to a ADC. Secondly, just the current transformer is used to measure the current. Thirdly, the current transformer is used with an integrator. 
+For all thre measurement setups the measurement is done with the complete Debye model and as a reference measurement just with $C_0$, i.e. $R_i$ and $C_i$ are removed. 
+
+Settings: \newline
+Signal Generator:  sin, 1kHz to10 kHz, $V_pp=16V$
+DLPCA:  automatically adapted gain
+BW-Filter:  cutoff-frequency : always double the input frequency, gain according to the following table
+
+\large{Measurement} \\
+Each time, 9 phase shifts were recorded. 
+
+\large{Surroundings} \\
+Temperature: 
+Humidity: 
+
 
 \section{Protocol: Measurement of Noise Figure and Noise Floor}
 \large{Aim} \\
 \begin{itemize}
 \item Determination of the Noise figure with and without an integrator
-\item  
+\item Receiving noise flor 
 \end{itemize}
 
+\large{Surroundings} \\
+Temperature: 
+Humidity: 
