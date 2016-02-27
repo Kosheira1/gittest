@@ -48,7 +48,7 @@ The following graph \ref{sec.setup_amplifier} illustrates the setup for measurem
 Afterwards, the DLPCA is replaced with a current transformer. 
 \begin{figure}[htbp]
 	\centering
-	\includegraphics{figures/Method/setup/setup_CTonly}		
+	\includegraphics[width=0.5]{figures/Method/setup/setup_CTonly}		
 	\caption[Kurze Abbildungsbeschreibung]{Setup for measurements with Current Transformer only {source: Raphael F\"arber, revised by authors}} 
 	\label{sec.setup }
 
@@ -66,7 +66,7 @@ In order to emulate different dielectrica with their own respective dielectric l
 
 In order to get a theoretical maximum tan($\delta$) of 0.178 the parts shown in figure \ref{fig.debye-modell} are used. 
 \begin{figure}
-	\includegraphics[width=0.5\textwidth]{figures/Method/debye-modell.jpg}	
+	\includegraphics[width=0.5\textwidth]{figures/Method/Dielectric_loss/polarizationmultiple.eps}	
 	\caption{Debye model for tan($tan(\delta)$)= }	
 	\label{fig.debye-modell}
 \end{figure}
@@ -112,7 +112,7 @@ The integrator should have two functions. On the hand side it should integrate s
 
 The integrator has the following transfer function: \\
 \begin{equation}
-	tf_int(j \omega)=1/(1+s R_1 C_1)*(1+(1/R_2)*(1/R_3+j \omega C_2)^-1)
+	tf_{int}(j \omega)=\frac{1}{(1+s R_1 C_1)}\cdot(1+(\frac{1}/{R_2})\cdot(\frac{1}{R_3}+j \omega C_2)^{-1})
 \end{equation}
 The transfer function of the integrator is illustrated by the following bode plot. 
 
@@ -120,7 +120,7 @@ The transfer function of the integrator is illustrated by the following bode plo
 
 \includegraphics[width=\textwidth]{figures/Method/integrator/transferfunction_int.jpg}
 
-\caption[Kurze Abbildungsbeschreibung]{Bode plot of an integrator } \ref{sec.Bodeplot}
+\caption[Kurze Abbildungsbeschreibung]{Bode plot for the transfer function of an integrator } \ref{sec.Bodeplot}
 \end{figure}
 
 \begin{sidewaysfigure}
