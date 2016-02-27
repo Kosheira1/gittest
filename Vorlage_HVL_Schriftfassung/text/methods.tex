@@ -1,7 +1,15 @@
 \chapter{Methods}
 \section{Part 1}
+\subsection{General approach}
+\label{sec:general_approach}
+The following method is based on the assumption that  the epsilon is always the same for the used samples when they are delivered. Thus, there is just a need to determine the distance of the electrodes for each delivered sample in order to be able to calculate the effective $\epsilon$ after below-PD current measurements, because the distance might vary considerably. 
+At first the initial $\epsilon_eff$ for two reference samples has to be obtained:\\
+For the two reference samples the distance is measured optically with a microscope. By using the $d-C_0$ look up table described in the following chapter the vacuum capacitance can be obtained from the optical distance measurement. Together with the measured capacitance $C*$ a guess of the effective epsilon for the used epoxy resin is possible. 
+
+For forther samples, the capacitance $C*$ has to be measured. Together with the initial value of $\epsilon_eff$ of the reference samples one can obtain the vacuum capacitance $C_0$.By using the $d-C_0$ look up table a guess of the electrode distance d is possible. Now, the vacuum capacitance and the corresponding electrode distance are known for further measurements. Thus, it is possible to get the effective 
 \subsection{Simulation of vacuum capacitance} 
-The dependency of the vacuum capacity $C_0$ has to be simulated numerically for the high-voltage setup as well as for the low-voltage setup. 
+As mentioned in the chapters before the vacuum capacitance cannot the calculated directly because of the complexity of the geometry. COMSOL is a simulation software that is suitable for a numerical estimation of a permittivities or capacitances. The dependency of the vacuum capacity $C_0$ has to be simulated numerically both for the high-voltage setup and for the low-voltage setup. Although all measurements and the corresponding calculations of section \ref{sec:general_approach} can be carried out in the low-voltage setup it is handy to be able to do these calculations in the high-voltage setup as well. 
+
 \begin{figure}[htbp]
 	\centering
 	\includegraphics{figures/COMSOL_Beispielbild.jpg}		
@@ -9,11 +17,12 @@ The dependency of the vacuum capacity $C_0$ has to be simulated numerically for 
 	\label{fig.waveforms}
 \end{figure}
  
-There are several systematic errors that influence the vacuum capacity. One factor is the air gap between the wall of the low-voltage setup and the specimen. This air gap is unavoidable in order to be able to remove the specimen from the pouring setup. This air gap should theoretically be 0.5 mm, but it is expected to vary in worst-case between 0 mm and 1 mm. The lookup table of d based on $C_0$ is based on an air gap of 0.5 mm, therefore the deviation from this value has to be investigated. 
-Another systematic error is the deviation of the height of the specimen. During  the pouring process the height of the specimen cannot be . The maximum deviation is expected to be $\pm$ 0.5 mm. This deviation might occur during the production process of each new specimen. Thus, if the electrode distance of a specimen should be estimated by the method described in !!! this 
-A third influence is the 
+There are several systematic errors that influence the vacuum capacity simulation. One factor is the air gap between the wall of the low-voltage setup and the specimen. This air gap is unavoidable in order to be able to remove the specimen from the pouring setup. This air gap should theoretically be 0.5 mm, but in practice it is expected to vary between 0 mm and 1 mm for the worst-case. The lookup table of d based on $C_0$ is based on an air gap of 0.5 mm, therefore the deviation from this value has to be investigated numerically.
+Another systematic error is the deviation of the height of the specimen. During  the pouring process the height of the specimen cannot be fixed precisely. The maximum deviation is expected to be $\pm$ 0.5 mm. This deviation might occur during the production process of each new specimen. Thus, if the electrode distance of a specimen should be estimated by the method described in !!! 
 
 \section{Part 2}
+\subsection{The setup}
+There are two general setups. One is the high-voltage setup and one the low voltage-setup
 \section{Signal analysis of the Debye model}
 
 In order to emulate different dielectrica with their own respective dielectric loss tangent, different combinations of circuit elements were used. Each different circuit accounts for another loss tangent with respect to frequency. With the objective to assess the performance of the current transformer, reasonably high values for the $tan\left(\delta\right)$ were assumed (i.e. 0.05 to 0.2) since a lower loss tangent would require a higher resolution on the part of the current measurement.
