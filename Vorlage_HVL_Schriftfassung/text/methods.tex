@@ -72,7 +72,7 @@ Afterwards, the DLPCA is replaced with a current transformer.
 	\centering
 	\includegraphics[width=\textwidth]{figures/Method/setup/setup_CTonly}		
 	\caption[Kurze Abbildungsbeschreibung]{Setup for measurements with Current Transformer only {source: Raphael F\"arber, revised by authors}} 
-	\label{sec.setup }
+	\label{sec.setup}
 
 \end{figure}
 
@@ -83,39 +83,106 @@ In order to emulate different dielectrica with their own respective dielectric l
 Each different circuit accounts for another loss tangent with respect to frequency. With the objective to assess the performance of the current transformer, reasonably high values for the $tan\left(\delta\right)$ were assumed (i.e. 0.05 to 0.2) since a lower loss tangent
 would require a higher resolution on the part of the current measurement. The vacuum capacitance was chosen to be about 1000 times larger than
 the the one of the specimen for the purpose of generating the same magnitude of currents as in the high-voltage setup.
-\begin{figure}
+\begin{figure}[!ht]
 	\includegraphics[width=\textwidth]{figures/Method/Dielectric_loss/polarizationmultiple.eps}	
 	\caption{Polarization and Conduction losses for different frequencies and different parts in the Debye model}	
 	\label{fig.debye-modell}
 \end{figure}
 
 In order to get a theoretical maximum tan($\delta$) of 0.0178 the parts shown in figure \ref{fig.debye-modell} are used. 
-\begin{figure}
+\begin{figure}[!ht]
 	\includegraphics[width=\textwidth]{figures/Method/debye-modell.jpg}	
 	\caption{Debye model for max($tan(\delta)$)=0.0178 }	
-	\label{fig.debye-modell}
+	\label{fig.debye-modellsch}
 \end{figure}
 
-Once we insert the debye sample into the measurement setup of \ref{setup_amplifier} we can use the schematic in as a reference.
+Once we insert the debye sample into the measurement setup of \ref{sec.setup_amplifier} we can use the schematic in \ref{fig.presentation} as a reference.
 
-\begin{figure}
-	\includegraphics[width=\textwidth]{figures/Method/debye-modell.jpg}	
-	\caption{Debye model for max($tan(\delta)$)=0.0178 }	
-	\label{fig.debye-modell}
+\begin{figure}[!ht]
+	\centerline{\includegraphics[width=0.4\textwidth]{figures/Method/setup/low_voltage_setup.png}}	
+	\caption{Schematic setup for sectroscopy with debye model}	
+	\label{fig.presentation}
 \end{figure}
+
+While the spectroscopy was carried out primarily using sinusoidal inputs,
+the practically important signals are the trapezoidal voltage pulses with different
+slew rates. Consequentially, it is relevant to predict the shape and magnitude
+of the functions that are expected anywhere in the setup. 
+The debye model's parameters are assumed to be the same as in \ref{fig.debye-modellsch}.
+The input trapezoidal wave's fundamental frequency is 1kHz and its amplitude was
+set to 5V. Both the rise and 
+the fall time are both set to 1 $\mu s$. The voltage signal is meant to be created
+by the function generator in \ref{fig.presentation}
+\newline
+In order to determine the current through the debye network, the harmonic decomposition of
+the trapezoidal pulse train in the theory section was used. For each harmonic, the specific
+impedance of the debye network was calculated and the harmonic components for the current were found by deviding voltage component by its assigned impedance.
+
+\begin{equation}
+ \underline{Z}_{debye}(w)=\left[\frac{1}{R_{\infty}}+\frac{1}{R_{i}+\frac{1}{jwC_{i}}}+jwC_{0}\right]^{-1}
+ \label{debyeimpedance}
+\end{equation}
+
+It is important to note that $R_{\infty}$, which represents
+ohmic losses in dielectrics, was intentionally left out in both the debye model and calculations.
+
+Figures \ref{fig.beforeandafter} and \ref{fig.fourierla} shows the voltage signal and the resulting current signal as well as their fourier coefficients on a log scale.
+
+\begin{figure}[!ht]
+\centerline{\includegraphics[width=0.8\textwidth]{figures/Method/signal_simulation/beforeandafter.eps}}
+\caption{Voltage and current signals across and through debye sample}
+\label{fig.beforeandafter}
+\end{figure}
+
+\begin{figure}[!ht]
+\centerline{\includegraphics[width=0.8\textwidth]{figures/Method/signal_simulation/fourierla.eps}}
+\caption{Fourier coefficients of both signals}
+\label{fig.fourierla}
+\end{figure}
+
+The current transformer has a voltage to current transfer that is ideally $\frac{1V}{1A}$. 
+Consequentially the current signal that was determined before is now applied in the shape of a voltage to the input of the integrator and subsequentially
+filtered by the low-pass filter in front of the positive input of the operational amplifier. Said signal will be integrated.
+
+
+\begin{figure}[!ht]
+\centerline{\includegraphics[width=0.8\textwidth]{figures/Method/signal_simulation/integrated.eps}}
+\caption{Signals before and after integrator}
+\label{fig.integrator}
+\end{figure}
+
+In order to generate these signals, a simulation in Simulink was carried out using the components of the integrator circuit in \ref{fig.circuit}
+
+\begin{figure}[!ht]
+\centerline{\includegraphics[width=0.8\textwidth]{figures/Method/signal_simulation/simulink.eps}}
+\caption{Simulink assembly for integrator}
+\label{fig.simulink}
+\end{figure}
+
+Finally, at the end of the setup a butterworth low-pass filter of 8th order with a cutoff frequency
+was installed. Its transfer function was applied to the FFT of the integrated voltage signal and the resulting 
+signal is depicted in \ref{fig.finalvolt}
+
+
+\begin{figure}[!ht]
+\centerline{\includegraphics[width=0.8\textwidth]{figures/Method/signal_simulation/finalvolt.eps}}
+\caption{Final voltage signal to be measured by DAC}
+\label{fig.finalvolt}
+\end{figure}
+
 
 \subsection{Design of a holder for the Debye Equivalent Circuit}
 For a lossy medium the Debye Network consists at least of a vacuum capacity $C_0$ and the term for the charging of the additional capacitance. The DC resistance has a very high value and might therefore be left out, i.e. $R_infty=infty$. Thus, it is reasonable to design a holder for the network that can hold three strands with two components each. Moreover, it has to fit into the low-voltage and high-voltage test cell, what specified the dimensions of the holder.  
 Figure \ref{fig.CADgraph} shows the created holder which has a drawing that is depicted in figure \ref{fig.CADdrawing}.
 
-\begin{figure}
+\begin{figure}[!ht]
 \includegraphics[width=\textwidth]{figures/Method/CAD_MODEL/Gesamtanordnung.jpg}
 \caption{CAD graph for the holder of the debye network. Created with SolidWorks Invetor}
 \label{fig.CADgraph}
 \end{figure}
 \newpage
 
-\begin{sidewaysfigure}
+\begin{sidewaysfigure}[!ht]
 \includegraphics[width=0.99\textwidth]{figures/Gesamtanordnung.pdf}
     \caption{Drawing for the CAD holder}
     \label{fig.CADdrawing}
@@ -132,7 +199,7 @@ The aim is to have a current flwoing though the Debye model in the low-voltage s
 \subsection{Integrator}
 \subsection{Advantages of using an integrator}
 As the used 16-bit DAC has a limited resolution it is advantageous to use an integrator in order to spread the frequencies of the signal over a larger timescale. This makes it possible to detect the different frequencies more accurately with the same DAC. 
-A second reason to make use of an integrator is due to the fact that it adds an additional factor of $1/f$ to the Fourier spectrum of the output voltage signal. As the Fourier spectrum of the input signal is as well characterized by a $1/f$ decrease the integrator transforms the pulse signal back to a trapezoidal signal with a $1/f$-dependency in the Fourier spectrum. Since a $1/f$ dependency in the output signal is preferable to a constant Fourier spectrum due to better resolution for the first harmonic, the integrator improves the measurement as well. 
+A second reason to make use of an integrator is due to the fact that it adds an additional factor of $1/f$ to the Fourier spectrum of the output voltage signal. As the Fourier spectrum of the input signal is as well characterized by a $1/f$ decrease the integrator transforms the pulse signal back to a trapezoidal signal with a $1/f$-dependency in the Fourier spectrum. Since a $1/f$ dependency in the output signal is preferable to a constant Fourier spectrum due to better resolution for the first harmonics, the integrator improves the measurement as well. 
 
 \subsection{Design of integrator}
 The integrator should have two functions. On the hand side it should integrate signal on the other hand it should amplify the signal by a factor of 1000. This is due to the fact small below-PD-currents ($\sim$mA) should be measured. With a CT-sensitivity of $1V/A$ an amplification of 1000 is reasonable to use the range of measurable inputs of $\pm$ 10 V. These requirements can be achieved by a non-inverting integrator, which is shown in figure  \ref{fig.circuit}. 
