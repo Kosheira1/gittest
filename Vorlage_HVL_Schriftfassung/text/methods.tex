@@ -83,22 +83,21 @@ In order to emulate different dielectrica with their own respective dielectric l
 Each different circuit accounts for another loss tangent with respect to frequency. With the objective to assess the performance of the current transformer, reasonably high values for the $tan\left(\delta\right)$ were assumed (i.e. 0.05 to 0.2) since a lower loss tangent
 would require a higher resolution on the part of the current measurement. The vacuum capacitance was chosen to be about 1000 times larger than
 the the one of the specimen for the purpose of generating the same magnitude of currents as in the high-voltage setup.
-\begin{figure}[!ht]
-	\includegraphics[width=\textwidth]{figures/Method/Dielectric_loss/polarizationmultiple.eps}	
-	\caption{Polarization and Conduction losses for different frequencies and different parts in the Debye model}	
-	\label{fig.debye-modell}
-\end{figure}
+
+
+
+
 
 In order to get a theoretical maximum tan($\delta$) of 0.0178 the parts shown in figure \ref{fig.debye-modell} are used. 
-\begin{figure}[!ht]
-	\includegraphics[width=\textwidth]{figures/Method/debye-modell.jpg}	
+\begin{figure}[h!tb]
+	\centerline{\includegraphics[scale=0.7]{figures/Method/debye-modell.jpg}}	
 	\caption{Debye model for max($tan(\delta)$)=0.0178 }	
 	\label{fig.debye-modellsch}
 \end{figure}
 
 Once we insert the debye sample into the measurement setup of \ref{sec.setup_amplifier} we can use the schematic in \ref{fig.presentation} as a reference.
 
-\begin{figure}[!ht]
+\begin{figure}[h!tb]
 	\centerline{\includegraphics[width=0.4\textwidth]{figures/Method/setup/low_voltage_setup.png}}	
 	\caption{Schematic setup for sectroscopy with debye model}	
 	\label{fig.presentation}
@@ -128,13 +127,13 @@ ohmic losses in dielectrics, was intentionally left out in both the debye model 
 
 Figures \ref{fig.beforeandafter} and \ref{fig.fourierla} shows the voltage signal and the resulting current signal as well as their fourier coefficients on a log scale.
 
-\begin{figure}[!ht]
+\begin{figure}[h!tb]
 \centerline{\includegraphics[width=0.8\textwidth]{figures/Method/signal_simulation/beforeandafter.eps}}
 \caption{Voltage and current signals across and through debye sample}
 \label{fig.beforeandafter}
 \end{figure}
 
-\begin{figure}[!ht]
+\begin{figure}[h!tb]
 \centerline{\includegraphics[width=0.8\textwidth]{figures/Method/signal_simulation/fourierla.eps}}
 \caption{Fourier coefficients of both signals}
 \label{fig.fourierla}
@@ -145,7 +144,7 @@ Consequentially the current signal that was determined before is now applied in 
 filtered by the low-pass filter in front of the positive input of the operational amplifier. Said signal will be integrated.
 
 
-\begin{figure}[!ht]
+\begin{figure}[h!tb]
 \centerline{\includegraphics[width=0.8\textwidth]{figures/Method/signal_simulation/integrated.eps}}
 \caption{Signals before and after integrator}
 \label{fig.integrator}
@@ -153,7 +152,7 @@ filtered by the low-pass filter in front of the positive input of the operationa
 
 In order to generate these signals, a simulation in Simulink was carried out using the components of the integrator circuit in \ref{fig.circuit}
 
-\begin{figure}[!ht]
+\begin{figure}[h!tb]
 \centerline{\includegraphics[width=0.8\textwidth]{figures/Method/signal_simulation/simulink.eps}}
 \caption{Simulink assembly for integrator}
 \label{fig.simulink}
@@ -164,7 +163,7 @@ was installed. Its transfer function was applied to the FFT of the integrated vo
 signal is depicted in \ref{fig.finalvolt}
 
 
-\begin{figure}[!ht]
+\begin{figure}[h!tb]
 \centerline{\includegraphics[width=0.8\textwidth]{figures/Method/signal_simulation/finalvolt.eps}}
 \caption{Final voltage signal to be measured by DAC}
 \label{fig.finalvolt}
@@ -175,14 +174,14 @@ signal is depicted in \ref{fig.finalvolt}
 For a lossy medium the Debye Network consists at least of a vacuum capacity $C_0$ and the term for the charging of the additional capacitance. The DC resistance has a very high value and might therefore be left out, i.e. $R_infty=infty$. Thus, it is reasonable to design a holder for the network that can hold three strands with two components each. Moreover, it has to fit into the low-voltage and high-voltage test cell, what specified the dimensions of the holder.  
 Figure \ref{fig.CADgraph} shows the created holder which has a drawing that is depicted in figure \ref{fig.CADdrawing}.
 
-\begin{figure}[!ht]
+\begin{figure}[h!tb]
 \includegraphics[width=\textwidth]{figures/Method/CAD_MODEL/Gesamtanordnung.jpg}
 \caption{CAD graph for the holder of the debye network. Created with SolidWorks Invetor}
 \label{fig.CADgraph}
 \end{figure}
 \newpage
 
-\begin{sidewaysfigure}[!ht]
+\begin{sidewaysfigure}[h!tb]
 \includegraphics[width=0.99\textwidth]{figures/Gesamtanordnung.pdf}
     \caption{Drawing for the CAD holder}
     \label{fig.CADdrawing}
@@ -190,10 +189,19 @@ Figure \ref{fig.CADgraph} shows the created holder which has a drawing that is d
 \newpage
     
 
-\subsection{Measurement of the $\epsilon$ and the tan($\delta$) for the Debye model}
+\subsection{Measurement of the $\epsilon$ and the tan($\delta$) for the Debye model (dielectric spectroscopy)}
 
-The aim is to have a current flwoing though the Debye model in the low-voltage setup that is of the same order as a current in the high voltage-setup. In order to have a comparable current for a voltage that is $1/1000$ of the high-voltage setup a capacitance $C_0$ for the Debye is selected 1000 times higher than the Capacitance of the samples. As the sample has a capacitance of 3.44 pF its equivalent $C_0$ in the debye-model is 3.3 nF. In order to get a tan($\delta$) of !!! $R_i$ is chosen as and $C_i$ is chosen as . This results in a loss 
+The aim is to have a current flowing through the debye model in the low-voltage setup that is of the same order as a current in the high voltage-setup. In order to have a comparable current for a voltage that is $1/1000$ of the high-voltage setup a capacitance $C_0$ for the Debye is selected 1000 times higher than the Capacitance of the samples. As the sample has a capacitance of 3.44 pF its equivalent $C_0$ in the debye-model is 3.3 nF.
+A number of curves for the theoretical loss tangent, as well as their maximum frequency marked can be found in \ref{fig.debye-modell}.
 
+
+A phase shift that deviates from the voltage lagging the current by 90 degrees will inherently result in a complex relative dielectric permittivity. This fact can be
+taken advantage of to find the dielectric loss tangent that was defined in the theory section.
+\begin{sidewaysfigure}[h!tb]
+\includegraphics[width=0.99\textwidth]{figures/Method/Dielectric_loss/polarizationmultiple.eps}
+    \caption{Polarization and Conduction losses for different frequencies and different parts in the Debye model}
+    \label{fig.debye-modell}
+   \end{sidewaysfigure}	
 
 
 \subsection{Integrator}
@@ -204,7 +212,7 @@ A second reason to make use of an integrator is due to the fact that it adds an 
 \subsection{Design of integrator}
 The integrator should have two functions. On the hand side it should integrate signal on the other hand it should amplify the signal by a factor of 1000. This is due to the fact small below-PD-currents ($\sim$mA) should be measured. With a CT-sensitivity of $1V/A$ an amplification of 1000 is reasonable to use the range of measurable inputs of $\pm$ 10 V. These requirements can be achieved by a non-inverting integrator, which is shown in figure  \ref{fig.circuit}. 
 
-\begin{figure}
+\begin{figure}[h!tb]
 \includegraphics[width=0.99\textwidth]{figures/Method/integrator/circuit.png}
     \caption{Property profile of the diverse library compared to the compound pool.}
     \label{fig.circuit}
@@ -224,7 +232,7 @@ The transfer function of the integrator is illustrated by the following bode plo
 \caption[Kurze Abbildungsbeschreibung]{Bode plot for the transfer function of an integrator } \ref{sec.Bodeplot}
 \end{figure}
 
-\begin{sidewaysfigure}
+\begin{sidewaysfigure}[h!tb]
 \includegraphics[width=0.99\textwidth]{figures/Method/integrator/PCB_Integrator.png}
     \caption{Printed Circuit Board Layout for the non-inverting ingrator with a DC voltage supply}
     
@@ -233,15 +241,39 @@ The transfer function of the integrator is illustrated by the following bode plo
     
     \newpage
     
-    	\begin{sidewaysfigure}
+\begin{sidewaysfigure}[h!tb]
 \includegraphics[width=0.99\textwidth]{figures/Method/integrator/schematic.jpg}
  \caption{Property profile of the diverse library compared to the compound pool.}
-  \end{sidewaysfigure}	
+ \end{sidewaysfigure}	
 
 	
 
 
 
-\subsection{Protective Clamping Capability of the current transformer}
+\subsection{Protective clamping capability of the current transformer}
 \label{clamping}
+
+In case of an object breakdown the sample looses its dielectric properties and instead becomes conductive.
+In this situation peak currents of several hundreds of amperes are expected to flow through the current transformer.
+As a consequence, high voltages at its output will develop. In order to protect the sensitive electronics that
+process and measure the signal after the transformer that were introduced in the section before a protective part has to be added.
+Two TVS-Diodes connected to ground were used to clamp the voltage to a certain value regardless of what voltage the current transformer introduces.
+To investigate the reliability of this setup, a measurement setup involving charged capacitor banks was used that could generate
+pulses of currents with high amplitudes. 
+Primarily two performance parameters were to be investigated. First, are the TVS-diodes capable of clamping the voltage to their designated value even when
+a variety of higher voltages were applied to them through the current transformer and secondly, how does the introduction of said TVS-Diodes affect the
+signal transformation in case of normal operation. 
+\newline
+For this purpose a set of different current pulses was created and the performance of the current transformer was measured with the help of an
+oscilloscope with and without the clamping setup. In order not to destroy the oscilloscope a -40dB resisistive attenuator was introduced in series in front of
+the measuring port of the device.
+
+
+\begin{figure}[h!tb]
+\centerline{\includegraphics[scale=0.3]{figures/Method/Clamp/capacitorbank.jpg}}
+    \caption{Capacitor bank that created the current pulses for the current transformer}
+    \label{fig.clamp}
+\end{figure}	
+
+
 
