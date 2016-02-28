@@ -53,7 +53,7 @@ where D is the ratio of electrode distance over sphere diameter, i.e. $ D=\frac{
  There are several systematic errors that influence the vacuum capacity simulation. The inclined line on the right-hand side shows the air gap that is caused during the production process. This air gap between the wall of the low-voltage setup and the specimen causes an additional inhomogeneity. It is unavoidable in order to be able to remove the specimen from the pouring setup. This air gap should theoretically be 0.5 mm, but in practice it is expected to vary between 0 mm and 1 mm for the worst-case. The lookup table of d based on $C_0$ is based on an air gap of 0.5 mm, therefore the deviation from this value has to be investigated numerically.
 Another systematic error is the deviation of the height of the specimen. During  the pouring process the height of the specimen cannot be fixed precisely. The maximum deviation is expected to be $\pm$ 0.5 mm. This deviation might occur during the production process of each new specimen. Thus, if the electrode distance of a specimen should be estimated by the method described these deviations can result in an error. 
  
-\section{Part 2}
+\section{Suitability of current transformer for dielectric spectroscopy}
 \subsection{The setup}
 There are two general setups. One is the high-voltage setup and one the low voltage-setup. For testing the suitability of the current transformer the low voltage setup is sufficient except for the clamping test described in section \ref{clamping}. In order to get a similar current for the low-voltage setup as for the high-voltage setup a 1000 times higher vacuum capacitance is used in the Debye model. Therefore the selected vacuum capacitance is 3.3 nF whereas samples only have a vacuum capacitance of approximately 3.3 pF.  
 
@@ -79,17 +79,28 @@ Afterwards, the DLPCA is replaced with a current transformer.
 
 \subsection{Signal analysis of the Debye model}
 
-In order to emulate different dielectrica with their own respective dielectric loss tangent, different combinations of circuit elements were used. Each different circuit accounts for another loss tangent with respect to frequency. With the objective to assess the performance of the current transformer, reasonably high values for the $tan\left(\delta\right)$ were assumed (i.e. 0.05 to 0.2) since a lower loss tangent would require a higher resolution on the part of the current measurement.
+In order to emulate different dielectrica with their own respective dielectric loss tangent, different combinations of circuit elements were used.
+Each different circuit accounts for another loss tangent with respect to frequency. With the objective to assess the performance of the current transformer, reasonably high values for the $tan\left(\delta\right)$ were assumed (i.e. 0.05 to 0.2) since a lower loss tangent
+would require a higher resolution on the part of the current measurement. The vacuum capacitance was chosen to be about 1000 times larger than
+the the one of the specimen for the purpose of generating the same magnitude of currents as in the high-voltage setup.
 \begin{figure}
-	\includegraphics[width=0.5\textwidth]{figures/Method/debye-modell.jpg}	
+	\includegraphics[width=\textwidth]{figures/Method/polarizationmultiple.eps}	
 	\caption{Polarization and Conduction losses for different frequencies and different parts in the Debye model}	
 	\label{fig.debye-modell}
 \end{figure}
 
-In order to get a theoretical maximum tan($\delta$) of 0.178 the parts shown in figure \ref{fig.debye-modell} are used. 
+In order to get a theoretical maximum tan($\delta$) of 0.0178 the parts shown in figure \ref{fig.debye-modell} are used. 
 \begin{figure}
-	\includegraphics[width=\textwidth]{figures/Method/Dielectric_loss/polarizationmultiple.eps}	
-	\caption{Debye model for tan($tan(\delta)$)= }	
+	\includegraphics[width=\textwidth]{figures/Method/Dielectric_loss/debye-modell.jpg}	
+	\caption{Debye model for max($tan(\delta)$)=0.0178 }	
+	\label{fig.debye-modell}
+\end{figure}
+
+Once we insert the debye sample into the measurement setup of \ref{setup_amplifier} we can use the schematic in as a reference.
+
+\begin{figure}
+	\includegraphics[width=\textwidth]{figures/Method/Dielectric_loss/debye-modell.jpg}	
+	\caption{Debye model for max($tan(\delta)$)=0.0178 }	
 	\label{fig.debye-modell}
 \end{figure}
 
