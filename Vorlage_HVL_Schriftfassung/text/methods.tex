@@ -1,5 +1,6 @@
 \chapter{Methods}
 \section{Part 1: Determination of electrode distance d}
+\label{part1}
 \subsection{General approach}
 The setup is illustrated in figure \ref{sec.setup_amp_1}. A cell surrounds the  epoxid resin sample and makes sure that the current flowing from the electrode to the wall is connected to the ground and does not count for the measurement. The DLPCA amplifier converts the measured current into a voltage and amplifies it. After a butterworth filter an ADC creates a signal that is processed with MATLAB. The butterworth filter ensures that frequencies above 100 kHz, which are not interesting for the mixed-frequency investigation, are cut out. 
 
@@ -16,6 +17,23 @@ At first, the initial $\epsilon_{eff}$ for two reference samples has to be obtai
 For the two reference samples the distance is measured optically with a microscope. By using the $d-C_0$-look-up table described in the following chapter the vacuum capacitance can be obtained from the optical distance measurement. Together with the measured capacitance $C*$ a guess of the effective epsilon for the used epoxy resin is possible. 
 
 For forther samples, the capacitance $C*$ has to be measured. Together with the initial value of $\epsilon_{eff}$ of the reference samples one can obtain the vacuum capacitance $C_0$. By using the $d-C_0$ look up table a guess of the electrode distance d is possible. Now, the vacuum capacitance and the corresponding electrode distance are known for further measurements. Thus, it is possible to get the the values and changes in the effective permittivity with the calculated $C_0$.
+
+
+\subsection{Measuring the capacitance of the sample}
+
+$C_0$ was measured by determining its impedance with the setup described in \ref{spectroscopy} but its measurement
+parameters are mentioned here for the sake of completeness of \ref{part1}.
+A series of 25 measurements was conducted whereas the capacitance was removed
+and re-inserted into its holder after each measurement. Each time the epoxy resin sample was
+re-inserted 25 individual measurements were automatically carried out amounting to a total of 625 recordings.
+
+\begin{figure}[h!tb]
+	\centering
+	\includegraphics[width=\textwidth]{figures/Method/Experimentaufbau/epoxy.jpg}		
+	\caption[Kurze Abbildungsbeschreibung]{Sample of dielectric specimen on the holder} \label{fig.comsol_beispiel}
+
+\end{figure}
+
 
 \subsection{Simulation of vacuum capacitance} 
 \label{sec.sim_vac_comsol}
@@ -83,9 +101,6 @@ In order to emulate different dielectrica with their own respective dielectric l
 Each different circuit accounts for another loss tangent with respect to frequency. With the objective to assess the performance of the current transformer, reasonably high values for the $tan\left(\delta\right)$ were assumed (i.e. 0.05 to 0.2) since a lower loss tangent
 would require a higher resolution on the part of the current measurement. The vacuum capacitance was chosen to be about 1000 times larger than
 the the one of the specimen for the purpose of generating the same magnitude of currents as in the high-voltage setup.
-
-
-
 
 
 In order to get a theoretical maximum tan($\delta$) of 0.0178 the parts shown in figure \ref{fig.debye-modell} are used. 
@@ -165,7 +180,7 @@ signal is depicted in \ref{fig.finalvolt}
 
 \begin{figure}[h!tb]
 \centerline{\includegraphics[width=0.8\textwidth]{figures/Method/signal_simulation/finalvolt.eps}}
-\caption{Final voltage signal to be measured by DAC}
+\caption{Final voltage signal to be measured by ADC}
 \label{fig.finalvolt}
 \end{figure}
 
@@ -179,75 +194,121 @@ Figure \ref{fig.CADgraph} shows the created holder which has a drawing that is d
 \caption{CAD graph for the holder of the debye network. Created with SolidWorks Invetor}
 \label{fig.CADgraph}
 \end{figure}
-\newpage
 
-\begin{sidewaysfigure}[h!tb]
-\includegraphics[width=0.99\textwidth]{figures/Gesamtanordnung.pdf}
-    \caption{Drawing for the CAD holder}
-    \label{fig.CADdrawing}
-   \end{sidewaysfigure}	
-\newpage
+
+
+
     
 
-\subsection{Measurement of the $\epsilon$ and the tan($\delta$) for the Debye model (dielectric spectroscopy)}
-
-The aim is to have a current flowing through the debye model in the low-voltage setup that is of the same order as a current in the high voltage-setup. In order to have a comparable current for a voltage that is $1/1000$ of the high-voltage setup a capacitance $C_0$ for the Debye is selected 1000 times higher than the Capacitance of the samples. As the sample has a capacitance of 3.44 pF its equivalent $C_0$ in the debye-model is 3.3 nF.
+\subsection{Measuring of the $\epsilon_{eff}$ and the tan($\delta$) for the Debye model (dielectric spectroscopy)}
+\label{spectroscopy}
+It was aimed to create a current through the debye sample that conincides with the one expteced in the high-voltage setup. In order to have a comparable current for a voltage that is $1/1000$ of the high-voltage setup a capacitance $C_0$ for the Debye is selected 1000 times higher than the Capacitance of the samples. As the sample has a capacitance of 3.44 pF its equivalent $C_0$ in the debye-model is 3.3 nF.
 A number of curves for the theoretical loss tangent, as well as their maximum frequency marked can be found in \ref{fig.debye-modell}.
 
+The dielectric spectroscopy was conducted in the low-voltage setup and \ref{fig.presentation} can be used as a reference.
+Generally, sinusoidal voltage signals were used in order to determine the effective relative dielectric permittivity.
+The impedance method \cite{Kramer} approach was carried out to infere about the permittivity given the signals in the setup.
+In order to find the impedance of the setup, one has to compare the input voltage amplitude to the output current amplitude.
 
-A phase shift that deviates from the voltage lagging the current by 90 degrees will inherently result in a complex relative dielectric permittivity. This fact can be
+The course of action can is described in this following passage.
+\newline
+A sinusoidal voltage signal with a variable amplitude is applied to the debye model. There are in total 3 different measurement setups,
+in the first setup the current is measured with the DLPCA, in the second, the current transformer is inserted for the purpose of measuring 
+the current and in the third setup, that is similar to the second one, an integrator is added after the transformer in order
+to achieve that both the input and the output's spectral components in the FFT analysis have the same $1/f$ dependency.
+The digital signal processing unit or analog to digital converter (ADC) samples the signals in a way that 
+the first component of the FFT's frequency corresponds to the fundamental frequency
+of the sinusoidal wave generated by the function generator.
+
+
+\begin{equation}
+\epsilon(\omega)=\frac{J^*(\omega)}{i \omega \epsilon_0 E^*(\omega)} = \frac{1}{i \omega Z^*(\omega) C_0}\\
+\end{equation}
+The ratio of the first component of the voltage's FFT divided by the first component of the current's FFT indicates the magnitude
+of $Z*(\omega)$ and a phase shift that deviates from the voltage lagging the current by 90 degrees will inherently result in a complex impedance and
+inherently a complex relative dielectric permittivity. This fact can be
 taken advantage of to find the dielectric loss tangent that was defined in the theory section.
+\newline
+$C_0$ in the formula above denotes the vacuum capacitance and its impedance can be found using the procedure described above with the difference, that
+the dielectric component, i.e. $R_i$ and $C_i$ are removed from the sample and $C_0$ is left behind.
+
+\begin{figure}[h!tb]
+ \centering
+ \begin{minipage}{0.4\textwidth}
+ \includegraphics[width=\textwidth]{figures/Method/Experimentaufbau/debyesample}
+ \caption[Kurze Abbildungsbeschreibung]{Debye holder with components inserted}
+ \end{minipage}\qquad
+ \begin{minipage}{0.4\textwidth}
+ \includegraphics[width=\textwidth]{figures/Method/Experimentaufbau/hardwork}
+ \caption[Kurze Abbildungsbeschreibung]{Playing Solitaire on the oscilloscope instead of working}
+ \end{minipage}
+ 
+ \end{figure}
+
 \begin{sidewaysfigure}[h!tb]
 \includegraphics[width=0.99\textwidth]{figures/Method/Dielectric_loss/polarizationmultiple.eps}
     \caption{Polarization and Conduction losses for different frequencies and different parts in the Debye model}
     \label{fig.debye-modell}
-   \end{sidewaysfigure}	
+   \end{sidewaysfigure}
 
+   
+   \begin{sidewaysfigure}[h!tb]
+\includegraphics[width=0.99\textwidth]{figures/Gesamtanordnung.pdf}
+    \caption{Drawing for the CAD holder}
+    \label{fig.CADdrawing}
+   \end{sidewaysfigure}
 
 \subsection{Integrator}
 \subsection{Advantages of using an integrator}
-As the used 16-bit DAC has a limited resolution it is advantageous to use an integrator in order to spread the frequencies of the signal over a larger timescale. This makes it possible to detect the different frequencies more accurately with the same DAC. 
+As the used 16-bit ADC has a limited resolution it is advantageous to use an integrator in order to spread the frequencies of the signal over a larger timescale. This makes it possible to detect the different frequencies more accurately with the same ADC. 
 A second reason to make use of an integrator is due to the fact that it adds an additional factor of $1/f$ to the Fourier spectrum of the output voltage signal. As the Fourier spectrum of the input signal is as well characterized by a $1/f$ decrease the integrator transforms the pulse signal back to a trapezoidal signal with a $1/f$-dependency in the Fourier spectrum. Since a $1/f$ dependency in the output signal is preferable to a constant Fourier spectrum due to better resolution for the first harmonics, the integrator improves the measurement as well. 
 
-\subsection{Design of integrator}
+\subsection{Design of the integrator}
 The integrator should have two functions. On the hand side it should integrate signal on the other hand it should amplify the signal by a factor of 1000. This is due to the fact small below-PD-currents ($\sim$mA) should be measured. With a CT-sensitivity of $1V/A$ an amplification of 1000 is reasonable to use the range of measurable inputs of $\pm$ 10 V. These requirements can be achieved by a non-inverting integrator, which is shown in figure  \ref{fig.circuit}. 
 
 \begin{figure}[h!tb]
 \includegraphics[width=0.99\textwidth]{figures/Method/integrator/circuit.png}
-    \caption{Property profile of the diverse library compared to the compound pool.}
+    \caption{Schematic integrator circuit}
     \label{fig.circuit}
     \end{figure}	
 
+For the analysis of the transfer function of the integrator \ref{fig.circuit} is used as a reference.
+At the input of the operational amplifier a low-pass filter is inserted to avoid integrating high-frequency noise.
+The transfer function from the signal input to the positive input of the amplifier is given as
 
-The integrator has the following transfer function: \\
 \begin{equation}
-	tf_{int}(j \omega)=\frac{1}{(1+s R_1 C_1)}\cdot(1+(\frac{1}/{R_2})\cdot(\frac{1}{R_3}+j \omega C_2)^{-1})
+  G_1(s)=\frac{1}{1+sR_1C_1}
+\end{equation}
+
+The amplifier is set up in the non-inverting configuration, whose transfer function to the output is given by
+
+\begin{equation}
+ G_2(s)=\left[1+\frac{\left(\frac{1}{R_3}+sC_2\right)^{-1}}{R_2}\right]
+\end{equation}
+
+Combining the above results we arrive at:
+\begin{equation}
+	G_1(s)G_2(s)=TF_{int}(s)=\frac{1}{(1+s R_1 C_1)}\left[1+\frac{\left(\frac{1}{R_3}+sC_2\right)^{-1}}{R_2}\right]
 \end{equation}
 The transfer function of the integrator is illustrated by the following bode plot. 
 
-\begin{figure}
-
+\begin{figure}[h!tb]
 \includegraphics[width=\textwidth]{figures/Method/integrator/transferfunction_int.jpg}
-
-\caption[Kurze Abbildungsbeschreibung]{Bode plot for the transfer function of an integrator } \ref{sec.Bodeplot}
+\caption[Kurze Abbildungsbeschreibung]{Bode plot for the transfer function of an integrator}
+\label{fig.Bodeplot}
 \end{figure}
 
 \begin{sidewaysfigure}[h!tb]
 \includegraphics[width=0.99\textwidth]{figures/Method/integrator/PCB_Integrator.png}
-    \caption{Printed Circuit Board Layout for the non-inverting ingrator with a DC voltage supply}
+    \caption{Printed Circuit Board Layout for the non-inverting ingrator with a DC voltage supply} 
+\end{sidewaysfigure}
     
-    \end{sidewaysfigure}	
     
-    
-    \newpage
     
 \begin{sidewaysfigure}[h!tb]
 \includegraphics[width=0.99\textwidth]{figures/Method/integrator/schematic.jpg}
  \caption{Property profile of the diverse library compared to the compound pool.}
- \end{sidewaysfigure}	
-
-	
-
+ \end{sidewaysfigure}
 
 
 \subsection{Protective clamping capability of the current transformer}
@@ -268,12 +329,11 @@ For this purpose a set of different current pulses was created and the performan
 oscilloscope with and without the clamping setup. In order not to destroy the oscilloscope a -40dB resisistive attenuator was introduced in series in front of
 the measuring port of the device.
 
-
 \begin{figure}[h!tb]
 \centerline{\includegraphics[scale=0.3]{figures/Method/Clamp/capacitorbank.jpg}}
     \caption{Capacitor bank that created the current pulses for the current transformer}
     \label{fig.clamp}
-\end{figure}	
+\end{figure}
 
 
 
