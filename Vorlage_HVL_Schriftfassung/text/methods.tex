@@ -29,7 +29,28 @@ As mentioned in the chapters before the vacuum capacitance cannot the calculated
 
 \end{figure}
  
-Figure \ref{fig.comsol_beispiel} shows the simulated field distribution in the low-voltage setup in COMSOL. There are several systematic errors that influence the vacuum capacity simulation. The inclined line on the right-hand side shows the air gap that is caused during the production process. This air gap between the wall of the low-voltage setup and the specimen causes an additional inhomogeneity. It is unavoidable in order to be able to remove the specimen from the pouring setup. This air gap should theoretically be 0.5 mm, but in practice it is expected to vary between 0 mm and 1 mm for the worst-case. The lookup table of d based on $C_0$ is based on an air gap of 0.5 mm, therefore the deviation from this value has to be investigated numerically.
+Figure \ref{fig.comsol_beispiel} shows the simulated field distribution in the low-voltage setup in COMSOL for an electrode with a cyclindrical geometry. Since the capacity of the setup and therefore also the currents are depending on the geometry of the electrode a conic electrode is simulated as well as shown in figure  \ref{fig.comsol_conic}
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[scale=0.3]{figures/Method/Part1_d_C0/sphere_capacity.jpg}		
+	\caption[Kurze Abbildungsbeschreibung]{Field simulation of the low-voltage test cell (0.5 mm electrode distance)} \label{fig.comsol_conic}
+
+\end{figure}
+
+In order to validate the simulations the capacitance of two spheres with a distance d are used as a reference. The following formula gives an approximation for the capacitance of two spheres with radius r and center distance d. \cite{Rawlins}
+\begin{equation}
+C=2 \pi \epsilon r ( ln 2 + \gamma -1/2 ln(2D-2)+O(2D-2))
+\end{equation}
+where D is the ratio of electrode distance over sphere diameter, i.e. $ D=\frac{d}{2r}$. As the electrodes have a spherical end with 8mm radius, the radius for the two capacitances is set 8mm as well. 
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[scale=0.3]{figures/Method/Part1_d_C0/sphere_capacity.jpg}		
+	\caption[Kurze Abbildungsbeschreibung]{Field simulation of the low-voltage test cell (0.5 mm electrode distance)} \label{fig.comsol_sphere}
+
+\end{figure}
+
+ There are several systematic errors that influence the vacuum capacity simulation. The inclined line on the right-hand side shows the air gap that is caused during the production process. This air gap between the wall of the low-voltage setup and the specimen causes an additional inhomogeneity. It is unavoidable in order to be able to remove the specimen from the pouring setup. This air gap should theoretically be 0.5 mm, but in practice it is expected to vary between 0 mm and 1 mm for the worst-case. The lookup table of d based on $C_0$ is based on an air gap of 0.5 mm, therefore the deviation from this value has to be investigated numerically.
 Another systematic error is the deviation of the height of the specimen. During  the pouring process the height of the specimen cannot be fixed precisely. The maximum deviation is expected to be $\pm$ 0.5 mm. This deviation might occur during the production process of each new specimen. Thus, if the electrode distance of a specimen should be estimated by the method described these deviations can result in an error. 
  
 \section{Part 2}
@@ -49,9 +70,7 @@ The following graph \ref{sec.setup_amplifier} illustrates the setup for measurem
 Afterwards, the DLPCA is replaced with a current transformer. 
 \begin{figure}[htbp]
 	\centering
-
 	\includegraphics[width=\textwidth]{figures/Method/setup/setup_CTonly}		
-
 	\caption[Kurze Abbildungsbeschreibung]{Setup for measurements with Current Transformer only {source: Raphael F\"arber, revised by authors}} 
 	\label{sec.setup }
 
@@ -62,17 +81,15 @@ Afterwards, the DLPCA is replaced with a current transformer.
 
 In order to emulate different dielectrica with their own respective dielectric loss tangent, different combinations of circuit elements were used. Each different circuit accounts for another loss tangent with respect to frequency. With the objective to assess the performance of the current transformer, reasonably high values for the $tan\left(\delta\right)$ were assumed (i.e. 0.05 to 0.2) since a lower loss tangent would require a higher resolution on the part of the current measurement.
 \begin{figure}
-	\includegraphics[width=\textwidth]{figures/Method/debye-modell.jpg}	
-	\caption{Debye model for max($tan(\delta)$)=0.0178}	
+	\includegraphics[width=0.5\textwidth]{figures/Method/debye-modell.jpg}	
+	\caption{Polarization and Conduction losses for different frequencies and different parts in the Debye model}	
 	\label{fig.debye-modell}
 \end{figure}
 
-In order to get a theoretical maximum tan($\delta$) of 0.0178 the parts shown in figure \ref{fig.debye-modell} are used. 
+In order to get a theoretical maximum tan($\delta$) of 0.178 the parts shown in figure \ref{fig.debye-modell} are used. 
 \begin{figure}
 	\includegraphics[width=\textwidth]{figures/Method/Dielectric_loss/polarizationmultiple.eps}	
-
-	\caption{Polarization and Conduction losses for different frequencies and different components in the Debye model }	
-
+	\caption{Debye model for tan($tan(\delta)$)= }	
 	\label{fig.debye-modell}
 \end{figure}
 
