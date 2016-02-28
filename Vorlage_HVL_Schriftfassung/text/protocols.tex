@@ -1,51 +1,51 @@
 \chapter{Protocols}
 \section{Protocol: Measurement of capacitance of two samples}
-\large{Aim} \\
+This protocol documents the measurements for part 1. \\
+{\Large Aim}
 \begin{itemize}
-
 \item Measurement of capacitances of two samples in order to derive the $\epsilon$ with a optically measured electrode distance 
 \item Measurement of the deviation in capacitance due to slightly different insertion of the sample into the low-voltage cell. Measurement of the deviation in due to errors in the measurement devices. 
 \item Optical measurement of electrode distance after curring the sample (done by Raphael F\"arber) 
 \end{itemize}
-
-\large{Used Instruments} 
+ 
+\par
+{\large Used Instruments}
 \begin{itemize}
  \item Butterworth Filter: Alligator Technologies USBPGF-S1
  \item DLPCA: Femto DLPCA-2000
  \item Oscilloscope: LeCroy waveSurfer 24MXs-A
  \item External Voltage Supply:  XHR 20-50
- \item DAC: National Instruments cDAQ-9171
+ \item ADC: National Instruments cDAQ-9171
 
 \end{itemize}
 
 
-\large{Setup} \\
-The input signal was  sinusoidal with 1kHz and $V_pp=16$. This signal is applied to two different samples in the low-voltage-setup. The current through the probe is measured with DLPCA, filtered with a Butterworth filter and then given to a ADC. 
-Input signal and output current are measured and the division of these quantities allows to deduce $C*$.\\
+{\large Setup} 
 
-Together with the optical measurement of d the effective $\epsilon$ can be calculated. 
+The input signal was  sinusoidal with 1kHz and $V_{pp}=16V$. This signal is applied to two different samples in the low-voltage-setup. The current through the probe is amplified with the DLPCA, filtered with a Butterworth filter and then given to a ADC. 
+Input signal and output current are measured and the division of these quantities allows to deduce $C^*$.\\
+Together with the optical measurement of d the effective $\epsilon$ can be calculated. \\
 
-Settings: \newline
-Signal Generator:  sin, 1kHz, $V_pp=16V$
-DLPCA:  automatically adapted gain
+{\large Settings:} \newline
+Signal Generator:  sin, 1kHz, $V_pp=16V$\\
+DLPCA:  automatically adapted gain\\
 BW-Filter:  cutoff-frequency : 100kHz, Gain: 1
 
 \large{Measurement} \\
-25 measurements of the capacitance each time after the samples were taken out of the low-voltage cell and put in again. Each measurement comprises of 25 phase shifts. 
+25 phase averages were taken of the capacitance. The samples were taken out the low-voltage cell each time and put in again.
 
-The measurements were conducted for two different samples.
+The measurements were conducted for two different samples.\\
 
-Measured values for sample 2 is not usable as there is entrapped air near the electrode. This was realized when measuring the electrode distance after slicing of the sample.
+Measured values for sample 2 are not usable as there is entrapped air near the electrode. This was realized when measuring the electrode distance after slicing the sample.
 
-\large{Surroundings} \\
-Temperature: 
+{\large Surroundings} \\
+Temperature: 21.3 $^{\circ}$
 Humidity: 
 
-\section{Protocol: Measurement of $\epsilon$ and tan($\delta$) of Debye Model}
-\large{Aim} \\
+\section{Protocol: Measurement of $\epsilon$ and tan($\delta$) of the debye model}
+{\large Aim} \\
 \begin{itemize}
 \item Measurement of the $tan(\delta)$ and $\epsilon$ for different frequencies beteween 1 kHz and 10kHz in order to compare the results with the theoretical values
-\item  
 \end{itemize}
 
 
@@ -56,34 +56,65 @@ Humidity:
  \item Oscilloscope: LeCroy waveSurfer 24MXs-A
  \item External Voltage Supply:  XHR 20-50
  \item DAC: National Instruments cDAQ-9171
- \item Current Transformer: 
+ \item Current Transformer: PEARSON CURRENT
+MONITOR MODEL 2877
 
 \end{itemize}
 
 
 \large{Setup} \\
-The input signal was  sinusoidal with 1kHz and $V_pp=15$. The signal is applied to the Debye-model in the low-voltage setup. The current through the Debye-model is firstly measured with DLPCA, filtered with a Butterworth filter and then given to a ADC. Secondly, just the current transformer is used to measure the current. Thirdly, the current transformer is used with an integrator. 
-For all thre measurement setups the measurement is done with the complete Debye model and as a reference measurement just with $C_0$, i.e. $R_i$ and $C_i$ are removed. 
+The input signal was  sinusoidal with frequencies . The signal is applied to the Debye-model in the low-voltage setup. The current through the Debye-model is firstly measured with DLPCA, filtered with a Butterworth filter and then given to a ADC. Secondly, just the current transformer is used to measure the current. Thirdly, the current transformer is used with an integrator. 
+For all three setups the measurement is done with the complete Debye model first and as a reference measurement just with $C_0$, i.e. $R_i$ and $C_i$ are removed afterwards.\\ 
 
-Settings: \newline
-Signal Generator:  sin, 1kHz to10 kHz, $V_pp=16V$
-DLPCA:  automatically adapted gain
-BW-Filter:  cutoff-frequency : always double the input frequency, gain according to the following table
-
+{\large Settings:} \newline
+\begin{itemize}
+\item Signal Generator:  sin, frequencies:500,1000,2000,2500,2600,2700,
+2750,2800,2850,2900,2950,
+3000,5000,10000,50000,\\
+\item DLPCA:  automatically adapted gain
+\item BW-Filter:  cutoff-frequency : always double the input frequency, gain according to the following table\\ coupling: without CT: DC, with CT: DC, with DC and Integrator: AC
+\end{itemize}
 \large{Measurement} \\
-Each time, 9 phase shifts were recorded. 
+Each time, 9 phase averages were recorded. 
 
 \large{Surroundings} \\
-Temperature: 
+Temperature: 22.1
 Humidity: 
 
 
 \section{Protocol: Measurement of Noise Figure and Noise Floor}
 \large{Aim} \\
 \begin{itemize}
-\item Determination of the Noise figure with and without an integrator
+\item Determination of the Noise figure with and without an integrator 
 \item Receiving noise flor 
 \end{itemize}
+\large{Used Instruments} 
+\begin{itemize}
+ \item Butterworth Filter: Alligator Technologies USBPGF-S1
+ \item DLPCA: Femto DLPCA-2000
+ \item Oscilloscope: LeCroy waveSurfer 24MXs-A
+ \item External Voltage Supply:  XHR 20-50
+ \item DAC: National Instruments cDAQ-9171
+ \item Current Transformer: PEARSON CURRENT
+MONITOR MODEL 2877
+
+\end{itemize}
+
+
+\large{Setup} \\
+The input signal was  sinusoidal with frequencies . The signal is applied to the Debye-model in the low-voltage setup. The current through the Debye-model is firstly measured with DLPCA, filtered with a Butterworth filter and then given to a ADC. Secondly, just the current transformer is used to measure the current. Thirdly, the current transformer is used with an integrator. 
+For all three setups the measurement is done with the complete Debye model first and as a reference measurement just with $C_0$, i.e. $R_i$ and $C_i$ are removed afterwards.\\ 
+
+{\large Settings:} \newline
+\begin{itemize}
+\item Signal Generator:  sin,
+frequencies: 500,1000,2000,2500,2600,2700,
+2750,2800,2850,2900,2950, 3000,5000,10000,50000 Hz\\
+\item DLPCA:  automatically adapted gain
+\item BW-Filter:  cutoff-frequency : always double the input frequency, gain according to the following table\\ coupling: without CT: DC, with CT: DC, with DC and Integrator: AC
+\end{itemize}
+{\large Measurement} \\
+Each time, 9 phase averages were recorded. 
 
 \large{Surroundings} \\
 Temperature:  
