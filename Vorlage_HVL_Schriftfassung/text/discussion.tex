@@ -4,7 +4,7 @@
 The results indicate that the integrator has much noise at low frequencies. One might think that this does not influence the results as frequencies below 1kHz are not monitored, but this due to the spectral leakage of the FFT not the case.  A high-pass filter at the output of the integrator could reduce these parasitic frequency components. This might reduce the measured swing at the output of the integrator and thus improve the results of the dielectric spectroscopy. 
 Moreover, a more detailed analysis of the origin of these low-frequency components is necessary. It has already been shown that the external voltage source is not responsible for them, thus the integrator has to be investigated part by part in order to find the origin of this noise. 
 
-Another measure to reduce the offset actively is a feedback loop.
+Another measure to reduce the offset actively is a feedback loop. A PI-controller in the feedback loop at the output can make sure that there an offset at the input is erased as described in \cite{thomas}. 
 
 \section{Measures to improve the current transformer}
-As shown in the chapter \ref{chp.results} the measurements with the current transformer deteriorates the confidence interval of the measured $tan(\delta)$ by putting the largest 
+As shown in the chapter \ref{chp.results} the measurements with the current transformer deteriorates the confidence interval of the measured $tan(\delta)$ by orders. This deterioration is reduced by the integrator, but it is still higher than with a shun resistor measurement.
