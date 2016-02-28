@@ -31,7 +31,7 @@ The estimation of the dielectric permittivity of the epoxid is based on the assu
 
 \subsection{Debye model}
 The polarization effects in a dielectric material can be characterized by the (complex) relative permittivity and the resuling dielectric loss factor. Both are frequency-dependent quantities. 
-For linear materials the polarization can be described by a network model. The Debye-ansatz assumes that the rate of change $ \frac{dP_i}{dt}$ is proportional to the difference between the remaining polarization $P_i(t)$ and the polarization at infinity $P_i(\infty$). This results in an exponential decay of the polarization function that tends towards $P_i(\infty)$. This exponential decay can be modeled with a time constant of a resistor and a capacitor in series ($\tau=R_i \cdot C_i$). Therefore, an emulated dielectric comprises of the vacuum capacitance, an additional capacity $C_i$ and a resistor $R_i$ and a resistor for a stationary conduction current $R_{infty}$. 
+For linear materials the polarization can be described by a network model. The Debye-ansatz assumes that the rate of change $ \frac{dP_i}{dt}$ is proportional to the difference between the remaining polarization $P_i(t)$ and the polarization at infinity $P_i(\infty$). This results in an exponential decay of the polarization function that tends towards $P_i(\infty)$. This exponential decay can be modeled with a time constant of a resistor and a capacitor in series ($\tau=R_i \cdot C_i$). Therefore, an emulated dielectric comprises of the vacuum capacitance, an additional capacity $C_i$ and a resistor $R_i$ and a resistor for a stationary conduction current $R_{\infty}$. 
 
 \subsubsection{Derivation of maximum tan($\delta$)}
 The aim of this section is to derive the formula for the maximum tan($\delta$) of the Debye model in order to adjust its value to a disired one.
@@ -97,11 +97,14 @@ tan(\delta) = tan(\delta_L) + tan( \delta_Pol) = \frac{\omega^2 \tau^2+1}{\omega
 \end{equation}
 
 Its derivative is given by: 
-\begin{equation}
-\frac{\partial tan(\delta)}{ \partial \omega} = \frac{[\omega C_0 R_\infty (2+\omega^2 \tau^2)]\cdot 2 \omega \tau^2 - (\omega^2 \tau^2 +1) [C_0 R_\infty (2+3 \omega^2 \tau^2)  }{[\omega C_0 R_\infty (2+\omega^2 \tau^2)]^2}+ \frac{\tau \Delta \epsilon [\epsilon_{stat} + \omega^2 \tau^2] - 2 \omega \tau^2 [\omega \tau \Delta \epsilon]}{[\epsilon_{stat} +\omega^2 \tau^2]}
-\end{equation}
+\begin{align}
+\frac{\partial tan(\delta)}{ \partial \omega} & = \frac{[\omega C_0 R_\infty (2+\omega^2 \tau^2)]\cdot 2 \omega \tau^2 - (\omega^2 \tau^2 +1) [C_0 R_\infty (2+3 \omega^2 \tau^2)  }{[\omega C_0 R_\infty (2+\omega^2 \tau^2)]^2}\\
+					      & + \frac{\tau \Delta \epsilon [\epsilon_{stat} + \omega^2 \tau^2] - 2 \omega \tau^2 [\omega \tau \Delta \epsilon]}{[\epsilon_{stat} +\omega^2 \tau^2]}
+\label{eg:test}
+					      \end{align}
 
-in order to find the maximum of tan($\delta_{pol}$)the second part of the term above is put to 0. 
+in order to find the maximum of tan($\delta_{pol}$)the second part of the term above, i.e. \eqref{eg:test}, is set equal to 0 to get an algebraic expression
+for the maximum value and its corresponding frequency.
 
 \begin{equation}
 \tau \Delta \epsilon [\epsilon_{stat} + \omega^2 \tau^2] -2\omega \tau^2 [\omega \tau \Delta \epsilon] = 0
@@ -159,13 +162,13 @@ The principle setup of a Current Transformer is shown in the following figure:
 \subsection{Noise Considerations}
 \subsubsection{General}
 The evaluation of noise added to the signal by the CT, the integrator, the BW-filter and the cables is of great importance as it limits the capability of measuring below-PD-currents though the capacitance of the specimen. 
-In order to quantify the desired signal compared to the background noise, the Signal-to-Noise Ratio (SNF) can be measured. The SNF is a the ratio of signal power over signal noise. The power is proportional to the amplitude of the signal.
+In order to quantify the desired signal compared to the background noise, the Signal-to-Noise Ratio (SNR) can be measured. The SNR is a the ratio of signal power over signal noise. The power is proportional to the amplitude of the signal.
 \begin{equation}
-	SNF=P_{signal}/P_{noise} = (V_signal/V_noise)^2
+	SNR=\frac{P_{signal}}{P_{noise}} = \left[\frac{V_{signal}}{V_{noise}}\right]^2
 \end{equation}
-The degradation of the SNF is characterized by its input value over its output value, which is the Noise Figure (NF).
+The degradation of the SNR is characterized by its input value over its output value, which is the Noise Figure (NF) and is indicated in dB.
 \begin{equation}
-	NF = SNR_{in}/SNR{out}
+	NF = 10log\left(\frac{SNR_{in}}{SNR_{out}}\right)
 \end{equation}
 The amount of additional noise by the components can be characterized by the NF. 
 \subsection{Noise of a Current Transformer}
