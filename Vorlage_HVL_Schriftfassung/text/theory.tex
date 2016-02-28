@@ -1,13 +1,13 @@
 \chapter{Theory}
 \section{Part 1}
 \subsection{Derivation of the effective $\epsilon$}
-The effective permittivity is used to describe the permittivity of a composite material. This is necessary due to the fact that the assumption of homogeneity is not tenable for compound material. As the permittivity is proportional to the capacitance the effective permittivity can be obtained by the ratio of C* to the vacuum capacitance $C_0$.\\
+The effective permittivity is used to describe the permittivity of a composite material. This is necessary due to the fact that the assumption of homogeneity is not tenable for compound material. As the permittivity is proportional to the capacitance the effective permittivity can be obtained by the ratio of $C^*$ to the vacuum capacitance $C_0$.\\
+
 \begin{equation}
-
-
-$\epsilon_{eff}(\omega)= \frac{C^*(\omega)}{C_0}$ \\
-
-$\epsilon(\omega)=\frac{J^*(\omega)}{i \omega \epsilon_0 E^*(\omega)} = \frac{1}{i \omega Z^*(\omega) C_0}$\\
+\epsilon_{eff}(\omega)= \frac{C^*(\omega)}{C_0} 
+\end{equation}
+\begin{equation}
+\epsilon(\omega)=\frac{J^*(\omega)}{i \omega \epsilon_0 E^*(\omega)} = \frac{1}{i \omega Z^*(\omega) C_0}\\
 \end{equation}
 Whereas for layered material geometries the effective permittivity can be derived quite easily from the permittivity of the different materials this is not possible for a complex setup any more. Thus, a numerical simulation is required as described in chapter \ref{sec.sim_vac_comsol}. In order to get the effective $\epsilon$ the complex capacitance and the vacuum capacitance have to be obtained. While the former can be measured (voltage/current measurement) the latter has to be obtained with a numerical simulation. 
 For the specimen in figure ??, there are several geometric quantities that influence the vacuum capacity. The most important factor is the distance of the electrodes as it may vary considerably. As a consequence a lookup table has to be created that allows an estimation of d if $C_0$ is given.
@@ -39,12 +39,12 @@ The aim of this section is to derive the formula for the maximum tan($\delta$) o
 \epsilon_{eff}^* (\omega) = \frac{C^*(\omega)}{C_0}
 \end{equation}
 
-In Electrical Engineering, it is custom to define the  permittivity $\epsilon$ in the following way: 
+In Electrical Engineering, it is custom to define the  complex relative permittivity $\epsilon$ in the following way: 
 \begin{equation}
 \epsilon^* = \epsilon_r-j \cdot \epsilon_r''
 \end{equation}
 
-
+For the by the above mentioned debye-ansatz given delay of the dipole alignment one receives the following equations for the  \cite{Kuchler}. 
 \begin{equation}
 \epsilon'_r = \epsilon_{\infty} + \frac{\epsilon_{stat}-\epsilon_{\infty}}{1+(\omega \cdot \tau )^2}
 \end{equation}
