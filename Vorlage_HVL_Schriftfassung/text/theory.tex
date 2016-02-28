@@ -156,6 +156,33 @@ A current transformer (CT) or pulse transformer is an instrument transformer tha
 The principle setup of a Current Transformer is shown in the following figure: 
 \\CTs are especially suitable if the current on the primary side is too high to measure because the CT provides a current on the secondary side that is in a measurable area. A current transformer is suitable for current waveshapes and amplitudes from microamperes to megaamperes in high voltage circuits. Another advantage over a shunt resistance is due to the galvanic isolation of the secondary side from the primary. This galvanic isolation prohibits large currents on the secondary side during a  which might destroy the Butterworth-Filter or the Digital-to-Analog-Converter (DAC). 
 
+The transfer function for the current transformer can be calculated with the following differential equation, that is derived from Ampere's law (deducation based on: \cite{highdynamiccurrent}).
+\begin{equation}
+U_B(t) + \frac{L_2}{R_B} \cdot \frac{dU_B(t)}{dt}=\frac{N_1}{N_2} \cdot L_2 \cdot \frac{dI_1(t)}{dt}
+\end{equation}
+This results in a complex transfer function of: 
+\begin{equation}
+U_B(s) = R_B \cdot \frac{N_1}{N_2} \cdot \frac{s \frac{L_2}{R_B}}{s \frac{L_2}{R_B} +1} \cdot I_1(s)
+\end{equation}
+
+With the time constant $T=\frac{L_2}{R_B}$ this is a high-pass filter with a lower corner frequency of 
+\begin{equation}
+f_u= \frac{1}{2 \pi T} = \frac{R_B}{2 \pi L_2}
+\end{equation}
+
+For frequencies above the corner frequency the transfer function is:
+\begin{equation}
+G_CT(s) = \frac{U_B(s)}{I_1(s)}=R_B \cdot \frac{N_1}{N_2}
+\end{equation}
+
+This simplified model ignores the resistance and inductance of the primary and secondary side. 
+
+%In Methods Teil kopieren
+Errors in a Current Transformer: 
+For simplicity reasons the transfer function of a current transformer was assumend to be constant for different frequencies. It is moreover assumed  
+
+
+
 
 \subsection{Clamping capability of Current Transformers }
 
