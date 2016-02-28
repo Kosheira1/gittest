@@ -1,9 +1,14 @@
 \chapter{Theory}
 \section{Part 1}
 \subsection{Derivation of the effective $\epsilon$}
+
 The effective permittivity is used to describe the permittivity of a composite material. This is necessary due to the fact that the assumption of homogeneity is not tenable for compound material. As the permittivity is proportional to the capacitance the effective permittivity can be obtained by the ratio of C* to the vacuum capacitance $C_0$.\\
+
 \begin{equation}
-\epsilon_{eff}(\omega)= \frac{C^*(\omega)}{C_0} \\
+\epsilon_{eff}(\omega)= \frac{C^*(\omega)}{C_0} 
+\end{equation}
+\begin{equation}
+
 \epsilon(\omega)=\frac{J^*(\omega)}{i \omega \epsilon_0 E^*(\omega)} = \frac{1}{i \omega Z^*(\omega) C_0}\\
 \end{equation}
 Whereas for layered material geometries the effective permittivity can be derived quite easily from the permittivity of the different materials this is not possible for a complex setup any more. Thus, a numerical simulation is required as described in chapter \ref{sec.sim_vac_comsol}. In order to get the effective $\epsilon$ the complex capacitance and the vacuum capacitance have to be obtained. While the former can be measured (voltage/current measurement) the latter has to be obtained with a numerical simulation. 
@@ -14,7 +19,7 @@ For the specimen in figure ??, there are several geometric quantities that influ
 
 
 \subsection{Interdependence between epsilon and textepsiloneff} 
-The estimation of the dielectric permittivity of the epoxid is based on the assumption that phase and magnitude of $\epsilon$ and $\epsilon_{eff}$ are decoupled. Thus, if one wants to estimate the $\epsilon$ of the dielectric material one has to investigate the dependency of magnitude and phase of the $\epsilon$ on the $epsilon_eff$ numerically. This effect can in general not be neglected as the the simulation for a layered capacitance proves.  
+The estimation of the dielectric permittivity of the epoxid is based on the assumption that phase and magnitude of $\epsilon$ and $\epsilon_{eff}$ are decoupled. Thus, if one wants to estimate the $\epsilon$ of the dielectric material one has to investigate the dependency of magnitude and phase of the $\epsilon$ on the $\epsilon_{eff}$ numerically. This effect can in general not be neglected as the the simulation for a layered capacitance proves.  
 
 \begin{center}
 	\includegraphics[width=\textwidth]{figures/Theory/layeredepsilon.jpg}
@@ -28,7 +33,7 @@ The estimation of the dielectric permittivity of the epoxid is based on the assu
 
 \subsection{Debye model}
 The polarization effects in a dielectric material can be characterized by the (complex) relative permittivity and the resuling dielectric loss factor. Both are frequency-dependent quantities. 
-For linear materials the polarization can be described by a network model. The Debye-ansatz assumes that the rate of change $ \frac{dP_i}{dt}$ is proportional to the difference between the remaining polarization $P_i(t)$ and the polarization at infinity $P_i(\infty$). This results in an exponential decay of the polarization function that tends towards $P_i(\infty)$. This exponential decay can be modeled with a time constant of a resistor and a capacitor in series ($\tau=R_i \cdot C_i$). Therefore, an emulated dielectric comprises of the vacuum capacitance, an additional capacity $C_i$ and a resistor $R_i$ and a resistor for a stationary conduction current $R_infty$. 
+For linear materials the polarization can be described by a network model. The Debye-ansatz assumes that the rate of change $ \frac{dP_i}{dt}$ is proportional to the difference between the remaining polarization $P_i(t)$ and the polarization at infinity $P_i(\infty$). This results in an exponential decay of the polarization function that tends towards $P_i(\infty)$. This exponential decay can be modeled with a time constant of a resistor and a capacitor in series ($\tau=R_i \cdot C_i$). Therefore, an emulated dielectric comprises of the vacuum capacitance, an additional capacity $C_i$ and a resistor $R_i$ and a resistor for a stationary conduction current $R_{infty}$. 
 
 \subsubsection{Derivation of maximum tan($\delta$)}
 The aim of this section is to derive the formula for the maximum tan($\delta$) of the Debye model in order to adjust its value to a disired one.
@@ -36,12 +41,12 @@ The aim of this section is to derive the formula for the maximum tan($\delta$) o
 \epsilon_{eff}^* (\omega) = \frac{C^*(\omega)}{C_0}
 \end{equation}
 
-In Electrical Engineering, it is custom to define the  permittivity $\epsilon$ in the following way: 
+In Electrical Engineering, it is custom to define the  complex relative permittivity $\epsilon$ in the following way: 
 \begin{equation}
 \epsilon^* = \epsilon_r-j \cdot \epsilon_r''
 \end{equation}
 
-
+For the by the above mentioned debye-ansatz given delay of the dipole alignment one receives the following equations for the real and imaginary part of $\epsilon$ \cite{Kuchler}. 
 \begin{equation}
 \epsilon'_r = \epsilon_{\infty} + \frac{\epsilon_{stat}-\epsilon_{\infty}}{1+(\omega \cdot \tau )^2}
 \end{equation}
@@ -54,7 +59,7 @@ The loss tangents are given by:
 \begin{equation}
 tan (\delta) = \frac{\kappa + \omega \cdot \epsilon_0 \cdot \epsilon _r ''}{\omega \cdot \epsilon_0 \cdot \epsilon _r '}
 \end{equation}
-
+It can be split up in one part for the polarisation losses and another part for the conduction losses, which are given in the following equations. 
 \begin{equation}
 tan (\delta_{L}) = \frac{\kappa}{\omega \cdot \epsilon_0 \cdot \epsilon_r'} \newline
 \end{equation}
@@ -64,12 +69,13 @@ tan (\delta_{pol}) = \frac {\epsilon_r'' } {\epsilon_r'}
 \end{equation}
 
 
-We are measuring in the frequency domain from $10^{-6}$ Hz to $10^{11}$ Hz 
+We are measuring in the frequency domain from $10^{-6}$ Hz to $10^{11}$ Hz, thus the complex dielectric function can be deduced from a measurement of the time dependent dielectric function $\epsilon(t)$ as described above. 
 
 \begin{equation}
 \epsilon^*(\omega) = \frac{1}{j \omega  Z^*(\omega) C_0}
 \end{equation}
 
+The impedance is given by the chosen Debye model. 
 \begin{equation}
 Z_0(\omega)=[\frac{1}{R_\infty}+\frac{1}{R_i+\frac{1}{j \omega C_i}}+j \omega C_0]^{-1} = [\frac{1}{R_\infty}+\frac{j \omega C_i}{j\omega R_i  C_i+1}+j \omega C_0]^{-1}
 \end{equation}
@@ -78,7 +84,7 @@ Z_0(\omega)=[\frac{1}{R_\infty}+\frac{1}{R_i+\frac{1}{j \omega C_i}}+j \omega C_
 \epsilon^*(\omega)= \frac{[\frac{1}{R_\infty}+\frac{j \omega C_i}{j\omega C_i R_i  +1}+j \omega C_0]}{j \omega C_0} = \frac{1}{j \omega C_0 R_\infty}+ \frac{C_i/C_0}{j\omega C_i R_i  +1}+1
 \end{equation}
 
-We split this term up into real and impaginary part 
+The term for $\epsilon$ is splitted up into a real and an imaginary part. 
 
 \begin{equation}
 \epsilon_r' = 1+ \frac{C_i/C_0}{\omega^2 C_i^2 R_i^2 +1}
@@ -92,11 +98,12 @@ We split this term up into real and impaginary part
 tan(\delta) = tan(\delta_L) + tan( \delta_Pol) = \frac{\omega^2 \tau^2+1}{\omega C_0 R_\infty (2+ \omega^2 \tau^2)}=\frac{\omega \tau \Delta \epsilon}{\epsilon_{stat} + \omega^2 \tau^2}
 \end{equation}
 
+Its derivative is given by: 
 \begin{equation}
 \frac{\partial tan(\delta)}{ \partial \omega} = \frac{[\omega C_0 R_\infty (2+\omega^2 \tau^2)]\cdot 2 \omega \tau^2 - (\omega^2 \tau^2 +1) [C_0 R_\infty (2+3 \omega^2 \tau^2)  }{[\omega C_0 R_\infty (2+\omega^2 \tau^2)]^2}+ \frac{\tau \Delta \epsilon [\epsilon_{stat} + \omega^2 \tau^2] - 2 \omega \tau^2 [\omega \tau \Delta \epsilon]}{[\epsilon_{stat} +\omega^2 \tau^2]}
 \end{equation}
 
-Um das Maximum von tan($\delta_{pol}$) zu finden wird der zweite Term in der Ableitung 0 gesetzt.
+in order to find the maximum of tan($\delta_{pol}$)the second part of the term above is put to 0. 
 
 \begin{equation}
 \tau \Delta \epsilon [\epsilon_{stat} + \omega^2 \tau^2] -2\omega \tau^2 [\omega \tau \Delta \epsilon] = 0
