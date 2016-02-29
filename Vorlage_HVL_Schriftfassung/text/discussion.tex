@@ -1,5 +1,19 @@
 \chapter{Discussion}
 
+\section{Simulations}
+Given the fact that the resulting effective dielectric permittivity, which
+is mostly based on the simulation results has 
+a reasonable value as well as the general dependency of the capacitance on electrode distance being consistent
+with the approximation of two spheres once we factor in the third electrode in the geometry leads
+to believe that the simulations are reliable. 
+\newline
+The only thing that initially seemed not credible was the concept of an increasing effective permittivity
+with an increasing air gap. However after some consideration, the case of the 3 electrode geometry was convincing enough to rely
+on the values ascertained by the simulation software. 
+\newline
+In general, when it comes to evaluating the performance of a simulation, the limited accuracy
+of finite element methods is a concern. COMSOL gives the option to decrease the minimum size of each of the meshed elements.
+A few different mesh sizes were used until the simulation converged such that a sufficient accuracy
 \section{Measures to improve the integrator}
 The results indicate that the integrator has much noise at low frequencies. One might think that this does not influence the results as frequencies below 1kHz are not monitored, but this due to the spectral leakage of the FFT not the case.  A high-pass filter at the output of the integrator could reduce these parasitic frequency components. This might reduce the measured swing at the output of the integrator and thus improve the results of the dielectric spectroscopy. 
 Moreover, a more detailed analysis of the origin of these low-frequency components is necessary. It has already been shown that the external voltage source is not responsible for them, thus the integrator has to be investigated part by part in order to find the origin of this noise. 
@@ -14,7 +28,41 @@ Furthermore, a more detailed analysis of the correlation between the NF of the c
 The error class of the used Pearson CT 2877 is $+1 / -0 \% $, which includes current and phase errors as well as well as effects of harmonics in the primary current according to IEC 600-44-1. The phase shift errors of the CT 2877 are given by its Application Note {\url{http://www.pearsonelectronics.com/pdf/Application_20Notes.pdf} as below 6 degrees for frequencies at least one decade above the cutoff frequency. As 1 kHz is not one decade above the the corner frequency of 300 Hz it is not possible to make a serious guess which influence the phase shift caused by the current transformer has on the dielectric spectroscopy. There are as well CTs with lower corner frequencies below 300 Hz, which might result in lower phase errors. As the upper cutoff frequency is in the MHz area for all of them it is in general no problem to have a lower upper cutoff frequency. 
 
 \section{Measures to improve the Debye model}
+\label{debyemodel}
 As shown in the results the measurements for the dielectric spectroscopy the theoretical $tan(\delta)$ is not within the confidence interval when measured with the DLPCA. This indicates that there are further parasitic impedances in the Debye model that were not considered. These might be prevented by evaluating the impedance with a network analyzer. 
 
 
 \section{Measurement and signal processing during dielectric spectroscopy}
+The procedure of how the data is acquired is described in \ref{spectroscopy}
+still has many notable flaws. The ADC can only process data at
+1Mhz. As in the N-point DFT, the signals are implicitly assumed to be periodic,
+the sinusoidal signals at different frequencies were sampled only along one period.
+Using the formula for the frequency spacing of the FFT bins
+\begin{equation}
+ \Delta f=\frac{1}{\Delta t N}
+\end{equation}
+whereas N denotes the number of samples. 
+Given the formula and the sampling algorithm, it can be deducted that the frequency spacing is
+always exactly as large as the fundamental frequency of the recorded signal.
+Consequentially only the signal frequency and its harmonics can be recorded appropriately.
+Low frequency noise will be distribiuted among all of the bins in an unpredictable fashion and decreases
+the quality of the measurement in terms of SNR and NF. It is hard to predict how much of the noise will be added to the bin that should
+monitor the signals amplitude. 
+Another problem is that while a sinusoidal wave is in fact periodic, superimposed oscillations of other frequencies, such as the ones that
+were recorded of the integrator in the setup, will cause a major difference between the first sample point and the last one. 
+Given the FFT's properties this sudden jump that is caused by the assumption of the signal being periodic adds
+disproportionally large amounts of high-frequency containments to the higher bins of the FFT. In this case the SNR might be overestimated by an unknown factor. 
+\newline
+Furthermore, an increasing dependency of the size of the confidence intervals with respect to the noise figure of
+the setup was determined. 
+More experiments using a higher number of phase averages will certainly lower the variance in the experiment, however it would 
+be highly advantageous to have a more specific relation between the size of the confidence intervals
+and the noise figure, given the number of phase averages.
+\begin{equation}
+ 95 \% CI=f\left(NF\right)
+\end{equation}
+Once this relation is established, one can define the maximum acceptable
+interval size for a given number of phase averages and find the maximum noise figure, 
+which in return gives a clear cut requirements to the hardware and software involved in the measurement setup.
+For example, one would be able to tell by which factor the integrator has to improve the SNR in order to achieve
+an adequate measurement outcome.
