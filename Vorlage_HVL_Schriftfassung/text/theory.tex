@@ -6,10 +6,7 @@ The effective permittivity is used to describe the permittivity of a composite m
 \begin{equation}
 \epsilon_{eff}(\omega)= \frac{C^*(\omega)}{C_0} 
 \end{equation}
-
-\begin{equation}
-\epsilon(\omega)=\frac{J^*(\omega)}{i \omega \epsilon_0 E^*(\omega)} = \frac{1}{i \omega Z^*(\omega) C_0}\\
-\end{equation}
+For the dielectric spectroscopy $\epsilon$ is received by
 
 Whereas the effective permittivity can be derived quite easily from the permittivity of the different materials for layered material geometries this is not possible for a complex setup any more. Thus, a numerical simulation is required as described in chapter \ref{sec.sim_vac_comsol}. In order to get the effective $\epsilon$ the complex capacitance and the vacuum capacitance have to be obtained. While the former can be measured (voltage/current measurement) the latter has to be obtained with a numerical simulation. 
 For the specimen in figure \ref{fig.specimen}, there are several geometric quantities that influence the vacuum capacity. The most important factor is the distance of the electrodes as it may vary considerably. As a consequence a lookup table has to be created that allows an estimation of d if $C_0$ is given.
@@ -18,12 +15,16 @@ For the specimen in figure \ref{fig.specimen}, there are several geometric quant
 
 
 \subsection{Interdependence between $\epsilon$ and $\epsilon_{eff}$} 
-The estimation of the dielectric permittivity of the epoxid is based on the assumption that phase and magnitude of $\epsilon$ and $\epsilon_{eff}$ are decoupled. Thus, if one wants to estimate the $\epsilon$ of the dielectric material one has to investigate the dependency of magnitude and phase of the $\epsilon$ on the $\epsilon_{eff}$ numerically. This effect can in general not be neglected as the the simulation for a layered capacitance proves.  
+The estimation of the dielectric permittivity of the epoxy is based on the assumption that phase and magnitude of $\epsilon$ and $\epsilon_{eff}$ are decoupled. Thus, if one wants to estimate $\epsilon$ of the dielectric material one has to investigate the dependency of magnitude and phase of the $\epsilon$ on the $\epsilon_{eff}$ numerically. This effect can in general not be neglected as the the simulation for a layered capacitance proves.  
 
 \begin{center}
+\begin{figure}
+
 	\includegraphics[width=\textwidth]{figures/Theory/layeredepsilon.eps}
-	%\caption{Interdependeny of $\epsilon$ and $\epsilon_eff$}
-	\end{center}
+	\caption[Kurze Abbildungsbeschreibung]{Interdependeny of permittivity and effective permittivity in phase and magnitude}
+	
+\end{figure}
+\end{center}
 	
 	
 	
