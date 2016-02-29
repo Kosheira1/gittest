@@ -7,10 +7,12 @@ The setup is illustrated in figure \ref{sec.setup_amp_1}. A cell surrounds the  
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[width=\textwidth]{figures/Method/setup/setup_amplifier.png}		
-	\caption[Kurze Abbildungsbeschreibung]{Setup for measurements\footnote{source: Raphael F\"arber}} 
+	\caption[Kurze Abbildungsbeschreibung]{Setup for measurements\protect\footnotemark} 
 	\label{sec.setup_amp_1}
 
 \end{figure}
+\footnotetext{source: Raphael F\"arber, revised by authors}
+
 \label{sec:general_approach}
 The following method is based on the assumption that  $\epsilon$ is always the same for the used samples when they are delivered. Thus, it is required to determine the distance of the electrodes for each delivered sample in order to be able to calculate the effective $\epsilon$ after below-PD current measurements, because the distance might vary considerably. 
 At first, the initial $\epsilon_{eff}$ for two reference samples has to be obtained:\\
@@ -80,10 +82,13 @@ The following graph \ref{sec.setup_amplifier} illustrates the setup for measurem
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[width=\textwidth]{figures/Method/setup/setup_DLPCA.eps}		
-	\caption[Kurze Abbildungsbeschreibung]{Setup for reference measurements (source: Raphael F\"arber, revised by authors)} 
+	\caption[Kurze Abbildungsbeschreibung]{Setup for reference measurements \protect\footnotemark} 
+	
 	\label{sec.setup_amplifier}
 
 \end{figure}
+
+\footnotetext{source: Raphael F\"arber, revised by authors}
 
 Afterwards, the DLPCA is replaced with a current transformer. 
 \begin{figure}[htbp]
@@ -266,6 +271,7 @@ As the used 16-bit ADC has a limited resolution it is advantageous to use an int
 A second reason to make use of an integrator is due to the fact that it adds an additional factor of $1/f$ to the Fourier spectrum of the output voltage signal. As the Fourier spectrum of the input signal is as well characterized by a $1/f$ decrease the integrator transforms the pulse signal back to a trapezoidal signal with a $1/f$-dependency in the Fourier spectrum. Since a $1/f$ dependency in the output signal is preferable to a constant Fourier spectrum due to better resolution for the first harmonics, the integrator improves the measurement as well. 
 
 \subsection{Design of the integrator}
+\subsubsection{Functionality}
 The integrator should have two functions. On the hand side it should integrate signal on the other hand it should amplify the signal by a factor of 1000. This is due to the fact small below-PD-currents ($\sim$mA) should be measured. With a CT-sensitivity of $1V/A$ an amplification of 1000 is reasonable to use the range of measurable inputs of $\pm$ 10 V. These requirements can be achieved by a non-inverting integrator, which is shown in figure  \ref{fig.circuit}. 
 
 \begin{figure}[h!tb]
@@ -300,10 +306,26 @@ The transfer function of the integrator is illustrated by the following bode plo
 \label{fig.Bodeplot}
 \end{figure}
 
+\subsubsection{Implementation}
+The integrator together with its supply circuit were predominantely soldered on SMD footprints that were designed
+with PCB software. The print can be found in \ref{fig.solder}.
+The goal was to be able to operate the circuit with a unipolar voltage supply so an active charge pump in the 
+shape of a 17-pin LTC3260 IC \footnote{/data$\_$sheets/LTC3260} was used to create the negative and positive supply voltage for the operational amplifier.
+\footnote{/data$\_$sheets/LT1028}
+The circuit elements required for the charge pump were directly taken from the data sheet. The elements involved with the signal 
+filtering and integration can be found in \ref{fig.circuit}
+
 \begin{sidewaysfigure}[h!tb]
 \includegraphics[width=0.99\textwidth]{figures/Method/integrator/PCB_Integrator.png}
     \caption{Printed Circuit Board Layout for the non-inverting ingrator with a DC voltage supply} 
+    \label{fig.solder}
 \end{sidewaysfigure}
+    
+\begin{figure}[h!tb]
+\includegraphics[width=\textwidth]{figures/Method/integrator/realintegrator.jpg}
+\caption[Kurze Abbildungsbeschreibung]{Integrator circuit with BNC to SMD connectors}
+\label{fig.realcircuit}
+\end{figure}
     
     
     
@@ -320,7 +342,7 @@ In case of an object breakdown the sample looses its dielectric properties and i
 In this situation peak currents of several hundreds of amperes are expected to flow through the current transformer.
 As a consequence, high voltages at its output will develop. In order to protect the sensitive electronics that
 process and measure the signal after the transformer that were introduced in the section before a protective part has to be added.
-Two TVS-Diodes connected to ground were used to clamp the voltage to a certain value regardless of what voltage the current transformer introduces.
+Two TVS-Diodes (SMCJ7.0CA) \footnote{/data$\_$sheets/SMCJ7.0CA} connected to ground were used to clamp the voltage to a certain value regardless of what voltage the current transformer introduces.
 To investigate the reliability of this setup, a measurement setup involving charged capacitor banks was used that could generate
 pulses of currents with high amplitudes. 
 Primarily two performance parameters were to be investigated. First, are the TVS-diodes capable of clamping the voltage to their designated value even when
