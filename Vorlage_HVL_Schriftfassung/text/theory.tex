@@ -26,13 +26,23 @@ The estimation of the dielectric permittivity of the epoxy in mixed epoxy-air co
 	
 	
 \section{Part 2: Suitability of current transformer for dielectric spectroscopy}
-\subsection{Debye Relaxation}
-!!!Still to be written!!!
+\subsection{Debye Relaxation and Debye model}
 
 
-\subsection{Debye model}
-The polarization effects in a dielectric material can be characterized by the (complex) relative permittivity and the resuling dielectric loss factor. Both are frequency-dependent quantities. 
-For linear materials the polarization can be described by a network model. The Debye-ansatz assumes that the rate of change $ \frac{dP_i}{dt}$ is proportional to the difference between the remaining polarization $P_i(t)$ \nomenclature {$P_i$}{Polarization of material} and the polarization at infinity $P_i(\infty$). This results in an exponential relaxation of the polarization function that tends towards $P_i(\infty)$. This exponential decay can be modeled with a time constant of a resistor and a capacitor in series ($\tau=R_i \cdot C_i$). Therefore, an emulated dielectric comprises a vacuum capacitance, an additional capacitance $C_i$ and a resistor $R_i$ in series and a resistor $R_{\infty}$ for a stationary conduction current. 
+The polarization effects in a dielectric material can be characterized by the (complex) relative permittivity and the resuling dielectric loss factor.
+Both are frequency-dependent quantities.
+The Debye-ansatz assumes that the rate of change $ \frac{dP_i}{dt}$ is proportional to the difference between the remaining polarization $P_i(t)$ \nomenclature {$P_i$}{Polarization of material} and the polarization at infinity $P_i(\infty$). This results in an exponential relaxation of the polarization function that tends towards $P_i(\infty)$.
+In an alternating electric field this leads to a phase shift between the electric field $E(t)$ and the 
+electric displacement field $D(t)$.
+\newline
+Formally the lagging of the $\underline{D}$ field can be represented by a decomposition in two phasors.
+\begin{equation}
+ \underline{D}=\epsilon_{0}\epsilon_{r}'\underline{E}-j\epsilon_{0}\epsilon_{r}''\underline{E}
+\end{equation}
+
+
+
+For linear materials the polarization can be described by a network model. The exponential decay can be modeled with a time constant of a resistor and a capacitor in series ($\tau=R_i \cdot C_i$). Therefore, an emulated dielectric comprises a vacuum capacitance, an additional capacitance $C_i$ and a resistor $R_i$ in series and a resistor $R_{\infty}$ for a stationary conduction current. 
 
 \subsubsection{Derivation of maximum tan($\delta$)}
 The aim of this section is to derive the formula for the maximum tan($\delta$) of the Debye model in order to adjust its value to a desired one. The following formula was already stated in \ref{subsec.Derivationeffective}.
