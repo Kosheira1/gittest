@@ -1,7 +1,10 @@
 
 \input{text/Header}
 %\input{text/Titelseite_Diss_Angaben}
+
 \EndPreamble
+\makenomenclature 
+
 \begin{document}
 
 	\pagenumbering{roman} 		%Schaltet die Seitenzahlen auf roemische Zahlen
@@ -18,7 +21,7 @@
 	\input{text/Aufgabenstellung}
 %	\input{text/Kurzfassung}
 	\input{text/abstract}
-
+	\printnomenclature
 	\tableofcontents 				%erzeugt das Inhaltsverzeichnis
 
 	\cleardoublepage 				%notwendig, damit arabische Nummerierung erst beim ersten Kapitel beginnt

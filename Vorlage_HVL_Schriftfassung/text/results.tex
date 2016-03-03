@@ -2,16 +2,16 @@
 \chapter{Results}
 \label{chp.results}
 \section{Simulation of Capacitance values}
-\subsection{Comparision of Capacitance in the simulation with a sphere geometry}
-The simulation of the capacitance for the cylindric geometry as a function of different distances with COMSOL leads to the following figure.The simulation of two spheres as well as the approximation formula result in a general 
+\subsection{Capacitance simulation compared to simulation with a sphere geometry}
+The simulation of the capacitance for the cylindric geometry as a function of different distances with COMSOL leads to the following figure. The simulation of two spheres as well as the approximation formula cited in equation 3.1 result in a general 
 shift which is due to the fact that it is a three electrode arrangement as the wall of the
-low-voltage introduces a new capacitance between the upper electrode and the wall which is not affected by the distance variation. This results in a reduction of the capacitance compared to the 
+low-voltage introduces a new capacitance between the upper electrode and the wall which is not affected by the distance variation. This results in a constant negative offset of the capacitance compared to the 
 two spheres geometry. Thus, the simulated values for the low voltage test cell seem reasonable if one compares them to the results of the capacitance between two spheres. \newline 
 
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[width=0.5\textwidth]{figures/Method/Part1_d_C0/Comparison_Low_voltage_Two_spheres.eps}		
-	\caption[Kurze Abbildungsbeschreibung]{Dependency of the electrode distance on the capacitance for the low voltage setup and two spheres $\epsilon = 3.5$ } 
+	\caption[Kurze Abbildungsbeschreibung]{Dependency of the electrode distance on the capacitance for the low voltage setup and two spheres with $\varepsilon = 3.5$ } 
 	\label{fig.waveforms}
 \end{figure}
 
@@ -30,10 +30,10 @@ The graph \ref{fig.messreihe} effectively contains two measurement series in one
 the setup was not changed and 25 phase averages were recorded. The resulting confidence interval is depicted by the error bar at each points
 and amounts to about 1.12 fF.
 \newline
-Different gray points were measured by taking out the sample from its container and re-inserting in order to estimate how the results vary in that case.
-It turned out that this lead to a much larger measurement variance. Moreover a increase in the capacitance value for each new re-insertion was detected.
-And the series of 25 measurements is not enough to predict whether or not if and when the measurements are going to converge, so instead of the maximum difference of
-5fF throughout the measurement, a maximum variance of 10fF was assumed.
+Different gray points were measured by taking out the sample from the measurement cell and re-inserting in order to estimate how the results vary in that case.
+It turned out that this lead to a much larger measurement variance. Moreover, a increase in the capacitance value for each new re-insertion was detected.
+And the series of 25 measurements is not enough to predict whether or not and when the measurements are going to converge, so instead of the maximum difference of
+5fF throughout the measurement, a maximum variance of 10fF was assumed for further variability estimations. 
 \newline
 For determining the distance, the 
 effective dielectric permittivity is assumed to be known. When
@@ -44,27 +44,27 @@ The average of the measurements for the magnitude of specimen capacitance amount
  C_{spec}=3.446pF \pm 5fF
 \end{equation}
 
-After the measurement, the same specimen was sawed open in order to perform an optical measurement of the electrode distance.
+After the measurement, the same specimen was cut open in order to perform an optical measurement of the electrode distance.
 
 
 \begin{figure}[ht]
 	\centering
 	\includegraphics[width=0.5\textwidth]{figures/Results/Capacitance_Measure/Sample1_scale.jpg}		
-	\caption[Kurze Abbildungsbeschreibung]{Measurements of sample capacitance for a series of re-insertions} 
+	\caption[Kurze Abbildungsbeschreibung]{Optical measurement of the electrode distance \protect\footnotemark} 
 	\label{fig.opticalmeasurement}
 \end{figure}
-
+\footnotetext{graphic provided by Raphael F\"arber}
 Using the measured capacitance values in conjunction with the in \ref{fig.opticalmeasurement} determined distance and the look-up table
 we find the effective relative permittivity to be:
 
 \begin{equation}
- \epsilon_{eff}=3.85 \pm 0.05
+ \varepsilon_{eff}=3.85 \pm 0.05
 \end{equation}
 
 
 
-\section{Systematic mistake of $\epsilon_{eff}$ compared to $\epsilon_{dielectric}$}
-
+\section{Systematic mistake of $\varepsilon_{eff}$ compared to $\varepsilon$}
+%\nomenclature{$\varepsilon$}{Permittivity of dielectric}
 There is obviously a difference between the permittivity calculated in \ref{effective}
 and the actual dielectric permittivity of the specimen.
 In general this deviation does not create a mistake when determining the
@@ -75,7 +75,7 @@ beneficial to know the extend of this kind of mistake in terms of a correction f
 In the following, three main factors are introduced that mainly contribute to the systematic mistake.
 
 \subsection{Airgap}
-The graph in \ref{fig.airgap} shows the influence or the air gap. 
+The graph in \ref{fig.airgap} shows the influence or the air gap. The stair-like shape results from rounding inaccuracies caused by COMSOL. There is almost a linear dependency between air gap width and capacitance. 
 \begin{figure}[h!tb]
 	\centering
 	\includegraphics[width=0.5\textwidth]{figures/Results/airgap_height/airgap_graph.jpg}		
@@ -84,7 +84,7 @@ The graph in \ref{fig.airgap} shows the influence or the air gap.
 \end{figure}
  
 \subsection{Height deviation}
-The illustration of the height deviation proves in \ref{fig.heightdev} that it is negligible and thus has no significant influence on the results. 
+The illustration of the height deviation proves in \ref{fig.heightdev} that it is negligible and thus has no significant influence on the results as it is 0.3 \text{\textperthousand} for  a height deviation of 0.5 mm. The stair-like shape results again from rounding inaccuracies.  
  \begin{figure}[h!tb]
 	\centering
 	\includegraphics[width=0.5\textwidth]{figures/Results/airgap_height/Height_deviation.jpg}		
@@ -94,7 +94,7 @@ The illustration of the height deviation proves in \ref{fig.heightdev} that it i
 
 \subsection{Complex effective permittivity}
 As it was mentioned in the theory chapter, generally speaking, magnitude and phase of the effective permittivity in relation to the
-real permittivity of the dielectric are not decoupled quantities. While this effect becomes especially apparent in horizontally layered dielectrics for a
+actual permittivity of the dielectric are not decoupled quantities. While this effect becomes especially apparent in horizontally layered dielectrics for a
 a capacitance with horizontal parallel plates, the graphs \ref{fig.complex} show that the effect for the specimen in the low-voltage cell are negligible. That means a purposely exaggerated variance for both parameters
 results in a change in the other parameter that is below 0.1\%.
 
@@ -108,11 +108,11 @@ results in a change in the other parameter that is below 0.1\%.
 
 Comparing the results above, it becomes clear that the airgap is by
 far the most influential factor with about $\frac{2\%}{mm}$ for a dielectric permittivity of 3.5.
-To achieve a $\epsilon_{eff}=3.85$, for an electrode distance of 0.15 mm and air gap of 0.5 mm using the
+To achieve a $\varepsilon_{eff}=3.85$, for an electrode distance of 0.15 mm and air gap of 0.5 mm using the
 cylindrical electrode geometry, the simulation
-suggests 
+suggests the following correction factor:
 \begin{equation}
- k_{corr}=\frac{\epsilon_{eff}}{\epsilon_{dielec}}=1.0061
+ k_{corr}=\frac{\varepsilon_{eff}}{\varepsilon_{dielec}}=1.0061
 \end{equation}
 It is important to note that the effective permittivity is higher than the dielectric. At first this seems
 like a mistake in the simulation. Because one would expect the effective permittivity of a 
@@ -129,16 +129,16 @@ reduces the parasitic capacitance to the grounded walls that is subtracted.
   \centering
   \centerline{\includegraphics[width=0.8\textwidth]{figures/Results/Spectroscopy/spectroscopywithoutbars}}
   \caption[Kurze Abbildungsbeschreibung]{Measurements of dielectric loss tangent in different setup configurations}
-
+\label{fig.specwithbar}
   \label{fig.spectroscopy}
 
 \end{figure}
-The three data series created from the spectroscopy experiment using the Debye model are shown in the graph above. The solid blue line represents the theoretical  dielectric loss tangent given the parameters of the components in the debye model
+The three data series created from the spectroscopy experiment using the Debye model are shown in the graph \ref{fig.specwithbar} . The solid blue line represents the theoretical  dielectric loss tangent given the parameters of the components in the debye model
 as a function of the frequency.
 The components were assumed to be ideal and not to be temperature dependent.
 The magenta data points can be used as a reference to evaluate the performance of the current transformer as these measurement points
 were obtained with a industry standard low-noise current amplifier (DLPCA). 
-The red points were recieved by replacing the DLPCA with the current transformer.
+The red points were obtained by replacing the DLPCA with the current transformer.
 The green points were measured with the integrator in place, effectively integrating the voltage signal generated by the current transformer.
 
 \begin{figure}[htbp]
@@ -149,20 +149,20 @@ The green points were measured with the integrator in place, effectively integra
 \label{fig.spectroscopy2}
 \end{figure}
 
-In order to adequately analyze the data points, the above graphic shows the previous plot
+In order to adequately analyze the data points, graphic \ref{fig.spectroscopy2} shows the previous plot
 zoomed in around the maximum loss tangent since the deviation from the theoretical result seem to be the largest here.
 The confidence intervals were added for a few points in each measurement series.
 
 First it can be noted that while the reference measurements fit the curve the closest, the theoretical values are still not
 within the measurements confidence intervals and the error can be greater than 10\%. To sum up the measurements conducted with
 the current transformer, it can be stated that the measurement performance was significantly worse than the reference. Not only do they deviate further from the theoretical values
-but they also have a larger variance. Which means that one cannot consistently predict a reasonable range for the mean of said measurement, at least not for only 9 phase averages.
-While the use of the integrator succesfully lowered the deviation and shrinked the confidence intervals by a factor of 2 to 3, the measurement accuracy is still nowhere close to the one obtained with the DLPCA.
+but they also have a larger variance. Which means that one cannot consistently predict a reasonably small range for the mean of said measurement, at least not for only 9 phase averages.
+While the use of the integrator succesfully lowered the deviation and shrinked the confidence intervals by a factor of 2 to 3, the measurement accuracy is still nowhere close to the one obtained with the DLPCA. However, the results of the measurement with the integrator have to be treated with caution as it was not completely functional (see \ref{sec.perfint}). 
 
 \subsection{Analysis of Noise Parameters}
 
 In order to identify one of the sources to which the errors can be attributed, the noise level at the input and at the ouput was measured and analyzed to gain an estimation about how much noise was added in the system.
-Using the current transformer in both configurations, i.e. with and without the integrator, the following parameters were measured. They will be put in perspective when comparing them to the first table that includes the same quantites for the DLPCA setup.
+Using the current transformer in both configurations, i.e. with and without the integrator, the following parameters were measured. They will be put in perspective when comparing them to the first table that includes the same quantites for the DLPCA setup.\\
 
 
 \textit{Data for the DLPCA:}
@@ -231,7 +231,7 @@ frequency [Hz]& SNR$_{in}$ & SNR$_{out}$ & Noise Figure [dB] & Noise Floor \\
 \end{tabular}
 
 \end{center}
-When a sinusoidal input is applied to the system. The SNR was defined as the ratio of the energy in the FFT-bin that corresponds
+The SNR was defined as the ratio of the energy in the FFT-bin that corresponds
 to the fundamental frequency of the oscillation and the energy of all other components. Since the distance of the sampling in the time domain was chosen
 such that the first index shows the proportion of the fundamental frequency in the signal, the signal to
 noise ratio can be defined as follows.
@@ -247,20 +247,20 @@ The noise figure relates the noise level at the input and the output and therefo
  Noise\,Figure\, [dB]=10log\left(\frac{SNR_{in}}{SNR_{out}}\right)
 \end{equation}
 
-Noise floor is a parameter that declares around which value the spectral components of the higher frequencies, i.e. noise are located. Generally it can be said that the higher the noise floor is,
+Noise floor is a parameter that declares around which value the signal has no power, i.e. noise are located. Generally it can be said that the higher the noise floor is,
 the higher the variance in the measurement of the dielectricl loss tangent.\cite{FaerberMVISS}
-When using the current transformer, it has to be taken into account that between the frequencies of 2000 Hz up to 5000 Hz, a degradation of the noise
+When using the current transformer, it has to be taken into account that between the frequencies of 2 kHz up to 5 kHz, a degradation of the noise
 figure of about 40-50 dB has to be expected. However one must consider that the DLPCA used a variable gain in order to generate an output whose amplitude amounts to about 10V which takes advantage of the full resolution of the 
 digital to analog converter, whereas in the other two setups the gain was set to a constant value.
 The noise figure does in fact decrease when the integrator is in use. Yet, most likely due to the non-idealities described in the next section, the noise figure varied within 5dB for the same frequency. 
-The calculated values for the noise figure for the setup with integrator were still consistently lower than the one for the setup without it for frequencies up to 5000 Hz.
+The calculated values for the noise figure for the setup with integrator were still consistently lower than the one for the setup without it for frequencies up to 5 kHz.
 
-The following figures illustrate the spectral distribution of the noise for 2000 Hz at the output for a sinusoidal input. Using these graphs, the above mentioned value for the noise floor can be determined.
+The following figures illustrate the spectral distribution of the noise for 2 kHz at the output for a sinusoidal input. Using these graphs, the above mentioned value for the noise floor can be determined.
 
 
 \begin{figure}[htbp]
  \centering
- \centerline{\includegraphics[scale=0.3]{figures/Results/NoiseFloor/DLPCA.jpg}}
+ \centerline{\includegraphics[width=0.5\textwidth]{figures/Results/NoiseFloor/DLPCA.jpg}}
 
 \caption[Kurze Abbildungsbeschreibung]{Noise Floor of Measurement with DLPCA }
 \label{fig.noisefloordlpca}
@@ -286,6 +286,7 @@ The following figures illustrate the spectral distribution of the noise for 2000
 
 
 \section{Performance of integrator}
+\label{sec.perfint}
 As described in the previous two passages, the integrator was capable of reducing the noise figure and hence effectively reducing 
 the confidence interval when determining the dielectric loss tangent. While measuring the output of the integrator, particularily two unexpected problems were determined.
 First, a DC offset at the output, that was varying with different input signals was detected. For an applied voltage, that had the shape of the expected transformed current pulse train
@@ -324,8 +325,8 @@ For the purpose of estimating the extend of the low frequency noise, a FFT-analy
 \label{fig.noisefft}
 \end{figure}
 
-The spectral components of the lower frequencies in \ref{fig.noisefft} are relatively high when compared to the striking peak that can be attributed to the 2000 Hz fundamental frequency.
-Furthermore, the amplitude of the lower frequencies is similar to the one of the first harmonic, i.e. 4000 Hz.
+The spectral components of the lower frequencies in \ref{fig.noisefft} are relatively high when compared to the striking peak that can be attributed to the 2 kHz fundamental frequency.
+Furthermore, the amplitude of the lower frequencies is similar to the one of the first harmonic, i.e. 4 kHz.
 Judging from the results of this section, the two described non-idealities can not be neglected, the DC offset and the low frequency noise contribute significantly to the signal degradation and
 most probably prevent the integrator from reducing the noise figure more considerably.
 
@@ -378,13 +379,13 @@ perfectly with the current from the capacitor bank.
 	\label{fig.100Adiode}
 \end{figure}
 
-The recorded current and voltage from \ref{fig.53Adiode} and \ref{fig.100Adiode} show on
+The recorded current and voltage from \ref{fig.53Adiode} and \ref{fig.100Adiode} show on the
 one hand that the protective diodes reliably clamp the voltage once it would normally go above 17.5 V even
-independent of how high the actual current throught the current tranformer is. But on the other hand, the signals are no longer as similar as they were 
+independent of how high the actual current throught the current tranformer is. On the other hand, the signals are no longer as similar as they were 
 without the clamping.
 
 
-This fact becomes even more apparent when we analyze currents that do not result in a voltage above the clamping voltage.
+This fact becomes even more apparent when currents that do not result in a voltage above the clamping voltage are analyzed.
 In figure it can be noticed how the red curve struggles to follow the current and even in the oscillation part at the end a remarkable phase shift was detected which results in a significant
 mistake.
 

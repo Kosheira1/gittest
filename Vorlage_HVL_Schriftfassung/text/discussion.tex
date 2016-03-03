@@ -4,36 +4,37 @@
 Given the fact that the resulting effective dielectric permittivity, which
 is mostly based on the simulation results has 
 a reasonable value as well as the general dependency of the capacitance on electrode distance being consistent
-with the approximation of two spheres once we factor in the third electrode in the geometry leads
+with the approximation of two spheres once we factor in the third electrode in the geometry leads one 
 to believe that the simulations are reliable. 
 \newline
 The only thing that initially seemed not credible was the concept of an increasing effective permittivity
-with an increasing air gap. However after some consideration, the case of the 3 electrode geometry was convincing enough to rely
+with an increasing air gap. However, after some consideration, the case of the 3 electrode geometry was convincing enough to rely
 on the values ascertained by the simulation software. 
 \newline
-In general, when it comes to evaluating the performance of a simulation, the limited accuracy
+In general, when it comes to evaluating the performance of a simulation the limited accuracy
 of finite element methods is a concern. COMSOL gives the option to decrease the minimum size of each of the meshed elements.
 A few different mesh sizes were used until the simulation converged such that a sufficient accuracy
 \section{Measures to improve the integrator}
-The results indicate that the integrator has much noise at low frequencies. One might think that this does not influence the results as frequencies below 1kHz are not monitored, but this due to the spectral leakage of the FFT not the case.  A high-pass filter at the output of the integrator could reduce these parasitic frequency components. This might reduce the measured swing at the output of the integrator and thus improve the results of the dielectric spectroscopy. 
+The results indicate that the integrator has much noise at low frequencies. One might think that this does not influence the results as frequencies below 1kHz are not monitored, but this is not the case due to the spectral leakage of the FFT.  A high-pass filter at the output of the integrator could reduce these parasitic frequency components. This might reduce the measured swing at the output of the integrator and thus improve the results of the dielectric spectroscopy. 
 Moreover, a more detailed analysis of the origin of these low-frequency components is necessary. It has already been shown that the external voltage source is not responsible for them, thus the integrator has to be investigated part by part in order to find the origin of this noise. 
-It would also be interesting to evaluate the transfer function of the integrator. Since the integrator has a gain of 80 dB the input power has to be chosen very low in order to stay within the allowed input power area of the network analyzer. Finally, the input is so low that the integrator does add too much noise, what makes an identification of the transfer function impossible. For a proper evaluation of the transfer function an amplifier / attenuator is necessary. 
+It would also be interesting to completely evaluate the measured transfer function of the integrator. Since the integrator has a gain of 80 dB the input power has to be chosen very low in order to stay within the allowed input power area of the network analyzer. Finally, the input is so low that the integrator does add too much noise, what makes an identification of the transfer function impossible. For a proper evaluation of the transfer function an amplifier / attenuator is necessary. 
 
 Another measure to reduce the offset actively is a feedback loop. A PI-controller in the feedback loop at the output can make sure that there an offset at the input is erased as described in \cite{thomas}. 
 
 \section{Measures to improve the current transformer}
-As shown in the chapter \ref{chp.results} the measurements with the current transformer deteriorates the confidence interval of the measured $tan(\delta)$ by orders. This deterioration is reduced by the integrator, but it is still higher than with a shunt resistor. 
-Furthermore, a more detailed analysis of the correlation between the NF of the current transformer (with and without integrator) for different frequencies and the confidence interval of the measured $tan(\delta)$ is necessary. This would provide detailed information what impact the quality of the current transformer has on the precision of the dielectric spectroscopy. 
+As shown in the chapter \ref{chp.results} the measurements with the current transformer deteriorates the confidence interval of the measured $tan(\delta)$ by orders of magnitude. This deterioration is reduced by the integrator, but it is still higher compared to a shunt resistor. 
+Furthermore, a more detailed analysis of the correlation between the NF of the current transformer (with and without integrator) for different frequencies and the confidence interval of the measured $tan(\delta)$ is necessary. This would provide detailed information on the impact of the quality of the current transformer on the precision of the dielectric spectroscopy. 
 
-The error class of the used Pearson CT 2877 is $+1 / -0 \% $, which includes current and phase errors as well as well as effects of harmonics in the primary current according to IEC 600-44-1. The phase shift errors of the CT 2877 are given by its Application Note {\url{http://www.pearsonelectronics.com/pdf/Application_20Notes.pdf} as below 6 degrees for frequencies at least one decade above the cutoff frequency. As 1 kHz is not one decade above the the corner frequency of 300 Hz it is not possible to make a serious guess which influence the phase shift caused by the current transformer has on the dielectric spectroscopy. There are as well CTs with lower corner frequencies below 300 Hz, which might result in lower phase errors. As the upper cutoff frequency is in the MHz area for all of them it is in general no problem to have a lower upper cutoff frequency. 
+The error class of the used Pearson CT 2877 is $+1 / -0 \% $, which includes current and phase errors as well as well as effects of harmonics in the primary current according to IEC 600-44-1. The phase shift errors of the CT 2877 are given by its Application Note \protect\footnotemark as below 6 degrees for frequencies at least one decade above the cutoff frequency. As 1 kHz is not one decade above the the corner frequency of 300 Hz it is not possible to make a serious guess which influence the phase shift caused by the current transformer has on the dielectric spectroscopy. There are as well CTs with lower corner frequencies below 300 Hz, which might result in lower phase errors. As the upper cutoff frequency is in the MHz area for all of them it is in general no problem to have a lower upper cutoff frequency. 
+\footnotetext{{\url{http://www.pearsonelectronics.com/pdf/Application_20Notes.pdf}}}
 
 \section{Measures to improve the Debye model}
 \label{debyemodel}
-As shown in the results the measurements for the dielectric spectroscopy the theoretical $tan(\delta)$ is not within the confidence interval when measured with the DLPCA. This indicates that there are further parasitic impedances in the Debye model that were not considered. These might be prevented by evaluating the impedance with a network analyzer. 
+As shown in the results the measurements for the dielectric spectroscopy the theoretical $tan(\delta)$ is not within the confidence interval when measured with the DLPCA. This indicates that there are further parasitic impedances in the Debye model that were not considered. These might be prevented by evaluating the spectrum of the impedance of the Debye network. 
 
 
 \section{Measurement and signal processing during dielectric spectroscopy}
-The procedure of how the data is acquired is described in \ref{spectroscopy}
+The procedure of how the data is acquired described in \ref{spectroscopy}
 still has many notable flaws. The ADC can only process data at
 1Mhz. As in the N-point DFT, the signals are implicitly assumed to be periodic,
 the sinusoidal signals at different frequencies were sampled only along one period.
