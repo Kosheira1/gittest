@@ -1,8 +1,8 @@
 \chapter{Methods}
-\section{Part 1: Determination of electrode distance d}
+\section{Part 1: Determination of electrode distance d from measurement of capacitance}
 \label{part1}
 \subsection{General approach}
-The setup is illustrated in figure \ref{sec.setup_amp_1}. A cell surrounds the  epoxid resin sample and makes sure that the current flowing from the electrode to the wall is connected to the ground and does not count for the measurement. The DLPCA amplifier converts the measured current into a voltage and amplifies it. After a butterworth filter an ADC creates a signal that is processed with MATLAB. The butterworth filter ensures that frequencies above 100 kHz, which are not interesting for the mixed-frequency investigation, are cut out. 
+The setup is illustrated in figure \ref{sec.setup_amp_1}. A cell surrounds the  epoxy resin sample and makes sure that the current flowing from the electrode to the wall is connected to the ground and does not count for the measurement. The DLPCA amplifier converts the measured current into a voltage and amplifies it. After a butterworth filter an ADC creates a signal that is processed with MATLAB. The butterworth filter ensures that frequencies above 100 kHz, which are not interesting for the mixed-frequency investigation, are cut out. 
 
 \begin{figure}[htbp]
 	\centering
@@ -13,17 +13,17 @@ The setup is illustrated in figure \ref{sec.setup_amp_1}. A cell surrounds the  
 \end{figure}
 
 \label{sec:general_approach}
-The following method is based on the assumption that  $\epsilon$ is always the same for the used samples when they are delivered. Thus, it is required to determine the distance of the electrodes for each delivered sample in order to be able to calculate the effective $\epsilon$ during below-PD current measurements, because the distance might vary considerably for different samples. 
-At first, the initial $\epsilon_{eff}$ for two reference samples has to be obtained:\\
-For the two reference samples the distance is measured optically with a microscope. By using the $d-C_0$-look-up table described in  chapter \ref{sec.sim_vac_comsol} the vacuum capacitance can be obtained from the optical distance measurement. Together with the measured capacitance $C^*$ a guess of the effective epsilon for the used epoxy resin is possible. 
+The following method is based on the assumption that  $\varepsilon$ is always the same for the used samples when they are delivered. Thus, it is required to determine the distance of the electrodes for each delivered sample in order to be able to calculate the effective $\varepsilon$, because the distance might vary considerably for different samples. 
+At first, the initial $\varepsilon_{eff}$ for two reference samples has to be obtained:\\
+For the two reference samples the distance is measured optically with a microscope. By using the $d-C_0$-look-up table described in  chapter \ref{sec.sim_vac_comsol} the vacuum capacitance can be obtained from the optical distance measurement. Together with the measured capacitance $C^*$ an estimation of the effective epsilon for the used epoxy resin is possible. 
 
-For forther samples, the capacitance $C^*$ has to be measured. Together with the initial value of $\epsilon_{eff}$ of the reference samples one can obtain the vacuum capacitance $C_0$. By using the $d-C_0$ look up table a guess of the electrode distance d is possible. Now, the vacuum capacitance and the corresponding electrode distance are known for further measurements. As a consequence, it is possible to get the the values and changes in the effective permittivity with the calculated $C_0$.
+For forther samples, the capacitance $C^*$ has to be measured. Together with the initial value of $\varepsilon_{eff}$ of the reference samples one can obtain the vacuum capacitance $C_0$. By using the $d-C_0$ look up table an estimation of the electrode distance d is possible. Now, the vacuum capacitance and the corresponding electrode distance are known for further measurements. As a consequence, it is possible to get the the values and changes in the effective permittivity with the calculated $C_0$.
 
 \footnotetext{source: Raphael F\"arber}
 
 \subsection{Measuring the capacitance of the sample}
 
-$C_0$ was measured by determining its impedance with the setup described in \ref{spectroscopy} but its measurement
+$C^*$ was measured by determining the impedance of the sample with the setup described in \ref{spectroscopy} but its measurement
 parameters are mentioned here for the sake of completeness of \ref{part1}.
 A series of 25 measurements was conducted whereas the capacitance was removed
 and re-inserted into its holder after each measurement. Each time the epoxy resin sample was
@@ -49,7 +49,7 @@ As mentioned in the chapters before the vacuum capacitance cannot the calculated
 
 \end{figure}
  
-Figure \ref{fig.comsol_beispiel} shows the simulated field distribution in the low-voltage setup in COMSOL for an electrode with a cyclindrical geometry. Since the capacity of the setup and therefore also the currents are depending on the geometry of the electrode a conic electrode is simulated as well as shown in figure  \ref{fig.comsol_conic}
+Figure \ref{fig.comsol_beispiel} shows the simulated electrical field distribution in the low-voltage setup in COMSOL for an electrode with a cyclindrical geometry. Since the capacity of the setup and therefore also the currents depend on the geometry of the electrode a conic electrode is simulated as well as shown in figure  \ref{fig.comsol_conic}
 
 \begin{figure}[htbp]
 	\centering
@@ -60,9 +60,9 @@ Figure \ref{fig.comsol_beispiel} shows the simulated field distribution in the l
 
 In order to validate the simulations the capacitance of two spheres with a distance d are used as a reference. The following formula gives an approximation for the capacitance of two spheres with radius r and center distance d. \cite{Rawlins}
 \begin{equation}
-C=2 \pi \epsilon r ( ln 2 + \gamma -\frac{1}{2} ln(2D-2)+O(2D-2))
+C=2 \pi \varepsilon r ( ln 2 + \gamma -\frac{1}{2} ln(2D-2)+O(2D-2))
 \end{equation}
-where D is the ratio of electrode distance over sphere diameter, i.e. $ D=\frac{d}{2r}$. As the electrodes have a spherical end with 8mm radius, the radius for the two capacitances is set 8mm as well. The simulation with two figures is illustrated in figure \ref{fig.twospheres}.  
+where D is the ratio of electrode distance over sphere diameter, i.e. $ D=\frac{d}{2r}$. As the electrodes have a spherical end with 8mm radius, the radius for the two capacitances is set 8mm as well. The simulation with two spheres is illustrated in figure \ref{fig.twospheres}.  
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[scale=0.3]{figures/Method/Part1_d_C0/sphere_capacity.jpg}		
@@ -71,7 +71,7 @@ where D is the ratio of electrode distance over sphere diameter, i.e. $ D=\frac{
 \end{figure}
 
 
- There are several systematic errors that influence the vacuum capacity simulation. The inclined line on the right-hand side shows the air gap that is caused during the production process. This air gap between the wall of the low-voltage setup and the specimen causes an additional inhomogeneity. It is unavoidable in order to be able to remove the specimen from the pouring setup. This air gap should theoretically be 0.5 mm, but in practice it is expected to vary between 0 mm and 1 mm for the worst-case. The lookup table of d based on $C_0$ is based on an air gap of 0.5 mm, therefore the deviation from this value has to be investigated numerically.
+ There are several systematic errors that influence the vacuum capacitance simulation. The inclined line on the right-hand side shows the air gap that is caused during the production process. This air gap between the wall of the low-voltage setup and the specimen causes an additional inhomogeneity. It is unavoidable in order to be able to remove the specimen from the pouring setup. This air gap should theoretically be 0.5 mm, but in practice it is expected to vary between 0 mm and 1 mm for the worst-case. The lookup table of d based on $C_0$ is based on an air gap of 0.5 mm, therefore the deviation from this value has to be investigated numerically.
  
 Another systematic error is the deviation of the height of the specimen. During  the pouring process the height of the specimen cannot be fixed precisely. The maximum deviation is expected to be $\pm$ 0.5 mm. This deviation might occur during the production process of each new specimen. Thus, if the electrode distance of a specimen should be estimated by the method described these deviations can result in an error. 
  \begin{figure}[htbp]
@@ -85,7 +85,7 @@ Another systematic error is the deviation of the height of the specimen. During 
 \subsection{The setup}
 There are two general setups. One is the high-voltage setup and one the low voltage-setup. For testing the suitability of the current transformer the low voltage setup is sufficient except for the clamping test described in section \ref{clamping}. 
 
-The following graph \ref{sec.setup_amplifier} illustrates the setup for measurements without a current transformer. The DLPCA-200 is a variable gain low noise current amplifier that has a transimpedance gain between $10^3$ and $10^{11} V/A$. MATLAB automatically adapts its gain to a value that is suitable for the input voltage area of the ADC which is $\pm 10V$. With the values of the ADC, i.e. the input voltage of the waveform generator and the output of the BW-filter, the $\epsilon$ and the tan($\delta$) can be calculated. 
+The following graph \ref{sec.setup_amplifier} illustrates the setup for measurements without a current transformer. The DLPCA-200 is a variable gain low noise current amplifier that has a transimpedance gain between $10^3$ and $10^{11} V/A$. A MATLAB script automatically adapts its gain to a value that is suitable for the input voltage range of the ADC which is $\pm 10V$. With the values of the ADC, i.e. the input voltage of the waveform generator and the output of the BW-filter, the $\varepsilon$ and the tan($\delta$) can be calculated. 
 
 !!! Achtung noch Fehler in Graph, es ist ADC converter!!!
 \begin{figure}[htbp]
@@ -103,16 +103,16 @@ Afterwards, the DLPCA is replaced with a current transformer.
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[width=\textwidth]{figures/Method/setup/setup_CTonly}		
-	\caption[Kurze Abbildungsbeschreibung]{Setup for measurements with Current Transformer only {source: Raphael F\"arber, revised by authors}} 
+	\caption[Kurze Abbildungsbeschreibung]{Setup for measurements with Current Transformer only \protect\footnotemark}
 	\label{sec.setup}
 
 \end{figure}
-
+\footnotetext{source: Raphael F\"arber, revised by authors}
 
 \subsection{Signal analysis of the Debye model}
 
-In order to emulate different dielectrics with their own respective dielectric loss tangent, different combinations of circuit elements were used.
-Each different circuit accounts for another loss tangent with respect to frequency. With the objective to assess the performance of the current transformer, reasonably high values for the $tan\left(\delta\right)$ were assumed (i.e. 0.05 to 0.2) since a lower loss tangent
+In order to emulate different dielectrics with their own respective dielectric loss tangent, different combinations of circuit elements can be used.
+Each different circuit accounts for a frequency spectrum of another loss tangent with respect to frequency. With the objective to assess the performance of the current transformer, reasonably high maximal values for the $tan\left(\delta\right)$ were assumed (i.e. 0.05 to 0.2) since a lower loss tangent
 would require a higher resolution on the part of the current measurement. The vacuum capacitance was chosen to be about 1000 times larger than
 the the one of the specimen for the purpose of generating the same magnitude of currents as in the high-voltage setup.
 
@@ -124,7 +124,7 @@ In order to get a theoretical maximum tan($\delta$) of 0.0178 the parts shown in
 	\label{fig.debye-modellsch}
 \end{figure}
 
-Once the debye sample into the measurement setup of \ref{sec.setup_amplifier} was inserted we can use the schematic in \ref{fig.presentation} as a reference.
+Once the Debye sample into the measurement setup of \ref{sec.setup_amplifier} was inserted we can use the schematic in \ref{fig.presentation} as a reference.
 
 \begin{figure}[h!tb]
 	\centerline{\includegraphics[width=0.4\textwidth]{figures/Method/setup/low_voltage_setup.png}}	
@@ -136,11 +136,11 @@ While the spectroscopy was carried out primarily using sinusoidal inputs,
 the practically important signals are the trapezoidal voltage pulses with different
 slew rates. Consequentially, it is relevant to predict the shape and magnitude
 of the functions that are expected anywhere in the setup. 
-The debye model's parameters are assumed to be the same as in \ref{fig.debye-modellsch}.
+The Debye model's parameters are assumed to be the same as in \ref{fig.debye-modellsch}.
 The input trapezoidal wave's fundamental frequency is 1kHz and its amplitude was
 set to 5V. Both the rise and 
-the fall time are both set to 1 $\mu s$. The voltage signal is meant to be created
-by the function generator in \ref{fig.presentation}
+the fall time are both set to 1 $\mu s$. The voltage signal is created
+by the function generator (model Agilent 33210) in \ref{fig.presentation}
 \newline
 In order to determine the current through the debye network, the harmonic decomposition of
 the trapezoidal pulse train in the theory section was used. For each harmonic, the specific
@@ -152,13 +152,13 @@ impedance of the debye network was calculated and the harmonic components for th
 \end{equation}
 
 It is important to note that $R_{\infty}$, which represents
-ohmic losses in dielectrics, was intentionally left out in both the debye model and calculations.
+ohmic losses in dielectrics, was intentionally set to $\infty$ out in both the debye model and calculations.
 
 Figures \ref{fig.beforeandafter} and \ref{fig.fourierla} shows the voltage signal and the resulting current signal as well as their fourier coefficients on a log scale.
 
 \begin{figure}[h!tb]
 \centerline{\includegraphics[width=0.8\textwidth]{figures/Method/signal_simulation/beforeandafter.eps}}
-\caption{Voltage and current signals across and through debye sample}
+\caption{Voltage and current signals across and through debye sample. Trapzedoidal input voltage with 1 microsec. rise/fall-time}
 \label{fig.beforeandafter}
 \end{figure}
 
@@ -168,8 +168,8 @@ Figures \ref{fig.beforeandafter} and \ref{fig.fourierla} shows the voltage signa
 \label{fig.fourierla}
 \end{figure}
 
-The current transformer has a voltage to current transfer that is ideally $\frac{1V}{1A}$. 
-Consequentially the current signal that was determined before is now applied in the shape of a voltage to the input of the integrator and subsequentially
+The current transformer has a nominal voltage to current transfer ratio of$\frac{1V}{1A}$. 
+Consequentially the current signal that was determined before is now applied in the shape of a voltage to the input of the integrator and subsequentially.
 filtered by the low-pass filter in front of the positive input of the operational amplifier. Said signal will be integrated.
 
 
@@ -200,7 +200,7 @@ signal is depicted in \ref{fig.finalvolt}
 
 
 \subsection{Design of a holder for the Debye Equivalent Circuit}
-For a lossy medium the Debye Network consists at least of a vacuum capacity $C_0$ and the term for the charging of the additional capacitance. The DC resistance has a very high value and might therefore be left out, i.e. $R_{\infty}={\infty}$. Thus, it is reasonable to design a holder for the network that can hold three strands with two components each. Moreover, it has to fit into the low-voltage and high-voltage test cell, what specified the dimensions of the holder.  
+For a lossy medium the Debye Network consists at least of a vacuum capacitance $C_0$ and the term for the charging of the additional capacitance. The DC resistance has a very high value and might therefore be left out, i.e. $R_{\infty}={\infty}$. Thus, it is reasonable to design a holder for the network that can hold three strands with two components each. Moreover, it has to fit into the low-voltage and high-voltage test cell, what specified the dimensions of the holder.  
 Figure \ref{fig.CADgraph} shows the created holder which has a drawing that is depicted in figure \ref{fig.CADdrawing}.
 
 \begin{figure}[h!tb]
@@ -214,9 +214,9 @@ Figure \ref{fig.CADgraph} shows the created holder which has a drawing that is d
 
     
 
-\subsection{Measuring of $\epsilon_{eff}$ and tan($\delta$) for the Debye model (dielectric spectroscopy)}
+\subsection{Measuring of $\varepsilon_{eff}$ and tan($\delta_{eff}$) for the Debye model (dielectric spectroscopy)}
 \label{spectroscopy}
-It was aimed to create a current through the debye sample that conincides with the one expteced in the high-voltage setup. In order to have a comparable current for a voltage that is $\frac{1}{1000}$ of the high-voltage setup a capacitance $C_0$ for the Debye is selected 1000 times higher than the Capacitance of the samples. As the sample has a capacitance of 3.44 pF its equivalent $C_0$ in the debye-model is 3.3 nF.
+The aim was to create a current through the Debye sample that is similar in shape and amplitude to the one expteced in the high-voltage setup. In order to have a comparable current for a voltage that is $\frac{1}{1000}$ of the high-voltage setup a capacitance $C_0$ for the Debye is selected 1000 times higher than the Capacitance of the samples. As the sample has a capacitance of approx. 3.5 pF its equivalent $C_0$ in the Debye model is 3.3 nF.
 A number of curves for the theoretical loss tangent, as well as their marked maximum frequency can be found in \ref{fig.debye-modell}.
 
 The dielectric spectroscopy was conducted in the low-voltage setup and \ref{fig.presentation} can be used as a reference.
@@ -237,36 +237,34 @@ of the sinusoidal wave generated by the function generator. Each measurement poi
 
 
 \begin{equation}
-\epsilon(\omega)=\frac{J^*(\omega)}{i \omega \epsilon_0 E^*(\omega)} = \frac{1}{i \omega Z^*(\omega) C_0}\\
+\varepsilon(\omega)=\frac{I^*(\omega)}{i \omega \varepsilon_0 U^*(\omega)} = \frac{1}{i \omega Z^*(\omega) C_0}\\
 \end{equation}
 The ratio of the first component of the voltage's FFT divided by the first component of the current's FFT indicates the magnitude
-of $Z^*(\omega)$ and a phase shift that deviates from the voltage lagging the current by 90 degrees will inherently result in a complex impedance and
-inherently a complex relative dielectric permittivity. This fact can be
-taken advantage of to find the dielectric loss tangent defined in the theory section.
+of $Z^*(\omega)$ and a phase shift that deviates from the voltage lagging the current by 90 degrees will result in a complex impedance and a complex relative dielectric permittivity. This fact can be taken advantage of to find the dielectric loss tangent defined in the theory section. There are as well other phase shifts introduced by the BW-filter and the Current Transformer. These phase shifts, however, will cancel out as the measurement is divided by the results of the reference measurement which has these parasitical phase shifts as well. 
 \newline
 $C_0$ in the formula above denotes the vacuum capacitance and its impedance can be found using the procedure described above with the difference that
 the dielectric component, i.e. $R_i$ and $C_i$ are removed from the sample and $C_0$ is left behind.
 
 \begin{figure}[h!tb]
  \centering
- \begin{minipage}{0.4\textwidth}
- \includegraphics[width=\textwidth]{figures/Method/Experimentaufbau/debyesample}
+
+ \includegraphics[width=0.5\textwidth]{figures/Method/Experimentaufbau/debyesample}
  \caption[Kurze Abbildungsbeschreibung]{Debye holder with components inserted}
- \end{minipage}\qquad
+
  
  
  \end{figure}
 
 \begin{sidewaysfigure}[h!tb]
 \includegraphics[width=0.99\textwidth]{figures/Method/Dielectric_loss/polarizationmultiple.eps}
-    \caption{Polarization and conduction losses for different frequencies and different parts in the Debye model}
+    \caption{Polarization and conduction losses for different frequencies and different parameter values in the Debye model}
     \label{fig.debye-modell}
    \end{sidewaysfigure}
 
    
    \begin{sidewaysfigure}[h!tb]
 \includegraphics[width=0.99\textwidth]{figures/Gesamtanordnung.pdf}
-    \caption{Drawing for the CAD holder}
+    \caption{Drawing for the Debye sample holder}
     \label{fig.CADdrawing}
    \end{sidewaysfigure}
 
@@ -277,13 +275,13 @@ A second reason to make use of an integrator is due to the fact that it adds an 
 
 \subsection{Design of the integrator}
 \subsubsection{Functionality}
-The integrator should have two functions. On the hand side it should integrate signal on the other hand it should amplify the signal by a factor of 1000. This is due to the fact small below-PD-currents ($\sim$mA) should be measured. With a CT-sensitivity of $1V/A$ an amplification of 1000 is reasonable to use the range of measurable inputs of $\pm$ 10 V. These requirements can be achieved by a non-inverting integrator, which is shown in figure  \ref{fig.circuit}. 
+The integrator should have two functions. On the hand side it should integrate the signal on the other hand it should amplify the signal by a factor of 1000. This is due to the fact that small currents ($\sim$mA) should be measured. With a CT-sensitivity of $1V/A$ an amplification of 1000 is reasonable to use the range of measurable inputs of $\pm$ 10 V. These requirements can be achieved by a non-inverting integrator, which is shown in figure  \ref{fig.circuit}. 
 
 \begin{figure}[h!tb]
 \includegraphics[width=0.99\textwidth]{figures/Method/integrator/circuit.png}
     \caption{Schematic integrator circuit}
     \label{fig.circuit}
-    \end{figure}	
+\end{figure}	
 
 For the analysis of the transfer function of the integrator \ref{fig.circuit} is used as a reference.
 At the input of the operational amplifier a low-pass filter is inserted to avoid integrating high-frequency noise.
@@ -313,7 +311,7 @@ The transfer function of the integrator is illustrated by it bode plot (figure \
 
 \subsubsection{Implementation}
 The integrator together with its supply circuit were predominantely soldered on SMD footprints that were designed
-with PCB software. The print can be found in \ref{fig.solder}.
+with the PCB software EAGLE. The print can be found in \ref{fig.solder}.
 The goal was to be able to operate the circuit with a unipolar voltage supply so an active charge pump in the 
 shape of a 17-pin LTC3260 IC \footnote{/data$\_$sheets/LTC3260} was used to create the negative and positive supply voltage for the operational amplifier.
 \footnote{/data$\_$sheets/LT1028}
@@ -336,7 +334,7 @@ filtering and integration can be found in \ref{fig.circuit}
     
 \begin{sidewaysfigure}[h!tb]
 \includegraphics[width=0.99\textwidth]{figures/Method/integrator/schematic.jpg}
- \caption{Property profile of the diverse library compared to the compound pool.}
+ \caption{Schematics for the Integrator circuit in EAGLE}
  \end{sidewaysfigure}
 
 
@@ -345,22 +343,22 @@ filtering and integration can be found in \ref{fig.circuit}
 
 In case of an object breakdown the sample looses its dielectric properties and instead becomes conductive.
 In this situation peak currents of several hundreds of amperes are expected to flow through the current transformer.
-As a consequence, high voltages at its output will develop. In order to protect the sensitive electronics that
+As a consequence, voltages of several hundred volts at its output will develop. In order to protect the sensitive electronics that
 process and measure the signal after the transformer that were introduced in the section before a protective part has to be added.
 Two TVS-Diodes (SMCJ7.0CA) \footnote{/data$\_$sheets/SMCJ7.0CA} connected to ground were used to clamp the voltage to a certain value regardless of what voltage the current transformer introduces.
 To investigate the reliability of this setup, a measurement setup involving charged capacitor banks was used that could generate
-pulses of currents with high amplitudes. 
+pulses of currents with high amplitudes (up to 300 A). 
 Primarily two performance parameters were to be investigated. First, are the TVS-diodes capable of clamping the voltage to their designated value even when
 a variety of higher voltages were applied to them through the current transformer and secondly, how does the introduction of said TVS-Diodes affect the
 signal transformation in case of normal operation. 
 \newline
 For this purpose a set of different current pulses was created and the performance of the current transformer was measured with the help of an
 oscilloscope with and without the clamping setup. In order not to destroy the oscilloscope a -40dB resisistive attenuator was added in series in front of
-the measuring port of the device.
+the measuring port.
 
 \begin{figure}[h!tb]
-\centerline{\includegraphics[scale=0.3]{figures/Method/Clamp/capacitorbank.jpg}}
-    \caption{Capacitor bank that created the current pulses for the current transformer}
+\centerline{\includegraphics[width=0.5\textwidth]{figures/Method/Clamp/capacitorbank.jpg}}
+    \caption{Capacitor bank that created the current pulses for the current transformer. Measurement of the voltage clamping}
     \label{fig.clamp}
 \end{figure}
 
