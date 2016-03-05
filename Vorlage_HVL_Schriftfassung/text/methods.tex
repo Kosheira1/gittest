@@ -2,22 +2,21 @@
 \section{Part 1: Determination of electrode distance d from measurement of capacitance}
 \label{part1}
 \subsection{General approach}
-The setup is illustrated in figure \ref{sec.setup_amp_1}. A cell surrounds the  epoxy resin sample and makes sure that the current flowing from the electrode to the wall is connected to the ground and does not count for the measurement. The DLPCA amplifier converts the measured current into a voltage and amplifies it. After a butterworth filter an ADC creates a signal that is processed with MATLAB. The butterworth filter ensures that frequencies above 100 kHz, which are not interesting for the mixed-frequency investigation, are cut out. 
-
+The setup is illustrated in figure \ref{sec.setup_amp_1}. A cell surrounds the  epoxy resin sample and makes sure that the current flowing from the electrode to the wall is connected to the ground and is not measured. The DLPCA amplifier \footnotemark converts the measured current into a voltage and amplifies it. After a butterworth filter an ADC creates a signal that is processed with MATLAB. The butterworth filter ensures that frequencies above 100 kHz, which are not interesting for the mixed-frequency investigation, are cut out. The butterworth filter prevents aliasing. 
+\footnotetext{Data sheet for the used DLPCA: \url{http://www.femto.de/en/products/current-amplifiers/variable-gain-up-to-500-khz-dlpca.html}}
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[width=\textwidth]{figures/Method/setup/setup_amplifier.png}		
-	\caption[Kurze Abbildungsbeschreibung]{Setup for measurements\protect\footnotemark} 
+	\caption[Kurze Abbildungsbeschreibung]{Setup for measurements with sample and DLPCA. \protect\footnotemark} 
 	\label{sec.setup_amp_1}
-
 \end{figure}
 
 \label{sec:general_approach}
 The following method is based on the assumption that  $\varepsilon$ is always the same for the used samples when they are delivered. Thus, it is required to determine the distance of the electrodes for each delivered sample in order to be able to calculate the effective $\varepsilon$, because the distance might vary considerably for different samples. 
-At first, the initial $\varepsilon_{eff}$ for two reference samples has to be obtained:\\
+At first, the initial $\varepsilon_{\textrm{eff}}$ for two reference samples has to be obtained:\\
 For the two reference samples the distance is measured optically with a microscope. By using the $d-C_0$-look-up table described in  chapter \ref{sec.sim_vac_comsol} the vacuum capacitance can be obtained from the optical distance measurement. Together with the measured capacitance $C^*$ an estimation of the effective epsilon for the used epoxy resin is possible. 
 
-For forther samples, the capacitance $C^*$ has to be measured. Together with the initial value of $\varepsilon_{eff}$ of the reference samples one can obtain the vacuum capacitance $C_0$. By using the $d-C_0$ look up table an estimation of the electrode distance d is possible. Now, the vacuum capacitance and the corresponding electrode distance are known for further measurements. As a consequence, it is possible to get the the values and changes in the effective permittivity with the calculated $C_0$.
+For forther samples, the capacitance $C^*$ has to be measured. Together with the initial value of $\varepsilon_{\textrm{eff}}$ of the reference samples one can obtain the vacuum capacitance $C_0$. By using the $d-C_0$ look up table an estimation of the electrode distance d is possible. Now, the vacuum capacitance and the corresponding electrode distance are known for further measurements. As a consequence, it is possible to get the the values and changes in the effective permittivity with the calculated $C_0$.
 
 \footnotetext{source: Raphael F\"arber}
 
@@ -214,7 +213,7 @@ Figure \ref{fig.CADgraph} shows the created holder which has a drawing that is d
 
     
 
-\subsection{Measuring of $\varepsilon_{eff}$ and tan($\delta_{eff}$) for the Debye model (dielectric spectroscopy)}
+\subsection{Measuring of $\varepsilon_{\textrm{eff}}$ and tan($\delta_{\textrm{eff}}$) for the Debye model (dielectric spectroscopy)}
 \label{spectroscopy}
 The aim was to create a current through the Debye sample that is similar in shape and amplitude to the one expteced in the high-voltage setup. In order to have a comparable current for a voltage that is $\frac{1}{1000}$ of the high-voltage setup a capacitance $C_0$ for the Debye is selected 1000 times higher than the Capacitance of the samples. As the sample has a capacitance of approx. 3.5 pF its equivalent $C_0$ in the Debye model is 3.3 nF.
 A number of curves for the theoretical loss tangent, as well as their marked maximum frequency can be found in \ref{fig.debye-modell}.
@@ -357,7 +356,7 @@ oscilloscope with and without the clamping setup. In order not to destroy the os
 the measuring port.
 
 \begin{figure}[h!tb]
-\centerline{\includegraphics[width=0.5\textwidth]{figures/Method/Clamp/capacitorbank.jpg}}
+\centerline{\includegraphics[width=0.8\textwidth]{figures/Method/Clamp/capacitorbank.jpg}}
     \caption{Capacitor bank that created the current pulses for the current transformer. Measurement of the voltage clamping}
     \label{fig.clamp}
 \end{figure}

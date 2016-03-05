@@ -13,7 +13,8 @@ on the values ascertained by the simulation software.
 \newline
 In general, when it comes to evaluating the performance of a simulation the limited accuracy
 of finite element methods is a concern. COMSOL gives the option to decrease the minimum size of each of the meshed elements.
-A few different mesh sizes were used until the simulation converged such that a sufficient accuracy
+A few different mesh sizes were used until the simulation converged such that it was guaranteed that the accuracy is sufficient. 
+
 \section{Measures to improve the integrator}
 The results indicate that the integrator introduces much noise at low frequencies. One might think that this does not influence the results as frequencies below 1kHz are not monitored, but this is not the case due to the spectral leakage of the FFT.  A high-pass filter at the output of the integrator could reduce these parasitic frequency components. This might reduce the measured swing at the output of the integrator and thus improve the results of the dielectric spectroscopy. 
 Moreover, a more detailed analysis of the origin of these low-frequency components is necessary. It has already been shown that the external voltage source is not responsible for them, thus the integrator has to be investigated part by part in order to find the origin of this noise. 
@@ -36,7 +37,7 @@ As shown in the results the measurements for the dielectric spectroscopy the the
 
 \section{Measurement and signal processing during dielectric spectroscopy}
 The procedure of how the data is acquired described in \ref{spectroscopy}
-still has many notable flaws. The ADC can only process data at
+could be improved as described below. The ADC has a maximum sampling rate of
 1Mhz. As in the N-point DFT, the signals are implicitly assumed to be periodic,
 the sinusoidal signals at different frequencies were sampled only along one period.
 Using the formula for the frequency spacing of the FFT bins
@@ -44,16 +45,16 @@ Using the formula for the frequency spacing of the FFT bins
  \Delta f=\frac{1}{\Delta t N}
 \end{equation}
 whereas N denotes the number of samples. 
-Given the formula and the sampling algorithm, it can be deducted that the frequency spacing is
+Given the formula and the sampling algorithm, it can be deduced that the frequency spacing is
 always exactly as large as the fundamental frequency of the recorded signal.
-Consequentially only the signal frequency and its harmonics can be recorded appropriately.
-Low frequency noise will be distribiuted among all of the bins in an unpredictable fashion and decreases
+Consequently, only the signal frequency and its harmonics can be recorded appropriately.
+Low frequency noise will be distributed among all of the bins and thus, decreases
 the quality of the measurement in terms of SNR and NF. It is hard to predict how much of the noise will be added to the bin that should
 monitor the signals amplitude. 
 Another problem is that while a sinusoidal wave is in fact periodic, superimposed oscillations of other frequencies, such as the ones that
 were recorded of the integrator in the setup, will cause a major difference between the first sample point and the last one. 
 Given the FFT's properties this sudden jump that is caused by the assumption of the signal being periodic adds
-disproportionally large amounts of high-frequency containments to the higher bins of the FFT. In this case the SNR might be overestimated by an unknown factor. 
+disproportionally large amounts of high-frequency containments to the higher bins of the FFT. In this case, the SNR might be underestimated by an unknown factor. 
 \newline
 Furthermore, an increasing dependency of the size of the confidence intervals with respect to the noise figure of
 the setup was determined. 
@@ -71,7 +72,7 @@ an adequate measurement outcome.
 
 
 \section{Protective clamping capability of the current transformer}
-The results prove that by simpling adding 2 shunt TVS-Diodes the voltage can effectively be clamped to a value much lower
+The results prove that by simply adding 2 shunt TVS-Diodes the voltage can effectively be clamped to a value much lower
 than the output voltage of the current transformer in case of sample breakdown.
 One thing worth to note is that in the data sheet of diode, the clampling voltage is stated to be 12V. The measurements consistently show 17.5 V though.
 This suggests that a simply soldering the diodes to ground means they are not operated as intended.

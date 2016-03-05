@@ -58,12 +58,12 @@ Using the measured capacitance values in conjunction with the in \ref{fig.optica
 we find the effective relative permittivity to be:
 
 \begin{equation}
- \varepsilon_{eff}=3.85 \pm 0.05
+ \varepsilon_{\textrm{eff}}=3.85 \pm 0.05
 \end{equation}
 
 
 
-\section{Systematic mistake of $\varepsilon_{eff}$ compared to $\varepsilon$}
+\section{Systematic mistake of $\varepsilon_{\textrm{eff}}$ compared to $\varepsilon$}
 \nomenclature{$\varepsilon$}{Permittivity of dielectric}
 There is obviously a difference between the permittivity calculated in \ref{effective}
 and the actual dielectric permittivity of the specimen. \footnote{Permittivity given in data sheet of used epoxy: \url{http://www.bm-chemie.de/multi-wAssets/docs/de/produkte/giessharz/Epoxidharz-Giessharz-ungefuellt-Raumtemperatur-haertend.pdf}}
@@ -109,13 +109,13 @@ results in a change in the other parameter that is below 0.1\%.
 
 Comparing the results above, it becomes clear that the airgap is by
 far the most influential factor with about $\frac{2\%}{mm}$ for a dielectric permittivity of 3.5.
-To achieve a $\varepsilon_{eff}=3.85$, for an electrode distance of 0.15 mm and air gap of 0.5 mm using the
+To achieve a $\varepsilon_{\textrm{eff}}=3.85$, for an electrode distance of 0.15 mm and air gap of 0.5 mm using the
 cylindrical electrode geometry, the simulation
 suggests the following correction factor:
 \begin{equation}
- k_{corr}=\frac{\varepsilon_{eff}}{\varepsilon}=1.0061
+ k_{corr}=\frac{\varepsilon_{\textrm{eff}}}{\varepsilon}=1.0061
 \end{equation}
-A further look-up table was created that returns the actual $\varepsilon_{eff}$ for $\varepsilon$ between 1 and 20.
+A further look-up table was created that returns the actual $\varepsilon_{\textrm{eff}}$ for $\varepsilon$ between 1 and 20.
 It is important to note that the effective permittivity is higher than the dielectric. At first this seems
 like a mistake in the simulation. Because one would expect the effective permittivity of a 
 mixed material (in this case air and epoxy resin) to be somewhere in between the two materials.
@@ -323,7 +323,7 @@ For the purpose of estimating the extent of the low frequency noise, a FFT-analy
  \centering
  \centerline{\includegraphics[width=0.5\textwidth]{figures/Results/Noisespectrum/sin2k-0_02v}}
 
-  \caption[Kurze Abbildungsbeschreibung]{FFT-spectrum of integrated sine-wave at 2kHz}
+  \caption[Kurze Abbildungsbeschreibung]{FFT-spectrum of integrated sine-wave at 2kHz frequency. First noise peaks at approx. 360 Hz}
 \label{fig.noisefft}
 \end{figure}
 
