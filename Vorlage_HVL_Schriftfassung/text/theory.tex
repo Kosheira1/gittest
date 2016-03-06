@@ -30,17 +30,17 @@ The estimation of the dielectric permittivity of the epoxy in mixed epoxy-air co
 \subsection{Debye Relaxation and Debye model}
 
 
-<<<<<<< HEAD
+
 \subsection{Debye model}
 The polarization effects in a dielectric material can be characterized by the (complex) relative permittivity (and the resuling dielectric loss factor). Both are frequency-dependent quantities. 
-For linear materials the polarization can be described by a network model. The Debye-ansatz assumes that the rate of change $ \frac{dP_i}{dt}$ is proportional to the difference between the remaining polarization $P_i(t)$ \nomenclature {$P_i$}{Polarization of material} and the polarization at infinity $P_i(\infty$). This results in an exponential relaxation of the polarization function that tends towards $P_i(\infty)$. In an alternating electric field this leads to a phase shift between the electric field $E(t)$ and the 
+For linear materials the polarization can be described by a network model. The Debye-ansatz assumes that the rate of change $ \frac{dP_i}{dt}$ is proportional to the difference between the remaining polarization $P_i(t)$  and the polarization at infinity $P_i(\infty$). This results in an exponential relaxation of the polarization function that tends towards $P_i(\infty)$. In an alternating electric field this leads to a phase shift between the electric field $E(t)$ and the 
 electric displacement field $D(t)$.
 \newline
 Formally the lagging of the $\underline{D}$ field can be represented by a decomposition in two phasors.
 \begin{equation}
  \underline{D}=\epsilon_{0}\epsilon_{r}'\underline{E}-j\epsilon_{0}\epsilon_{r}''\underline{E}
 \end{equation}
-
+\nomenclature{$P_i$}{Polarization of material}
 
 This exponential decay can be modeled with a time constant of a resistor and a capacitor in series ($\tau=R_i \cdot C_i$). Therefore, an emulated dielectric comprises a vacuum capacitance, an additional capacitance $C_i$ and a resistor $R_i$ in series and a resistor $R_{\infty}$ for a stationary conduction current. 
 
@@ -50,7 +50,7 @@ The aim of this section is to derive the formula for the maximum tan($\delta$) o
 \begin{equation}
 \varepsilon_{\textrm{eff}} (\omega) = \frac{C^*(\omega)}{C_0}
 \end{equation}
-
+\nomenclature{$\omega$}{angular velocity}
 In electrical engineering, it is customary to define the  complex relative permittivity $\varepsilon$ in the following way: 
 \begin{equation}
 \varepsilon  = \varepsilon_r-j \cdot \varepsilon_r''
