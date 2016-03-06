@@ -1,0 +1,16 @@
+\begin{thenomenclature} 
+
+ \nomgroup{A}
+
+  \item [{ }]\begingroup $P_i$\nomeqref {2.1}\nompageref{4}
+  \item [{$\varepsilon$}]\begingroup Permittivity of dielectric\nomeqref {4.2}
+		\nompageref{34}
+  \item [{$\varepsilon_{\textrm{eff}}$}]\begingroup Effective Permittivity\nomeqref {2.0}
+		\nompageref{3}
+  \item [{$C^*$}]\begingroup complex Capacitance\nomeqref {2.0}
+		\nompageref{3}
+  \item [{$C_0$}]\begingroup vacuum Capacitance\nomeqref {2.0}
+		\nompageref{3}
+  \item [{ex}]\begingroup example\nomeqref {0.0}\nompageref{i}
+
+\end{thenomenclature}
