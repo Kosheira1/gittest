@@ -1,0 +1,21 @@
+\begin{thenomenclature} 
+
+ \nomgroup{A}
+
+  \item [{$\varepsilon_{\textrm{eff}}$}]\begingroup Effective Permittivity\nomeqref {2.0}
+		\nompageref{3}
+  \item [{$C^*$}]\begingroup complex Capacitance\nomeqref {2.0}
+		\nompageref{3}
+  \item [{$C_0$}]\begingroup vacuum Capacitance\nomeqref {2.0}
+		\nompageref{3}
+  \item [{$D$}]\begingroup Displacement field density\nomeqref {2.1}
+		\nompageref{4}
+  \item [{$E$}]\begingroup Electric field strength\nomeqref {2.1}
+		\nompageref{4}
+  \item [{$P_i$}]\begingroup Polarization of material\nomeqref {2.2}
+		\nompageref{4}
+  \item [{$tan(\delta)$}]\begingroup loss tangent\nomeqref {2.3}
+		\nompageref{5}
+  \item [{ex}]\begingroup example\nomeqref {0.0}\nompageref{i}
+
+\end{thenomenclature}

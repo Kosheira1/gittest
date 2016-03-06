@@ -27,22 +27,17 @@ The estimation of the dielectric permittivity of the epoxy in mixed epoxy-air co
 	
 	
 \section{Part 2: Suitability of current transformer for dielectric spectroscopy}
-\subsection{Debye Relaxation and Debye model}
-
-
-
 \subsection{Debye model}
 The polarization effects in a dielectric material can be characterized by the (complex) relative permittivity (and the resuling dielectric loss factor). Both are frequency-dependent quantities. 
-For linear materials the polarization can be described by a network model. The Debye-ansatz assumes that the rate of change $ \frac{dP_i}{dt}$ is proportional to the difference between the remaining polarization $P_i(t)$  and the polarization at infinity $P_i(\infty$). This results in an exponential relaxation of the polarization function that tends towards $P_i(\infty)$. In an alternating electric field this leads to a phase shift between the electric field $E(t)$ and the 
-electric displacement field $D(t)$.
-\newline
+For linear materials the polarization can be described by a network model. The Debye-ansatz assumes that the rate of change $ \frac{dP_i}{dt}$ is proportional to the difference between the remaining polarization $P_i(t)$  and the polarization at infinity $P_i(\infty$). This results in an exponential relaxation of the polarization function that tends towards $P_i(\infty)$. In an alternating electric field this leads to a phase shift between the electric field $E(t)$ \nomenclature{$E$}{Electric field strength} and the  \nomenclature{$D$}{Displacement field density}
+electric displacement field $D(t)$.\newline
 Formally the lagging of the $\underline{D}$ field can be represented by a decomposition in two phasors.
 \begin{equation}
  \underline{D}=\epsilon_{0}\epsilon_{r}'\underline{E}-j\epsilon_{0}\epsilon_{r}''\underline{E}
 \end{equation}
-\nomenclature{$P_i$}{Polarization of material}
 
-This exponential decay can be modeled with a time constant of a resistor and a capacitor in series ($\tau=R_i \cdot C_i$). Therefore, an emulated dielectric comprises a vacuum capacitance, an additional capacitance $C_i$ and a resistor $R_i$ in series and a resistor $R_{\infty}$ for a stationary conduction current. 
+
+This exponential decay can be modeled with a \nomenclature{$P_i$}{Polarization of material} time constant of a resistor and a capacitor in series ($\tau=R_i \cdot C_i$). Therefore, an emulated dielectric comprises a vacuum capacitance, an additional capacitance $C_i$ and a resistor $R_i$ in series and a resistor $R_{\infty}$ for a stationary conduction current. 
 
 
 \subsubsection{Derivation of maximum tan($\delta$)}
@@ -50,22 +45,25 @@ The aim of this section is to derive the formula for the maximum tan($\delta$) o
 \begin{equation}
 \varepsilon_{\textrm{eff}} (\omega) = \frac{C^*(\omega)}{C_0}
 \end{equation}
-\nomenclature{$\omega$}{angular velocity}
-In electrical engineering, it is customary to define the  complex relative permittivity $\varepsilon$ in the following way: 
+
+
+
+In electrical engineering, \nomenclature{$tan(\delta)$}{loss tangent} it is customary to define the  complex relative permittivity $\varepsilon$ in the following way: 
 \begin{equation}
 \varepsilon  = \varepsilon_r-j \cdot \varepsilon_r''
 \end{equation}
-
-For the delay of the dipole alignment given by the above mentioned debye-ansatz, one receives the following equations for the real and imaginary part of $\varepsilon$ \cite{Kuchler}. 
+\nomenclature{$\kappa$}{conductivity}
+For the delay of the dipole alignment given by the above \nomenclature{$\omega$}{angular velocity} mentioned debye-ansatz, one receives the following equations for the real and imaginary part of $\varepsilon$ \cite{Kuchler}. 
 \begin{equation}
 \varepsilon'_r = \varepsilon_{\infty} + \frac{\varepsilon_{\textrm{stat}}-\varepsilon_{\infty}}{1+(\omega \cdot \tau )^2}
 \end{equation}
+
 
 \begin{equation}
 \varepsilon''_r = \omega \cdot \tau \cdot \frac{\varepsilon_{\textrm{stat}}-\varepsilon_{\infty}}{1+(\omega \cdot \tau )^2}
 \end{equation}
 
-The loss tangent is given by:
+The loss tangent \nomenclature{$\varepsilon_{stat}$}{static relative permittivity$} is given by:
 \begin{equation}
 tan (\delta) = \frac{\kappa + \omega \cdot \varepsilon_0 \cdot \varepsilon _r ''}{\omega \cdot \varepsilon_0 \cdot \varepsilon _r '}
 \end{equation}
@@ -138,7 +136,7 @@ From here on, $\tan(\delta)$ refers to the pure polarization losses and it is as
 
 \section{Fourier Coefficients of trapezoidal pulse  train }
 
-The Fourier coefficients of a trapezoidal pulse train are given by the following equation \cite{}. 
+The Fourier coefficients of a trapezoidal pulse train are given by the following equation \cite{FaerberMVISS}. 
 \begin{equation}
  U_n = \frac{2 U_0}{j \omega_n T} [e^{\frac{j \omega_n \tau}{2}} \textrm{sinc}{\frac { \omega_n \tau_r }{2}} -e^{\frac{-j \omega_n \tau}{2}} \textrm{sinc}{\frac{ \omega_n \tau_f}{2}}]
 \end{equation}
@@ -162,6 +160,7 @@ Assume the parameters are as below.
  \end{equation}
 
 The resulting frequency dependency can be seen in  \ref{fig.envelope}
+
 \begin{figure}[h!tb]
 \includegraphics[width=\textwidth]{figures/Method/signal_simulation/envelope.jpg}
 \caption[Kurze Abbildungsbeschreibung]{Fourier coefficients of the trapezoidal pulse train with respect to frequency. The solid lines represent the slopes of the envelopes that are caused by the individual 
@@ -181,9 +180,8 @@ Slopes of the curves: \newline
 \subsection{Devices for high frequency current measurement}
 The most common method for high frequency current measurement from DC up to the GHz region are shunt resistors. They make use of the the proportionality between the current and a voltage drop over the shunt. Besides, they are passive and have high bandwidths up to the GHz region. Another advantage is their ability to monitor DC currents. In order to keep the reduction of the current rate of rise in an acceptable range the self-inductance is often kept low by using coaxial shunts. \cite{highdynamiccurrent}
 A current transformer (CT) or pulse transformer is an instrument transformer that creates an AC-voltage on its secondary side that is proportional to the alternating current on its primary side. Most common are toroidal cores that are coiled. The secondary side has a low output resistor (usually 50 $\Omega$).
-The principle setup of a Current Transformer is shown in the following figure: 
-\\CTs are as well suitable if the current on the primary side is too high to measure because the CT provides a voltage on the secondary side that is in a measurable area. A current transformer is suitable for current amplitudes from microamperes to megaamperes. A further advantage over a shunt resistance represents the galvanic isolation of the secondary side from the primary. This galvanic isolation prohibits large voltages on the secondary side (at measuring inputs) which might destroy the Butterworth-Filter or the Analog-to-Digital-Converter (ADC). 
-
+The principle setup of a current transformer is shown in the following figure: 
+\\CTs are as well suitable if the current on the primary side is too high to measure because the CT provides a voltage on the secondary side that is in a measurable area. A current transformer is suitable for current amplitudes from microamperes to megaamperes. A further advantage over a shunt resistance represents the galvanic isolation of the secondary side from the primary. This galvanic isolation prohibits large voltages on the secondary side (at measuring inputs) which might destroy the Butterworth-Filter or the Analog-to-Digital-Converter (ADC). \nomenclature{$\textrm{ADC}}{Analog-to-Digitalconverter$}
 The transfer function for the current transformer can be calculated with the following differential equation, that is derived from Ampere's law (derivation based on: \cite{highdynamiccurrent}).\\
 \begin{figure}
 	\includegraphics[width=0.8\textwidth]{figures/Theory/ct_setup}
@@ -217,7 +215,7 @@ For simplicity reasons the transfer function of a current transformer was assume
 \subsection{Noise Considerations}
 \subsubsection{General}
 The evaluation of noise added to the signal by the CT, the integrator, the BW-filter and the cables is of great importance as it limits the capability of resolving small values of tan($\delta$).
-In order to quantify the desired signal compared to the background noise, the Signal-to-Noise Ratio (SNR) can be measured. SNR is  the ratio of signal power over noise power. The power is proportional to the amplitude of the signal, hence
+In order to quantify the desired signal compared to the background noise, the Signal-to-Noise Ratio (SNR) \nomenclature{$\textrm{SNR}$}{Signal-to-noise-ratio} can be measured. SNR is  the ratio of signal power over noise power. The power is proportional to the amplitude of the signal, hence \nomenclature{$\textrm{NF}$}{Noise Figure}
 \begin{equation}
 	\textrm{SNR}=\frac{P_{\textrm{signal}}}{P_{\textrm{noise}}} = \left[\frac{V_{\textrm{signal}}}{V_{\textrm{noise}}^{\textrm{rms}}}\right]^2
 \end{equation}

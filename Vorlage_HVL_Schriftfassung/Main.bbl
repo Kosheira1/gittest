@@ -1,3 +1,36 @@
-\begin{thebibliography}{}
+\begin{thebibliography}{1}
+
+\bibitem{TransformerEngineering}
+S.~K.~S. Khaparde, {\em Transformer Engineering: Design, Technology, and
+  Diagnostics}.
+\newblock 2~ed., September 2012.
+
+\bibitem{FaerberMVISS}
+R.~F\"arber, {\em Project: MVISS Mixed Voltage Insulation Stress Study,
+  Technical Report}.
+\newblock 2015.
+
+\bibitem{Kuchler}
+A.~K{\"{u}}chler, {\em Hochspannungstechnik; Grundlagen - Technologie -
+  Anwendungen}.
+\newblock 2009.
+
+\bibitem{highdynamiccurrent}
+N.~P.~Hofer-Noser, ``Hochdynamische stromerfassung in der
+  leistungselektronik,''
+
+\bibitem{Rawlins}
+A.~Rawlins, ``Note on the capacitance of two closely seperated spheres,'' {\em
+  IMA Journal of Applied Mathematics}, pp.~199--120, 1985.
+
+\bibitem{Kramer}
+F.~Kremer and A.~Sch{\"{o}}nhals, {\em Boradband Dielectric Spectroscopy}.
+\newblock 2003.
+
+\bibitem{thomas}
+R.~L. D.~Gerber, T.~Guillod and J.~Biela, ``Gate unit with improved
+  short-circuit detection and turn-off capability for 4.5-kv press-pack igbts
+  operated at 4-ka pulse current,'' {\em IEEE Transactions}, pp.~2641--2648,
+  2013.
 
 \end{thebibliography}
