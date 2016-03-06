@@ -3,7 +3,7 @@
 
 \subsection{Derivation of the effective dielectric permittivity}
 \label{subsec.Derivationeffective}
-The effective permittivity $\varepsilon_{\textrm{eff}}$ \nomenclature[]{$\varepsilon_{\textrm{eff}}$}{Effective Permittivity} is used to describe the permittivity of a composite material. This is necessary due to the fact that the assumption of homogeneity is not tenable for compound material. As the permittivity is proportional to the capacitance the effective permittivity can be obtained by the ratio of $C^*$ \nomenclature[]{$C^*$}{complex Capacitance} to the vacuum capacitance $C_0$.\nomenclature[]{$C_0$}{vacuum Capacitance}
+The effective permittivity $\varepsilon_{\textrm{eff}}$ \nomenclature{$\varepsilon_{\textrm{eff}}$}{Effective Permittivity} is used to describe the permittivity of a composite material. This is necessary due to the fact that the assumption of homogeneity is not tenable for compound material. As the permittivity is proportional to the capacitance the effective permittivity can be obtained by the ratio of $C^*$ \nomenclature{$C^*$}{complex Capacitance} to the vacuum capacitance $C_0$.\nomenclature{$C_0$}{vacuum Capacitance}
 
 \begin{equation}
 \varepsilon_{\textrm{eff}}(\omega) \equiv \frac{C^*(\omega)}{C_0} 
@@ -142,8 +142,10 @@ The Fourier coefficients of a trapezoidal pulse train are given by the following
 \begin{equation}
  U_n = \frac{2 U_0}{j \omega_n T} [e^{\frac{j \omega_n \tau}{2}} \textrm{sinc}{\frac { \omega_n \tau_r }{2}} -e^{\frac{-j \omega_n \tau}{2}} \textrm{sinc}{\frac{ \omega_n \tau_f}{2}}]
 \end{equation}
+$\tau$ stands for stands for the FWHM (full width half maximum) of one of the trapezoidal pulses.
+$\tau_r$ denotes the rise time of the first flank and $\tau_f$ is the fall time of the right flank.
 
- 
+Assume the parameters are as below.
 \begin{equation}
  \tau_r = 0.5e^{-6 } s
   \end{equation}
@@ -153,11 +155,15 @@ The Fourier coefficients of a trapezoidal pulse train are given by the following
  \begin{equation}
 \tau= 1e^{-6} s
  \end{equation}
+ \begin{equation}
+  T=1e^{-3} s
+ \end{equation}
+
  
 Slopes of the curves: \newline
 0 on loglog plot for $\omega < \frac{2}{\tau}$
--1 on loglog plot after $\omega = \frac{2}{\tau}$ \newline
--2 on loglog plot after $\omega = \frac{2}{\tau_r}$
+-20dB/decade on loglog plot after $\omega = \frac{2}{\tau}$ \newline
+-40dB/decade on loglog plot after $\omega = \frac{2}{\tau_r}$
 
 
 
