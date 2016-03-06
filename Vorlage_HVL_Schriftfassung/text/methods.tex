@@ -262,15 +262,15 @@ the dielectric component, i.e. $R_i$ and $C_i$ are removed from the sample and $
    \end{sidewaysfigure}
 
 \subsection{Integrator}
-\subsection{Advantages of using an integrator}
+\subsubsection{Advantages of using an integrator}
 As the used 16-bit ADC has a limited resolution it is advantageous to use an integrator in order to spread the frequencies of the signal over a larger timescale. This makes it possible to detect the different frequencies more accurately with the same ADC. 
 A second reason to make use of an integrator is due to the fact that it adds an additional factor of $1/f$ to the Fourier spectrum of the output voltage signal. As the Fourier spectrum of the input signal is as well characterized by a $1/f$ decrease the integrator transforms the pulse signal back to a trapezoidal signal with a $1/f$-dependency in the Fourier spectrum. Since a $1/f$ dependency in the output signal is preferable to a constant Fourier spectrum due to better resolution for the first harmonics the integrator improves the measurement as well. 
 
-\subsection{Design of the integrator}
+\subsubsection{Design of the integrator}
 \subsubsection{Functionality}
 The integrator should have two functions. On the hand side it should integrate the signal on the other hand it should amplify the signal by a factor of 1000. This is due to the fact that small currents ($\sim$mA) should be measured. With a CT-sensitivity of $1V/A$ an amplification of 1000 is reasonable to use the range of measurable inputs of $\pm$ 10 V. \footnotemark These requirements can be achieved by a non-inverting integrator, which is shown in figure  \ref{fig.circuit}. 
 \footnotetext{Data sheet of the used current transformer: Pearson Model 2877} 
-\begin{figure}[h!tb]
+\begin{figure}[H]
 \includegraphics[width=0.99\textwidth]{figures/Method/integrator/circuit.png}
     \caption{Schematic non-inverting integrator circuit}
     \label{fig.circuit}
@@ -296,7 +296,7 @@ Combining the above results the following total transfer function is received:
 \end{equation}
 The transfer function of the integrator is illustrated by it bode plot (figure \ref{fig.Bodeplot}). 
 
-\begin{figure}[h!tb]
+\begin{figure}[H]
 \includegraphics[width=\textwidth]{figures/Method/integrator/transferfunction_int.jpg}
 \caption[Kurze Abbildungsbeschreibung]{Bode plot for the transfer function of an integrator}
 \label{fig.Bodeplot}
@@ -310,18 +310,18 @@ shape of a 17-pin LTC3260 IC \footnote{/data$\_$sheets/LTC3260} was used to crea
 \footnote{/data$\_$sheets/LT1028}
 The circuit elements required for the charge pump were directly taken from the data sheet. The elements involved with the signal 
 filtering and integration can be found in \ref{fig.circuit}
-
+    
+\begin{figure}[H]
+\includegraphics[width=\textwidth]{figures/Method/integrator/realintegrator.jpg}
+\caption[Kurze Abbildungsbeschreibung]{Integrator circuit with BNC to SMD connectors}
+\label{fig.realcircuit}
+\end{figure}
 \begin{sidewaysfigure}[h!tb]
 \includegraphics[width=0.99\textwidth]{figures/Method/integrator/PCB_Integrator.png}
     \caption{Printed Circuit Board Layout for the non-inverting ingrator with a DC voltage supply} 
     \label{fig.solder}
 \end{sidewaysfigure}
-    
-\begin{figure}[h!tb]
-\includegraphics[width=\textwidth]{figures/Method/integrator/realintegrator.jpg}
-\caption[Kurze Abbildungsbeschreibung]{Integrator circuit with BNC to SMD connectors}
-\label{fig.realcircuit}
-\end{figure}
+
     
     
     
@@ -349,7 +349,7 @@ For this purpose a set of different current pulses was created and the performan
 oscilloscope with and without the clamping setup. In order not to destroy the oscilloscope a -40dB resisistive attenuator was added in series in front of
 the measuring port.
 
-\begin{figure}[h!tb]
+\begin{figure}[H]
 \centerline{\includegraphics[width=0.8\textwidth]{figures/Method/Clamp/capacitorbank.jpg}}
     \caption{Capacitor bank that created the current pulses for the current transformer. Measurement of the voltage clamping}
     \label{fig.clamp}

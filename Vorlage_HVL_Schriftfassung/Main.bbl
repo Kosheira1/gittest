@@ -27,4 +27,10 @@ A.~Rawlins, ``Note on the capacitance of two closely seperated spheres,'' {\em
 F.~Kremer and A.~Sch{\"{o}}nhals, {\em Boradband Dielectric Spectroscopy}.
 \newblock 2003.
 
+\bibitem{thomas}
+R.~L. D.~Gerber, T.~Guillod and J.~Biela, ``Gate unit with improved
+  short-circuit detection and turn-off capability for 4.5-kv press-pack igbts
+  operated at 4-ka pulse current,'' {\em IEEE Transactions}, pp.~2641--2648,
+  2013.
+
 \end{thebibliography}
