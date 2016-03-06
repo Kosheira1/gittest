@@ -147,6 +147,7 @@ $\tau_r$ denotes the rise time of the first flank and $\tau_f$ is the fall time 
 
 Assume the parameters are as below.
 \begin{equation}
+\label{eg:taur}
  \tau_r = 0.5e^{-6 } s
   \end{equation}
   \begin{equation}
@@ -156,14 +157,23 @@ Assume the parameters are as below.
 \tau= 1e^{-6} s
  \end{equation}
  \begin{equation}
+ \label{eg:time}
   T=1e^{-3} s
  \end{equation}
 
- 
+The resulting frequency dependency can be seen in 
+\begin{figure}[h!tb]
+\includegraphics[width=\textwidth]{figures/Method/signal_simulation/envelope.jpg}
+\caption[Kurze Abbildungsbeschreibung]{Fourier coefficients of the trapezoidal pulse train with respect to frequency. The solid lines represent the slopes of the envelopes that are caused by the individual 
+cutoff frequencies of the parameters defined in \eqref{eg:taur} to \eqref{eg:time}}
+\label{fig.envelope}
+\end{figure}
+
+
 Slopes of the curves: \newline
-0 on loglog plot for $\omega < \frac{2}{\tau}$
+0 on loglog plot for $\omega < \frac{2}{\tau}$\newline
 -20dB/decade on loglog plot after $\omega = \frac{2}{\tau}$ \newline
--40dB/decade on loglog plot after $\omega = \frac{2}{\tau_r}$
+-40dB/decade on loglog plot after $\omega = \frac{2}{\tau_r}$\newline
 
 
 
