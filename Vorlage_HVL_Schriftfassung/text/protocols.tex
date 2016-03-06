@@ -85,7 +85,7 @@ and see Matlab file: $\textbackslash$Matlab$\_$files$\textbackslash$Dielectric$\
 {\Large Aim}
 \begin{itemize}
 \item Determination of the Noise figure with and without an integrator 
-\item Receiving noise flor 
+\item Receiving noise floor 
 \end{itemize}
 {\Large Used Instruments}
 \begin{itemize}
@@ -118,3 +118,37 @@ Humidity: 35/38$\%$\\
 {\Large Measurement results}\\
 see Matlab files: $\textbackslash$measurements$\textbackslash$ Noise$\textbackslash$SNR-NR.ods\\
 and see Matlab file: $\textbackslash$measurements$\textbackslash$ Noise$\textbackslash$parameters.ods
+
+
+\section{Protocol: Measuring clamping ability of TVS-diodes}
+
+{\Large Aim}
+\begin{itemize}
+\item Analyzing current transformer current measurement accuracy 
+\item Activating clamping mechanism and analyzing resulting signals
+\end{itemize}
+{\Large Used Instruments}
+\begin{itemize}
+ \item TVS-Diodes: SMCJ7.0CA
+ \item Capacitor bank
+ \item Oscilloscope
+ \item External Voltage Supply
+ \item Resistive attenuator
+ \item Current Transformer: PEARSON CURRENT MONITOR MODEL 2877
+\end{itemize}
+{\Large Setup} \\
+The capacitor bank is hooked up with the external voltage supply and its capacitances are charged.
+The bank subsequentially produces current pulses through the current transformer and the respective attenuated voltage signals are measured at the oscilloscope.
+Current and voltage forms are recorded with and without the clamping diodes.\\
+\\
+{\Large Settings:} \newline
+\begin{itemize}
+\item Capacitor bank:  pulse\\
+\item current amplitudes with diodes: 5.8A, 53A,102A\\
+\item current amplitudes without diodes: 26A, 95A\\ 
+\item pulse length: 6-7 $\mu$s
+\end{itemize}
+{\Large Number of diodes in use parallely} \\
+2 \\
+
+
