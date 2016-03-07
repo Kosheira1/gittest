@@ -45,15 +45,20 @@ The average of the measurements for the magnitude of specimen capacitance amount
 \end{equation}
 
 To put the extend of the consequences of that uncertainty into perspective graph \ref{fig.uncertainty}
-shows for which uncertainty in distance the 10fF would account given the real electrode distance. These values were obtained by
+shows for which uncertainty in distance different uncertainties in capactiance would account given the real electrode distance. These values were obtained by
 interpolating the lookup-table.
 
 \begin{figure}[h!tb]
-\includegraphics[width=\textwidth]{figures/Results/Capacitance_Measure/uncertainty.eps}
+\includegraphics[width=\textwidth]{figures/Results/Capacitance_Measure/uncertainty2.eps}
 \caption[Kurze Abbildungsbeschreibung]{Uncertainty in distance with respect to the
-actual electrode distance assuming an variance of 10fF in capacitance measurement.}
+actual electrode distance for a number of variances in capacitance measurement.}
 \label{fig.uncertainty}
 \end{figure}
+
+When the electrode distance is 0.15 mm, the $\pm10fF$ would lead to the following uncertainty:
+\begin{equation}
+ d_{meas}=0.15\pm0.0135 mm
+\end{equation}
 
 
 After the measurement, the same specimen was cut open in order to perform an optical measurement of the electrode distance.
@@ -128,6 +133,16 @@ suggests the following correction factor:
  k_{corr}=\frac{\varepsilon_{\textrm{eff}}}{\varepsilon}=1.0054
 \end{equation}
 A further look-up table was created that returns the actual $\varepsilon_{\textrm{eff}}$ for $\varepsilon$ between 1 and 50.
+The correction factor as a function of the dielectric permittivity is plotted in \ref{fig.correctionfactor}
+
+\begin{figure}[htbp]
+	\centering
+	\centerline{\includegraphics[width=\textwidth]{figures/Results/Correction/correction.eps}}		
+	\caption[Kurze Abbildungsbeschreibung]{Correction factor for the low voltage cell and cylindrical electrode geometry as a function of dielectric permittivity } 
+	\label{fig.correctionfactor}
+\end{figure}
+
+
 It is important to note that the effective permittivity is higher than the dielectric. At first this seems
 like a mistake in the simulation. Because one would expect the effective permittivity of a 
 mixed material (in this case air and epoxy resin) to be somewhere in between the two materials.
