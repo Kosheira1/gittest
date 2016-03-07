@@ -10,7 +10,7 @@ two spheres geometry. Thus, the simulated values for the low voltage test cell s
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.8\textwidth]{figures/Method/Part1_d_C0/Comparison_Low_voltage_Two_spheres.eps}		
+	\includegraphics[width=0.7\textwidth]{figures/Method/Part1_d_C0/Comparison_Low_voltage_Two_spheres.eps}		
 	\caption[Kurze Abbildungsbeschreibung]{Dependency of the electrode distance on the capacitance for the low voltage setup and two spheres with $\varepsilon = 3.5$ } 
 	\label{fig.waveforms}
 \end{figure}
@@ -76,7 +76,7 @@ we find the effective relative permittivity to be:
 
 
 \section{Systematic mistake of $\varepsilon_{\textrm{eff}}$ compared to $\varepsilon$}
-\nomenclature{$\varepsilon$}{Permittivity of dielectric}
+\nomenclature{$\varepsilon$}{permittivity of dielectric}
 There is obviously a difference between the permittivity calculated in \ref{effective}
 and the actual dielectric permittivity of the specimen. \footnote{Permittivity given in data sheet of used epoxy: \url{http://www.bm-chemie.de/multi-wAssets/docs/de/produkte/giessharz/Epoxidharz-Giessharz-ungefuellt-Raumtemperatur-haertend.pdf}}
 In general, this deviation does not create a mistake when determining the
@@ -125,9 +125,9 @@ To achieve a $\varepsilon_{\textrm{eff}}=3.85$, for an electrode distance of 0.1
 cylindrical electrode geometry, the simulation
 suggests the following correction factor:
 \begin{equation}
- k_{corr}=\frac{\varepsilon_{\textrm{eff}}}{\varepsilon}=1.0061
+ k_{corr}=\frac{\varepsilon_{\textrm{eff}}}{\varepsilon}=1.0054
 \end{equation}
-A further look-up table was created that returns the actual $\varepsilon_{\textrm{eff}}$ for $\varepsilon$ between 1 and 20.
+A further look-up table was created that returns the actual $\varepsilon_{\textrm{eff}}$ for $\varepsilon$ between 1 and 50.
 It is important to note that the effective permittivity is higher than the dielectric. At first this seems
 like a mistake in the simulation. Because one would expect the effective permittivity of a 
 mixed material (in this case air and epoxy resin) to be somewhere in between the two materials.
