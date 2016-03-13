@@ -2,17 +2,17 @@
 \section{Part 1: Determination of electrode distance d from measurement of capacitance}
 \label{part1}
 \subsection{General approach}
-The setup is illustrated in figure \ref{sec.setup_amp_1}. A cell surrounds the  epoxy resin sample and makes sure that the current flowing from the electrode to the wall is connected to the ground and is not measured. The DLPCA amplifier \footnotemark converts the measured current into a voltage and amplifies it. After a butterworth filter an ADC creates a signal that is processed with MATLAB. The butterworth filter ensures that frequencies above 100 kHz, which are not interesting for the mixed-frequency investigation, are cut out. The butterworth filter prevents aliasing. 
+The setup is illustrated in figure \ref{sec.setup_amp_1}. A metallic cell (grounded) surrounds the  epoxy resin sample and makes sure that the current flowing from the electrode to the wall flows into ground and is not measured. The DLPCA transimpedance amplifier\footnotemark converts the measured current into a voltage and amplifies it. After a butterworth filter (order 8) an ADC creates a digital output that is processed with MATLAB. The butterworth filter ensures that frequencies above 100 kHz, which are not interesting for the mixed-frequency investigation, are cut out. The butterworth filter also prevents aliasing. 
 \footnotetext{Data sheet for the used DLPCA: \url{http://www.femto.de/en/products/current-amplifiers/variable-gain-up-to-500-khz-dlpca.html}}
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[width=\textwidth]{figures/Method/setup/setup_amplifier.png}		
-	\caption[Kurze Abbildungsbeschreibung]{Setup for measurements with sample and DLPCA.The setup is used to determine the capacitance of the specimen \protect\footnotemark} 
+	\caption[Kurze Abbildungsbeschreibung]{Setup for measurements with sample and DLPCA transimpedance amplifier. In this work, the setup is used to determine the capacitance of the specimen and to provide a reference for the dielectric spectroscopy measurements.\protect\footnotemark} 
 	\label{sec.setup_amp_1}
 \end{figure}
 
 \label{sec:general_approach}
-The following method is based on the assumption that  $\varepsilon$ is always the same for the used samples when they are delivered. Thus, it is required to determine the distance of the electrodes for each delivered sample in order to be able to calculate the effective $\varepsilon$, because the distance might vary considerably for different samples. 
+The following method is based on the assumption that  $\varepsilon$ is always the same for the used samples after manufacturing. Thus, it is required to determine the distance of the electrodes for each delivered sample in order to be able to calculate the effective $\varepsilon$, because the distance might vary considerably for different samples. 
 At first, the initial $\varepsilon_{\textrm{eff}}$ for two reference samples has to be obtained:\\
 For the two reference samples the distance is measured optically with a microscope. By using the $d-C_0$-look-up table described in  chapter \ref{sec.sim_vac_comsol} the vacuum capacitance can be obtained from the optical distance measurement. Together with the measured capacitance $C^*$ an estimation of the effective epsilon for the used epoxy resin is possible. 
 
@@ -38,22 +38,22 @@ re-inserted 25 individual measurements were automatically carried out amounting 
 
 \subsection{Simulation of vacuum capacitance} 
 \label{sec.sim_vac_comsol}
-As mentioned in the chapters before the vacuum capacitance cannot the calculated directly because of the complexity of the geometry. COMSOL is a simulation software tha solves the Maxwell equations numerically and thus, is suitable for a numerical estimation of permittivities or capacitances between arbitrarily shaped electrodes. The dependency of the vacuum capacity $C_0$ on the electrode distance d has to be simulated numerically both for the high-voltage setup and for the low-voltage setup. Although all measurements and the corresponding calculations in section \ref{sec:general_approach} can be carried out in the low-voltage setup it is useful to be able to do these calculations in the high-voltage setup as well. 
+As mentioned in the chapters before the vacuum capacitance cannot the calculated directly because of the complexity of the geometry. COMSOL is a simulation software that solves the Maxwell equations numerically and thus, is suitable for a numerical estimation of permittivities or capacitances between arbitrarily shaped electrodes. The dependency of the vacuum capacity $C_0$ on the electrode distance d has to be simulated numerically both for the high-voltage setup and for the low-voltage setup. Although all measurements and the corresponding calculations in section \ref{sec:general_approach} can be carried out in the low-voltage setup it is useful to be able to do these calculations in the high-voltage setup as well. 
 
 
 \begin{figure}[htbp]
 	\centering
 	\includegraphics{figures/COMSOL_Beispielbild.jpg}		
-	\caption[Kurze Abbildungsbeschreibung]{E-Field simulation of the low-voltage test cell with cylindrically shaped electrodes (0.5 mm electrode distance)} \label{fig.comsol_beispiel}
+	\caption[Kurze Abbildungsbeschreibung]{Electrical potential simulation of the low-voltage test cell with cylindrically shaped electrodes (normally 0.5 mm electrode distance)} \label{fig.comsol_beispiel}
 
 \end{figure}
  
-Figure \ref{fig.comsol_beispiel} shows the simulated electrical field distribution in the low-voltage setup in COMSOL for an electrode with a cyclindrical geometry. Since the capacity of the setup and therefore also the currents depend on the geometry of the electrode a conic electrode is simulated as well as shown in figure  \ref{fig.comsol_conic}
+Figure \ref{fig.comsol_beispiel} shows the simulated electrical potential distribution in the low-voltage setup in COMSOL for an electrode with a cyclindrical geometry. Since the capacitance of the setup and therefore also the currents depend on the geometry of the electrode a conic electrode is simulated as well as shown in figure  \ref{fig.comsol_conic}
 
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[scale=0.3]{figures/Method/Part1_d_C0/conic.png}		
-	\caption[Kurze Abbildungsbeschreibung]{E-Field simulation of the low-voltage test cell with conically shaped electrodes (0.5 mm electrode distance) at } \label{fig.comsol_conic}
+	\caption[Kurze Abbildungsbeschreibung]{Electrical potential simulation of the low-voltage test cell with conically shaped electrodes (0.5 mm electrode distance) at } \label{fig.comsol_conic}
 
 \end{figure}
 
@@ -61,11 +61,11 @@ In order to validate the simulations the capacitance of two spheres with a dista
 \begin{equation}
 C=2 \pi \varepsilon r ( ln 2 + \gamma -\frac{1}{2} ln(2D-2)+O(2D-2))
 \end{equation}
-where D is the ratio of electrode distance over sphere diameter, i.e. $ D=\frac{d}{2r}$. As the electrodes have a spherical end with 8mm radius, the radius for the two capacitances is set 8mm as well. The simulation with two spheres is illustrated in figure \ref{fig.twospheres}.  
+where D is the ratio of electrode distance over sphere diameter, i.e. $ D=\frac{d}{2r}$. As the electrodes have a spherical end with 8mm radius, the radius for the two spheres is set to 8mm as well. The simulation with two spheres is illustrated in figure \ref{fig.twospheres}.  
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[scale=0.3]{figures/Method/Part1_d_C0/sphere_capacity.jpg}		
-	\caption[Kurze Abbildungsbeschreibung]{E-Field simulation of two spheres with 8mm radius } \label{fig.comsol_sphere}
+	\caption[Kurze Abbildungsbeschreibung]{Electrical potential simulation of two spheres with 8mm radius } \label{fig.comsol_sphere}
 	\label{fig.twospheres}
 \end{figure}
 
@@ -76,15 +76,15 @@ A stochastic error is the deviation of the height of the specimen. During  the m
  \begin{figure}[htbp]
 	\centering
 	\includegraphics[width=\textwidth]{figures/Method/Part1_d_C0/cell_colour.png}		
-	\caption[Kurze Abbildungsbeschreibung]{COMSOL simulation of the low-voltage setup} 
+	\caption[Kurze Abbildungsbeschreibung]{Geometry used for COMSOL simulation of the low-voltage setup} 
 	\label{fig.syserrors}
 \end{figure}
 
-\section{Part 2:  Suitability of current transformer for dielectric spectroscopy}
+\section{Part 2:  Suitability of current transformers for dielectric spectroscopy}
 \subsection{The setup}
-There are two general setups. One is the high-voltage setup and one the low voltage-setup. For testing the suitability of the current transformer the low voltage setup is sufficient except for the clamping test described in section \ref{clamping}. There is always a reference measurement with only $C_0$. The division by a reference measurement makes sure that systematic errors in the setup, e.g. the phase shift in the current transformer, are cancelled out. 
+There are two general setups. One is the high-voltage setup and one the low voltage-setup. For testing the suitability of the current transformer the low voltage setup is sufficient except for the clamping test described in section \ref{clamping}. There is always a reference measurement where only $C_0$ is measured (in addition to the measurement of $C_0$ plus the RC loss element). The division by a reference measurement makes sure that systematic errors in the setup, e.g. the phase shift in the current transformer, are cancelled out. 
 
-The following figure \ref{sec.setup_amplifier} illustrates the setup for measurements without a current transformer. The DLPCA-200 is a variable gain low noise current amplifier that has a transimpedance gain between $10^3$ and $10^{11} V/A$. A MATLAB script automatically adapts its gain to a value that is suitable for the input voltage range of the ADC which is $\pm 10V$. With the values of the ADC, i.e. the input voltage of the waveform generator and the output of the BW-filter, the $\varepsilon$ and the tan($\delta$) can be calculated. 
+The following figure \ref{sec.setup_amplifier} illustrates the setup for measurements without a current transformer. The DLPCA-200 is a variable gain low noise current amplifier that has a transimpedance gain between $10^3$ and $10^{11} V/A$. A MATLAB script automatically adapts its gain to a value that is suitable for the input voltage range of the ADC which is $\pm 10V$. With the values of the ADC, i.e. the input voltage of the waveform generator and the output of the BW-filter, $\varepsilon'$ and tan($\delta$) can be calculated. 
 
 \begin{figure}[htbp]
 	\centering
@@ -109,7 +109,7 @@ Afterwards, the DLPCA is replaced with a current transformer.
 
 \subsection{Signal analysis of the Debye model}
 
-In order to emulate different dielectrics with their own respective dielectric loss tangent, different combinations of circuit elements can be used.
+In order to emulate different dielectrics with their own respective dielectric loss tangent, different combinations of circuit elements ($C_0$, $R_i$, $C_i$, $R_{\infty}$)can be used.
 Each different circuit accounts for a frequency spectrum of another loss tangent with respect to frequency. With the objective to assess the performance of the current transformer, reasonably high maximal values for the $tan\left(\delta\right)$ were assumed (i.e. 0.05 to 0.2) since a lower loss tangent
 would require a higher resolution on the part of the current measurement and thus, make it more difficult to assess the performance of the current transformer. The vacuum capacitance was chosen to be about 1000 times larger than
 the the one of the specimen for the purpose of generating the same magnitude of currents as in the high-voltage setup.
@@ -122,7 +122,7 @@ In order to get a theoretical maximum tan($\delta$) of 0.0178 the parts shown in
 	\label{fig.debye-modellsch}
 \end{figure}
 
-Once the Debye sample into the measurement setup of \ref{sec.setup_amplifier} was inserted we can use the schematic in \ref{fig.presentation} as a reference.
+Once the Debye sample  was inserted into the measurement setup of \ref{sec.setup_amplifier} we can use the schematic in \ref{fig.presentation} as a reference.
 
 \begin{figure}[h!tb]
 	\centerline{\includegraphics[width=0.4\textwidth]{figures/Method/setup/low_voltage_setup.png}}	
@@ -132,12 +132,12 @@ Once the Debye sample into the measurement setup of \ref{sec.setup_amplifier} wa
 
 While the spectroscopy was carried out primarily using sinusoidal inputs,
 the practically important signals are the trapezoidal voltage pulses with different
-slew rates. Consequentially, it is relevant to predict the shape and magnitude
+slew rates because they occur in power electronic converters and ultimately are to be studied with this method.  Consequentially, it is relevant to predict the shape and magnitude
 of the functions that are expected anywhere in the setup. 
 The Debye model's parameters are assumed to be the same as in \ref{fig.debye-modellsch}.
 The input trapezoidal wave's fundamental frequency is 1kHz and its amplitude was
 set to 5V. Both the rise and 
-the fall time are both set to 1 $\mu s$. The voltage signal is created
+the fall time are set to 1 $\mu s$. The voltage signal is created
 by the function generator (model Agilent 33210) in \ref{fig.presentation}
 \newline
 In order to determine the current through the Debye network, the harmonic decomposition of
@@ -150,9 +150,9 @@ impedance of the debye network was calculated and the harmonic components for th
 \end{equation}
 
 It is important to note that $R_{\infty}$, which represents
-ohmic losses in dielectrics, was intentionally set to $\infty$ out in both the debye model and calculations.
+ohmic losses in dielectrics, was intentionally set to $\infty$ in both the Debye model and calculations (no emulated DC conduction).
 
-Figures \ref{fig.beforeandafter} and \ref{fig.fourierla} shows the voltage signal and the resulting current signal as well as their fourier coefficients on a log scale.
+Figures \ref{fig.beforeandafter} and \ref{fig.fourierla} shows the voltage signal and the resulting current signal as well as their Fourier coefficients on a log-log scale.
 
 \begin{figure}[h!tb]
 \centerline{\includegraphics[width=0.8\textwidth]{figures/Method/signal_simulation/beforeandafter.eps}}
@@ -162,7 +162,7 @@ Figures \ref{fig.beforeandafter} and \ref{fig.fourierla} shows the voltage signa
 
 \begin{figure}[h!tb]
 \centerline{\includegraphics[width=\textwidth]{figures/Method/signal_simulation/fourierla.eps}}
-\caption{Fourier coefficients of both signals}
+\caption{Fourier coefficients of voltage applied to and current flowing through the Debye sample.}
 \label{fig.fourierla}
 \end{figure}
 
@@ -262,6 +262,7 @@ the dielectric component, i.e. $R_i$ and $C_i$ are removed from the sample and $
    \end{sidewaysfigure}
 
 \subsection{Integrator}
+\label{sec.integratormethod}
 \subsubsection{Advantages of using an integrator}
 As the used 16-bit ADC has a limited resolution it is advantageous to use an integrator in order to spread the frequencies of the signal over a larger timescale. This makes it possible to detect the different frequencies more accurately with the same ADC. 
 A second reason to make use of an integrator is due to the fact that it adds an additional factor of $1/f$ to the Fourier spectrum of the output voltage signal. As the Fourier spectrum of the input signal is as well characterized by a $1/f$ decrease the integrator transforms the pulse signal back to a trapezoidal signal with a $1/f$-dependency in the Fourier spectrum. Since a $1/f$ dependency in the output signal is preferable to a constant Fourier spectrum due to better resolution for the first harmonics the integrator improves the measurement as well. 
