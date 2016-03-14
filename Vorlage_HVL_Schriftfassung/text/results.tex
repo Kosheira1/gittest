@@ -3,15 +3,15 @@
 \label{chp.results}
 \section{Simulation of Capacitance values}
 \subsection{Capacitance simulation compared to simulation with a sphere geometry}
-The simulation of the capacitance for the cylindric geometry as a function of different distances with COMSOL leads to the following figure. The simulation of two spheres as well as the approximation formula cited in equation 3.1 result in a general 
-shift which is due to the fact that it is a three electrode arrangement as the wall of the
-low-voltage introduces a new capacitance between the upper electrode and the wall which is not affected by the distance variation. This results in a constant negative offset of the capacitance compared to the 
+The simulation of the capacitance for the cylindric geometry as a function of different distances with COMSOL leads to the following figure (a permittivity of 3.5 is assumed). The simulation of two spheres as well as the approximation formula cited in equation 3.1 result in a general 
+shift which is due to the fact that the test cell is a three electrode arrangement as the wall of the
+low-voltage cell introduces a new capacitance between the upper electrode and the wall which is not affected by the distance variation. This results in a constant negative offset of the capacitance compared to the 
 two spheres geometry. Thus, the simulated values for the low voltage test cell seem reasonable if one compares them to the results of the capacitance between two spheres. \newline 
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.7\textwidth]{figures/Method/Part1_d_C0/Comparison_Low_voltage_Two_spheres.eps}		
-	\caption[Kurze Abbildungsbeschreibung]{Dependency of the electrode distance on the capacitance for the low voltage setup and two spheres with $\varepsilon = 3.5$ } 
+	\caption[Kurze Abbildungsbeschreibung]{Dependence of the electrode distance on the capacitance for the low voltage setup and two spheres with $\varepsilon = 3.5$ } 
 	\label{fig.waveforms}
 \end{figure}
 
@@ -44,20 +44,20 @@ The average of the measurements for the magnitude of specimen capacitance amount
  C_{spec}=3.446pF \pm 10fF
 \end{equation}
 
-To put the extend of the consequences of that uncertainty into perspective graph \ref{fig.uncertainty}
+To put the extent of the consequences of that uncertainty into perspective graph \ref{fig.uncertainty}
 shows for which uncertainty in distance different uncertainties in capactiance would account given the real electrode distance. These values were obtained by
 interpolating the lookup-table.
 
-\begin{figure}[h!tb]
+\begin{figure}[H]
 \includegraphics[width=\textwidth]{figures/Results/Capacitance_Measure/uncertainty2.eps}
-\caption[Kurze Abbildungsbeschreibung]{Uncertainty in distance with respect to the
-actual electrode distance for a number of variances in capacitance measurement.}
+\caption[Kurze Abbildungsbeschreibung]{Uncertainty in distance $\Delta d/d$ with respect to the
+actual electrode d distance for a number of uncertainties in capacitance measurement.}
 \label{fig.uncertainty}
 \end{figure}
 
 When the electrode distance is 0.15 mm, the $\pm10fF$ would lead to the following uncertainty:
 \begin{equation}
- d_{meas}=0.15\pm0.0135 mm
+ d_{meas}=0.15\pm13.5 \mu m
 \end{equation}
 
 
@@ -71,7 +71,7 @@ After the measurement, the same specimen was cut open in order to perform an opt
 	\label{fig.opticalmeasurement}
 \end{figure}
 \footnotetext{graphic provided by Raphael F\"arber}
-Using the measured capacitance values in conjunction with the in \ref{fig.opticalmeasurement} determined distance and the look-up table
+Using the measured capacitance values in conjunction with the distance determined in \ref{fig.opticalmeasurement} and the look-up table
 we find the effective relative permittivity to be:
 
 \begin{equation}
@@ -82,17 +82,18 @@ we find the effective relative permittivity to be:
 
 \section{Systematic mistake of $\varepsilon_{\textrm{eff}}$ compared to $\varepsilon$}
 \nomenclature{$\varepsilon$}{permittivity of dielectric}
-There is obviously a difference between the permittivity calculated in \ref{effective}
-and the actual dielectric permittivity of the specimen. \footnote{Permittivity given in data sheet of used epoxy: \url{http://www.bm-chemie.de/multi-wAssets/docs/de/produkte/giessharz/Epoxidharz-Giessharz-ungefuellt-Raumtemperatur-haertend.pdf}}
+There is a difference between the permittivity calculated in \ref{effective}
+and the actual dielectric permittivity of the material specified in the data sheet (3.5). \footnote{Permittivity given in data sheet of used epoxy: \url{http://www.bm-chemie.de/multi-wAssets/docs/de/produkte/giessharz/Epoxidharz-Giessharz-ungefuellt-Raumtemperatur-haertend.pdf}}
 In general, this deviation does not create a mistake when determining the
 distance between the electrodes when consulting the look-up table since the
 measured capacitance depends fully on the effective permittivity. Though, it is still
-beneficial to know the extent of this kind of mistake in terms of a correction factor.
+beneficial to know the extent of this kind of mistake in terms of a correction factor. See section \ref{cep}.
 
-In the following, three main factors are introduced that mainly contribute to the systematic mistake.
+In the following, three main factors are introduced that mainly contribute to the systematic error.
 
 \subsection{Airgap}
-The graph in \ref{fig.airgap} shows the influence of the air gap. The stair-like shape results from rounding inaccuracies caused by COMSOL. There is almost a linear dependency between air gap width and capacitance. The actual air-gap caused during the production process is 0.5 mm. 
+The graph in \ref{fig.airgap} shows the influence of the air gap. The stair-like shape results from rounding inaccuracies caused by the settings for convergence
+conditions in COMSOL. There is almost a linear dependency between air gap width and capacitance. The actual air-gap caused during the production process is 0.5 mm. 
 
 \begin{figure}[h!tb]
 	\centering
@@ -102,7 +103,7 @@ The graph in \ref{fig.airgap} shows the influence of the air gap. The stair-like
 \end{figure}
  
 \subsection{Height deviation}
-The illustration of the height deviation proves in \ref{fig.heightdev} that it is negligible and thus has no significant influence on the results as it is 0.3 \text{\textperthousand} for  a height deviation of 0.5 mm. The stair-like shape results again from rounding inaccuracies.  
+The illustration of the height deviation proves in \ref{fig.heightdev} that it is negligible and thus has no significant influence on the results as it is 0.3 \text{\textperthousand} for  a height deviation of 0.5 mm. The stair-like shape results again from the large convergence condition.  
  \begin{figure}[h!tb]
 	\centering
 	\includegraphics[width=0.5\textwidth]{figures/Results/airgap_height/Height_deviation.jpg}		
@@ -111,15 +112,16 @@ The illustration of the height deviation proves in \ref{fig.heightdev} that it i
 \end{figure}
 
 \subsection{Complex effective permittivity}
+\label{cep}
 As it was mentioned in the theory chapter, generally speaking, magnitude and phase of the effective permittivity in relation to the
-actual permittivity of the dielectric are not decoupled quantities. While this effect becomes especially apparent in horizontally layered dielectrics for a
+actual permittivity of the dielectric are not decoupled quantities. While this effect becomes especially apparent in horizontally layered dielectrics for
 a capacitance with horizontal parallel plates, the graphs \ref{fig.complex} show that the effect for the specimen in the low-voltage cell are negligible. That means a purposely exaggerated variance for both parameters
 results in a change in the other parameter that is below 0.1\%.
 
 \begin{figure}[htbp]
 	\centering
 	\centerline{\includegraphics[width=\textwidth]{figures/Results/Complex/complex_permittivity_specimen}}		
-	\caption[Kurze Abbildungsbeschreibung]{Interdepedency of phase and magnitude of the effective permittivity (airgap=0.5mm) } 
+	\caption[Kurze Abbildungsbeschreibung]{Interdepedence of phase and magnitude of the effective permittivity (air gap=0.5mm) } 
 	\label{fig.complex}
 \end{figure}
 
@@ -130,7 +132,7 @@ To achieve a $\varepsilon_{\textrm{eff}}=3.85$, for an electrode distance of 0.1
 cylindrical electrode geometry, the simulation
 suggests the following correction factor:
 \begin{equation}
- k_{corr}=\frac{\varepsilon_{\textrm{eff}}}{\varepsilon}=1.0054
+  \mathrm{k_{corr}}=\frac{\varepsilon_{\textrm{eff}}}{\varepsilon}=1.0054
 \end{equation}
 A further look-up table was created that returns the actual $\varepsilon_{\textrm{eff}}$ for $\varepsilon$ between 1 and 50.
 The correction factor as a function of the dielectric permittivity is plotted in \ref{fig.correctionfactor}
@@ -168,7 +170,7 @@ The components were assumed to be ideal and not to be temperature dependent.
 The magenta data points can be used as a reference to evaluate the performance of the current transformer as these measurement points
 were obtained with an industry standard low-noise current amplifier (DLPCA). 
 The red points were obtained by replacing the DLPCA with the current transformer.
-The green points were measured with the integrator in place, effectively integrating the voltage signal generated by the current transformer.
+The green points were measured with the integrator in place, integrating the voltage signal generated by the current transformer.
 
 \begin{figure}[htbp]
  \centering
