@@ -141,7 +141,7 @@ The correction factor as a function of the dielectric permittivity is plotted in
 \begin{figure}[htbp]
 	\centering
 	\centerline{\includegraphics[width=\textwidth]{figures/Results/Correction/correction.eps}}		
-	\caption[Kurze Abbildungsbeschreibung]{Correction factor for the low voltage cell and cylindrical electrode geometry as a function of dielectric permittivity } 
+	\caption[Kurze Abbildungsbeschreibung]{Correction factor for the low voltage cell and cylindrical electrode geometry as a function of dielectric permittivity of the material (blue area in figure 3.6) } 
 	\label{fig.correctionfactor}
 \end{figure}
 
@@ -186,15 +186,17 @@ zoomed in around the maximum loss tangent since the deviation from the theoretic
 The confidence intervals were added for a few points in each measurement series.
 
 First, it can be noted that while the reference measurements fit the curve the closest, the theoretical values are still not
-within the measurements confidence intervals and the error can be greater than 10\%. This might be caused by inaccuracies in the Debbye model, e.g. values of the components are not exact. To sum up the measurements conducted with
-the current transformer, it can be stated that the measurement performance was significantly worse than the reference. Not only do they deviate further from the theoretical values
+within the measurements confidence intervals and the error can be greater than 10\%. This might be caused by inaccuracies in the Debbye model, e.g. values of the components are not exact.
+\newline
+To sum up the measurements conducted with
+the current transformer, it can be stated that the measurement performance was significantly worse as compared to the reference. Not only do they deviate further from the theoretical values
 but they also have a larger variance. Which means that one cannot consistently predict a reasonably small range ($\pm 10 \%$) for the mean of said measurement, at least not for only 9 phase averages. For more measurements the confidence interval should shrink with $\frac{1}{\sqrt{\# measurements}}$. 
 While the use of the integrator succesfully lowered the deviation and shrinked the confidence intervals by a factor of 2 to 3, the measurement accuracy is still nowhere close to the one obtained with the DLPCA. However, the results of the measurement with the integrator have to be treated with caution as it was not completely functional (see \ref{sec.perfint}). 
 
 \subsection{Analysis of Noise Parameters}
 
 In order to identify one of the sources to which the errors can be attributed, the noise level at the input and at the ouput of the low-setup was measured and analyzed to gain an estimation about how much noise was added in the system.
-Using the current transformer in both configurations, i.e. with and without the integrator, the following parameters were measured. They will be put in perspective when comparing them to the first table that includes the same quantites for the DLPCA setup. It should be noted that these measurements have to be considered preliminarily as the integrator does not work correctly. \\
+Using the current transformer in both configurations, i.e. with and without the integrator, the following parameters were measured. They will be put in perspective when comparing them to the first table that includes the same quantites for the DLPCA setup. It should be noted that these measurements have to be considered preliminarily as the integrator is not yet fully functional. \\
 
 
 \textit{Data for the DLPCA:}
@@ -264,22 +266,25 @@ frequency [Hz]& SNR$_{in}$ & SNR$_{out}$ & Noise Figure [dB] & Noise Floor \\
 
 \end{center}
 The SNR was defined as the ratio of the energy in the FFT-bin that corresponds
-to the fundamental frequency of the applied sinusoidal signal and the energy of all other components. Since the distance of the sampling in the time domain was chosen
+to the fundamental frequency of the applied sinusoidal signal and the energy of all other components.
+SNR$_{in}$ is measured at the input voltage and SNR$_{out}$ was determined after the output amplifier. Since the distance of the sampling in the time domain was chosen
 such that the first index shows the proportion of the fundamental frequency in the signal, the signal to
 noise ratio can be defined as follows.
 
 
 \begin{equation}
-SNR=\frac{\hat{x}[1]^2}{\sum\limits_{i=0,i\neq1}^{N}\hat{x}[i]^2}
+\mathrm{SNR}=\frac{\hat{x}[1]^2}{\sum\limits_{i=0,i\neq1}^{N}\hat{x}[i]^2}
 \end{equation}
 
 The noise figure relates the noise level at the input and the output and therefore is a measure of the added noise of the measurement setup:
 
 \begin{equation}
- \textrm{Noise\,Figure\, [dB]}=10 \log\left(\frac{SNR_{in}}{SNR_{out}}\right)
+ \textrm{Noise\,Figure\, [dB]}=10 \log\left(\frac{\mathrm{SNR_{in}}}{\mathrm{SNR_{out}}}\right)
 \end{equation}
 
-Noise floor is a parameter that indicates around which value the signal has no power, i.e. noise are located. Generally, it can be said that the higher the noise floor is,
+Noise floor is a parameter that indicates the measured voltage
+amplitude of Fourier components which lie at frequencies where the input signal
+has no power. Generally, it can be said that the higher the noise floor is,
 the higher the scatter in the measurement of the dielectricl loss tangent.\cite{FaerberMVISS}
 When using the current transformer, it has to be taken into account that between the frequencies of 2 kHz up to 5 kHz, a degradation of the noise
 figure of about 40-50 dB has to be expected. However, one must consider that the DLPCA used a variable gain in order to generate an output whose amplitude amounts to about 10V which takes advantage of the full resolution of the 
@@ -320,13 +325,13 @@ The following figures illustrate the spectral distribution of the noise for a si
 \section{Performance of integrator}
 \label{sec.perfint}
 As described in the previous two passages, the integrator was capable of reducing the noise figure and hence effectively reducing 
-the confidence interval when determining the dielectric loss tangent. While measuring the output of the integrator, particularily two unexpected problems were observed.
-First, a DC offset at the output, that was varying with different input signals was detected. For an applied voltage, that had the shape of the expected transformed current pulse train
-flowing through the debye equivalent, this offset could not be eliminated by tuning the potentiometer at the operational amplifier.
+the confidence interval when determining the dielectric loss tangent. While measuring the output of the integrator, two unexpected problems were observed.
+First, a DC offset at the output that was varying with different input signals was detected. For an applied voltage, that had the shape of the expected transformed current pulse train
+flowing through the Debye equivalent, this offset could not be eliminated by tuning the potentiometer at the operational amplifier.
 
 \begin{figure}[htbp]
  \centering
- \centerline{\includegraphics[width=0.5\textwidth]{figures/Results/Integrator_measurements/voltwave_10us}}
+ \centerline{\includegraphics[width=0.7\textwidth]{figures/Results/Integrator_measurements/voltwave_10us}}
 
   \caption[Kurze Abbildungsbeschreibung]{Output in magenta applying a rectangular voltage signal with a rise time of 10 microseconds at the input}
 \label{fig.voltwave_10us}
@@ -335,12 +340,12 @@ flowing through the debye equivalent, this offset could not be eliminated by tun
 Secondly, even when the same periodic signal was applied at the input of the integrator, a low frequency oscillation was superimposed onto the output signal.
 \begin{figure}[htbp]
  \centering
- \begin{minipage}{0.4\textwidth}
- \includegraphics[scale=0.12]{figures/Results/Integrator_measurements/currentwave_10u}
+ \begin{minipage}{0.45\textwidth}
+ \centerline{\includegraphics[scale=0.15]{figures/Results/Integrator_measurements/currentwave_10u}}
  \caption[Kurze Abbildungsbeschreibung]{Applying the current pulse caused by a rectangular voltage signal with a rise time of 10 microseconds at one instant. }
  \end{minipage}\qquad
- \begin{minipage}{0.4\textwidth}
- \includegraphics[scale=0.12]{figures/Results/Integrator_measurements/cuwave_10u-4}
+ \begin{minipage}{0.45\textwidth}
+ \centerline{\includegraphics[scale=0.15]{figures/Results/Integrator_measurements/cuwave_10u-4}}
  \caption[Kurze Abbildungsbeschreibung]{Applying the current pulse caused by a rectangular voltage signal with a rise time of 10 microseconds at another instant.}
  \end{minipage}
  
@@ -357,7 +362,7 @@ For the purpose of estimating the extent of the low frequency noise, a FFT-analy
 \label{fig.noisefft}
 \end{figure}
 
-The spectral components of the lower frequencies in \ref{fig.noisefft} are relatively high when compared to the striking peak that can be attributed to the 2 kHz fundamental frequency.
+The spectral components of the lower frequencies in \ref{fig.noisefft} are relatively high when compared to the dominant peak that can be attributed to the 2 kHz fundamental frequency.
 Furthermore, the amplitude of the lower frequencies is similar to the one of the first harmonic, i.e. 4 kHz.
 Judging from the results of this section, the two described non-idealities can not be neglected, the DC offset and the low frequency noise contribute significantly to the signal degradation and
 most probably prevent the integrator from reducing the noise figure more considerably.
@@ -366,18 +371,18 @@ most probably prevent the integrator from reducing the noise figure more conside
 
 
 \section{Current transformer and protective clamping} 
-As it was mentioned in the previous chapters, the main advantage to use a current transformer for
-dielectric spectroscopy is the fact that the measurement equipment is galvanicaly insulated from the high-voltage supply and its
+As it was mentioned in the previous chapters, the main advantage of using a current transformer for
+dielectric spectroscopy is the fact that the measurement equipment is galvanically insulated from the high-voltage supply and its
 coupling in case of object breakdown. The analysis of how the current transformer behaves in this case is being examined in this section.
 The peak of the pulses that simulate the breakdown current from the capacitor bank were set to anywhere between 25A and 100A and its duration was about 7 $\mu$s.
-The first two experiments were conducted without the protective TVS-Diodes that would limit the ouptut voltage.
-The blue curve represents the current through the transformer. The blue line shows how much voltage is applied to a 10 m$\Omega$ shunt resistor and from this information the current can
+The first two experiments were conducted without the protective TVS-Diode that would limit the ouptut voltage.
+The blue curve represents the current through the transformer. The blue line shows how much voltage develops over a 10 m$\Omega$ shunt resistor and from this information the current can
 be deduced. The red line depicts the voltage of the current transformer. To understand the red lines scale, one must consider that firstly, a -40 dB attenuator was placed in front the
 oscilloscope and the measurement line was terminated with 50 Ohms, which implies that the real voltage is twice as high as the red curve suggests. For that reason the scale of the red measurement was half the size in order to illustrate the
 $\frac{1V}{1A}$ characteristic of the current transformer when taking the blue line as a reference.
 \newline 
 This leads to the fact that 100mV on the blue scale amount to 10A of current and 10V at the output of the current transformer and the graphs \ref{fig.26Anodiode} to \ref{fig.comparison} should be interpreted
-this way.
+this way. The voltage applied to the TVS-Diodes will be half of what is measured due to the internal 50$\Omega$ resistance of the CT.
 
 
 \begin{figure}[!ht]
@@ -412,14 +417,14 @@ perfectly with the current from the capacitor bank (This is a shunt resistor mea
 \end{figure}
 
 The recorded current and voltage from \ref{fig.53Adiode} and \ref{fig.100Adiode} show on the
-one hand that the protective diodes reliably clamp the voltage once it would normally go above 17.5 V even
+one hand that the protective diodes reliably clamp the voltage once it would normally go above 8.75 V even
 independent of how high the actual current throught the current tranformer is. On the other hand, the signals are no longer as similar as they were 
 without the clamping.
 
 
 This fact becomes even more apparent when currents that do not result in a voltage above the clamping voltage are analyzed.
 In figure \ref{fig.comparison}, it can be noticed how the red curve struggles to follow the current and even in the oscillation part at the end a remarkable phase shift was detected which results in a significant
-mistake.
+distortion of the measured signal.
 
 
 \begin{figure}[ht]
