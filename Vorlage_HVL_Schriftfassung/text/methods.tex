@@ -126,7 +126,7 @@ Once the Debye sample  was inserted into the measurement setup of \ref{sec.setup
 
 \begin{figure}[h!tb]
 	\centerline{\includegraphics[width=0.4\textwidth]{figures/Method/setup/low_voltage_setup.png}}	
-	\caption{Schematic setup for sectroscopy with debye model}	
+	\caption{Schematic setup for sectroscopy with Debye model}	
 	\label{fig.presentation}
 \end{figure}
 
@@ -167,8 +167,7 @@ Figures \ref{fig.beforeandafter} and \ref{fig.fourierla} shows the voltage signa
 \end{figure}
 
 The current transformer has a nominal voltage to current transfer ratio of $\frac{1V}{1A}$. 
-Consequentially the current signal that was determined before is now applied in the shape of a voltage to the input of the integrator and subsequentially.
-filtered by the low-pass filter in front of the positive input of the operational amplifier. Said signal will be integrated.
+Consequentially the current signal that was determined before is now applied in the shape of a voltage to the input of the integrator (amplification of 1000 and upper cutoff frequency at 100 kHz) and subsequentially filtered by the low-pass filter in front of the positive input of the operational amplifier. 
 
 
 \begin{figure}[h!tb]
@@ -180,10 +179,10 @@ filtered by the low-pass filter in front of the positive input of the operationa
 In order to generate these signals, a simulation in Simulink was carried out using the components of the integrator circuit in \ref{fig.circuit}
 
 
-Finally, at the end of the setup a butterworth low-pass filter of $8^{th}$ order with an adjustable cutoff frequency
-was installed. Its transfer function was applied to the FFT of the integrated voltage signal and the resulting 
+Finally, a butterworth low-pass filter of $8^{th}$ order with an adjustable cutoff frequency
+was installed \footnotemark. Its transfer function was applied to the FFT of the integrated voltage signal and the resulting 
 signal is depicted in \ref{fig.finalvolt}
-
+\footnotetext{Data Sheet for Butterworth Filter: data$\_$sheets$\/$USBPGF$\-$S1$\_$Data$\_$Sheet}
 
 \begin{figure}[h!tb]
 \centerline{\includegraphics[width=\textwidth]{figures/Method/signal_simulation/finalvolt.eps}}
@@ -193,12 +192,12 @@ signal is depicted in \ref{fig.finalvolt}
 
 
 \subsection{Design of a holder for the Debye Equivalent Circuit}
-For a lossy medium the Debye Network consists at least of a vacuum capacitance $C_0$ and the term for the charging of the additional capacitance. The DC resistance has a relatively high value and might therefore be left out, i.e. $R_{\infty}={\infty}$. Thus, it is reasonable to design a holder for the network that can hold three strands with two components each. Moreover, it has to fit into the low-voltage and high-voltage test cell, what specified the dimensions of the holder.  
-Figure \ref{fig.CADgraph} shows the created holder which has a drawing that is depicted in figure \ref{fig.CADdrawing}.
+For a lossy medium the Debye Network consists at least of a vacuum capacitance $C_0$ and the term for the lossy charging of the additional capacitance. The DC resistance has a relatively high value and might therefore be left out, i.e. $R_{\infty}={\infty}$. It seems reasonable to design a holder for the network that can hold three strands with two components each. Moreover, it has to fit into the low-voltage and high-voltage test cell, which determined the dimensions of the holder.  
+Figure \ref{fig.CADgraph} shows the created holder and a drawing is depicted in figure \ref{fig.CADdrawing}.
 
 \begin{figure}[h!tb]
 \includegraphics[width=\textwidth]{figures/Method/CAD_MODEL/Gesamtanordnung.jpg}
-\caption{CAD representation for the holder of the debye network. Created with SolidWorks Invetor}
+\caption{CAD representation for the holder of the Debye network. Created with Autodesk Inventor}
 \label{fig.CADgraph}
 \end{figure}
 
@@ -209,17 +208,17 @@ Figure \ref{fig.CADgraph} shows the created holder which has a drawing that is d
 
 \subsection{Measuring of $\varepsilon_{\textrm{eff}}$ and tan($\delta_{\textrm{eff}}$) for the Debye model (dielectric spectroscopy)}
 \label{spectroscopy}
-The aim was to create a current through the Debye sample that is similar in shape and amplitude to the one expected in the high-voltage setup. In order to have a comparable current for a voltage that is $\frac{1}{1000}$ of the high-voltage setup a capacitance $C_0$ for the Debye is selected 1000 times higher than the Capacitance of the samples. As the sample has a capacitance of approx. 3.5 pF its equivalent $C_0$ in the Debye model is 3.3 nF.
+The aim was to create a current through the Debye sample that is similar in shape and amplitude to the one expected in the high-voltage setup. In order to have a comparable current for a voltage that is $\frac{1}{1000}$ of the high-voltage setup a capacitance $C_0$ for the Debye is selected 1000 times higher than the capacitance of the samples. As the sample has a capacitance of approx. 3.5 pF its equivalent $C_0$ in the Debye model is chosen to be 3.3 nF.
 A number of curves for the theoretical loss tangent, as well as their marked maximum frequency can be found in \ref{fig.debye-modell}.
 
-The dielectric spectroscopy was conducted in the low-voltage setup and \ref{fig.presentation} can be used as a reference.
+The dielectric spectroscopy was conducted in the low-voltage setup and figure \ref{fig.presentation} can be used as a reference.
 Generally, sinusoidal voltage signals were used in order to determine the effective relative dielectric permittivity.
-The impedance method \cite{Kramer} approach was carried out to infere about the permittivity given the signals in the setup.
+The impedance method \cite{Kramer} approach was used to infere the permittivity given the signals in the setup.
 In order to find the impedance of the setup, one has to compare the input voltage amplitude to the output current amplitude.
 
 The course of action is described in this following passage.
 \newline
-A sinusoidal voltage signal with a variable amplitude is applied to the debye model. There are in total 3 different measurement setups,
+A sinusoidal voltage signal with a variable amplitude is applied to the Debye model. There are in total 3 different measurement setups,
 in the first setup the current is measured with the DLPCA, in the second, the current transformer is inserted for the purpose of measuring 
 the current and in the third setup, that is similar to the second one, an integrator is added after the transformer in order
 to achieve that both the input and the output's spectral components in the FFT analysis have the same $1/f$ dependency.
@@ -233,10 +232,10 @@ of the sinusoidal wave generated by the function generator. Each measurement poi
 \varepsilon(\omega)=\frac{I^*(\omega)}{i \omega \varepsilon_0 U^*(\omega)} = \frac{1}{i \omega Z^*(\omega) C_0}\\
 \end{equation}
 The ratio of the first component of the voltage's FFT divided by the first component of the current's FFT indicates the magnitude
-of $Z^*(\omega)$ and a phase shift that deviates from the voltage lagging the current by 90 degrees will result in a complex impedance and a complex relative dielectric permittivity. This fact can be taken advantage of to find the dielectric loss tangent defined in the theory section. There are as well other phase shifts introduced by the BW-filter and the Current Transformer. These phase shifts, however, will cancel out as the measurement is divided by the results of the reference measurement which has these parasitical phase shifts as well. 
+of $Z^*(\omega)$ and a phase shift that deviates from 90 degrees will result in a complex relative dielectric permittivity. Then the loss tangent (as described in the theory section) can be determined. There are as well other phase shifts introduced by the BW-filter and the Current Transformer. These phase shifts, however, will cancel out as the measurement is divided by the results of the reference measurement which has these parasitical phase shifts as well. 
 \newline
-$C_0$ in the formula above denotes the vacuum capacitance and its impedance can be found using the procedure described above with the difference that
-the dielectric component, i.e. $R_i$ and $C_i$ are removed from the sample and $C_0$ is left behind.
+$C_0$ in the formula above denotes the vacuum capacitance and the associated impedance can be found by using the procedure described above with the difference that
+the dielectric component, i.e. $R_i$ and $C_i$ are removed from the sample and only $C_0$ is left behind.
 
 \begin{figure}[h!tb]
  \centering
@@ -264,12 +263,12 @@ the dielectric component, i.e. $R_i$ and $C_i$ are removed from the sample and $
 \subsection{Integrator}
 \label{sec.integratormethod}
 \subsubsection{Advantages of using an integrator}
-As the used 16-bit ADC has a limited resolution it is advantageous to use an integrator in order to spread the frequencies of the signal over a larger timescale. This makes it possible to detect the different frequencies more accurately with the same ADC. 
+As the used 16-bit ADC has a limited resolution it is advantageous to use an integrator in order to spread the Fourier components of the current signal over a larger timescale. This makes it possible to detect the different frequencies more accurately with the same ADC. 
 A second reason to make use of an integrator is due to the fact that it adds an additional factor of $1/f$ to the Fourier spectrum of the output voltage signal. As the Fourier spectrum of the input signal is as well characterized by a $1/f$ decrease the integrator transforms the pulse signal back to a trapezoidal signal with a $1/f$-dependency in the Fourier spectrum. Since a $1/f$ dependency in the output signal is preferable to a constant Fourier spectrum due to better resolution for the first harmonics the integrator improves the measurement as well. 
 
 \subsubsection{Design of the integrator}
 \subsubsection{Functionality}
-The integrator should have two functions. On the hand side it should integrate the signal on the other hand it should amplify the signal by a factor of 1000. This is due to the fact that small currents ($\sim$mA) should be measured. With a CT-sensitivity of $1V/A$ an amplification of 1000 is reasonable to use the range of measurable inputs of $\pm$ 10 V. \footnotemark These requirements can be achieved by a non-inverting integrator, which is shown in figure  \ref{fig.circuit}. 
+The integrator should have two functions. On the one hand side it should integrate the signal, on the other hand it should amplify the signal by a factor of approximately 1000. This is due to the fact that small currents ($\sim$mA) are to be measured. With a CT-sensitivity of $1V/A$ an amplification of 1000 is reasonable to use the full range of of the ADC of $\pm$ 10 V. \footnotemark These requirements can be achieved by a non-inverting integrator, which is shown in figure  \ref{fig.circuit}. 
 \footnotetext{Data sheet of the used current transformer: Pearson Model 2877} 
 \begin{figure}[H]
 \includegraphics[width=0.99\textwidth]{figures/Method/integrator/circuit.png}
@@ -291,15 +290,15 @@ The amplifier is set up in the non-inverting configuration, whose transfer funct
  G_2(s)=\left[1+\frac{\left(\frac{1}{R_3}+sC_2\right)^{-1}}{R_2}\right]
 \end{equation}
 
-Combining the above results the following total transfer function is received:
+Combining the above results the following total transfer function is obtained:
 \begin{equation}
 	G_1(s)G_2(s)=TF_{int}(s)=\frac{1}{(1+s R_1 C_1)}\left[1+\frac{\left(\frac{1}{R_3}+sC_2\right)^{-1}}{R_2}\right]
 \end{equation}
-The transfer function of the integrator is illustrated by it bode plot (figure \ref{fig.Bodeplot}). 
+The transfer function of the integrator is illustrated by its bode plot (figure \ref{fig.Bodeplot}). 
 
 \begin{figure}[H]
 \includegraphics[width=\textwidth]{figures/Method/integrator/transferfunction_int.jpg}
-\caption[Kurze Abbildungsbeschreibung]{Bode plot for the transfer function of an integrator}
+\caption[Kurze Abbildungsbeschreibung]{Bode plot for the transfer function of the integrator}
 \label{fig.Bodeplot}
 \end{figure}
 
@@ -307,8 +306,7 @@ The transfer function of the integrator is illustrated by it bode plot (figure \
 The integrator together with its supply circuit were predominantely soldered on SMD footprints that were designed
 with the PCB software EAGLE. The print can be found in \ref{fig.solder}.
 The goal was to be able to operate the circuit with a unipolar voltage supply so an active charge pump in the 
-shape of a 17-pin LTC3260 IC \footnote{/data$\_$sheets/LTC3260} was used to create the negative and positive supply voltage for the operational amplifier.
-\footnote{/data$\_$sheets/LT1028}
+shape of a 17-pin LTC3260 IC \footnote{/data$\_$sheets/LTC3260} was used to create the negative and positive supply voltage for the operational amplifier.\footnote{/data$\_$sheets/LT1028}
 The circuit elements required for the charge pump were directly taken from the data sheet. The elements involved with the signal 
 filtering and integration can be found in \ref{fig.circuit}
     
@@ -335,11 +333,11 @@ filtering and integration can be found in \ref{fig.circuit}
 \subsection{Protective clamping capability of the current transformer}
 \label{clamping}
 
-In case of an object breakdown the sample looses its dielectric properties and instead becomes conductive.
+In case of an object breakdown the sample loses its insulating properties and instead becomes conductive.
 In this situation peak currents of several hundreds of amperes are expected to flow through the current transformer.
 As a consequence, voltages of several hundred volts at its output will develop. In order to protect the sensitive electronics that
-process and measure the signal after the transformer that were introduced in the section before a protective part has to be added.
-Two TVS-Diodes (SMCJ7.0CA) \footnote{/data$\_$sheets/SMCJ7.0CA} connected to ground were used to clamp the voltage to a certain value regardless of what voltage the current transformer introduces.
+process and measure the signal after the transformer that was introduced in the section before a protective part has to be added.
+A bidirectional TVS-Diodes (SMCJ7.0CA) \footnote{/data$\_$sheets/SMCJ7.0CA} connected to ground was used to clamp the voltage to a certain value regardless of what voltage the current transformer introduces.
 To investigate the reliability of this setup, a measurement setup involving charged capacitor banks was used that could generate
 pulses of currents with high amplitudes (up to 300 A). 
 Primarily two performance parameters were to be investigated. First, are the TVS-diodes capable of clamping the voltage to their designated value even when
